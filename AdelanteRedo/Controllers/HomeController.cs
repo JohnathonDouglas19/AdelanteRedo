@@ -11,7 +11,7 @@ namespace AdelanteRedo.Controllers
     {
         private AdelanteContext db = new AdelanteContext();
         public ActionResult Index()
-        {
+        { 
             // This is an example of manipuating data with Entity Framework.
             // Create a bar object. Add the bar object to a list of bars. 
             // Create a foo object that has that list of bars.
