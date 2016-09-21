@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="goyals420_troutModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bars">
+          <Key>
+            <PropertyRef Name="BarID" />
+          </Key>
+          <Property Name="BarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="FooId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Foos">
+          <Key>
+            <PropertyRef Name="FooId" />
+          </Key>
+          <Property Name="FooId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FooName" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_Bars_dbo_Foos_FooId">
+          <End Role="Foos" Type="Self.Foos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bars" Type="Self.Bars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Foos">
+              <PropertyRef Name="FooId" />
+            </Principal>
+            <Dependent Role="Bars">
+              <PropertyRef Name="FooId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="goyals420_troutModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bars" EntityType="Self.Bars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Foos" EntityType="Self.Foos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Bars_dbo_Foos_FooId" Association="Self.FK_dbo_Bars_dbo_Foos_FooId">
+            <End Role="Foos" EntitySet="Foos" />
+            <End Role="Bars" EntitySet="Bars" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="goyals420_troutModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bar">
+          <Key>
+            <PropertyRef Name="BarID" />
+          </Key>
+          <Property Name="BarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FooId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Foo" Relationship="Self.FK_dbo_Bars_dbo_Foos_FooId" FromRole="Bars" ToRole="Foos" />
+        </EntityType>
+        <EntityType Name="Foo">
+          <Key>
+            <PropertyRef Name="FooId" />
+          </Key>
+          <Property Name="FooId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FooName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bars" Relationship="Self.FK_dbo_Bars_dbo_Foos_FooId" FromRole="Foos" ToRole="Bars" />
+        </EntityType>
+        <Association Name="FK_dbo_Bars_dbo_Foos_FooId">
+          <End Role="Foos" Type="Self.Foo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bars" Type="Self.Bar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Foos">
+              <PropertyRef Name="FooId" />
+            </Principal>
+            <Dependent Role="Bars">
+              <PropertyRef Name="FooId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="goyals420_troutEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="Bars" EntityType="Self.Bar" />
+          <EntitySet Name="Foos" EntityType="Self.Foo" />
+          <AssociationSet Name="FK_dbo_Bars_dbo_Foos_FooId" Association="Self.FK_dbo_Bars_dbo_Foos_FooId">
+            <End Role="Foos" EntitySet="Foos" />
+            <End Role="Bars" EntitySet="Bars" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="goyals420_troutModelStoreContainer" CdmEntityContainer="goyals420_troutEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="goyals420_troutModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bars">
+            <EntityTypeMapping TypeName="goyals420_troutModel.Bar">
+              <MappingFragment StoreEntitySet="Bars">
+                <ScalarProperty Name="BarID" ColumnName="BarID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FooId" ColumnName="FooId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Foos">
+            <EntityTypeMapping TypeName="goyals420_troutModel.Foo">
+              <MappingFragment StoreEntitySet="Foos">
+                <ScalarProperty Name="FooId" ColumnName="FooId" />
+                <ScalarProperty Name="FooName" ColumnName="FooName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

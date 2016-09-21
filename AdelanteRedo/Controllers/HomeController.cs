@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using FoosGold;
 
 namespace AdelanteRedo.Controllers
 {
     public class HomeController : Controller
     {
-        private AdelanteContext db = new AdelanteContext();
+      //  private AdelanteContext db = new AdelanteContext();
         public ActionResult Index()
-        { 
+        {
             // This is an example of manipuating data with Entity Framework.
             // Create a bar object. Add the bar object to a list of bars. 
             // Create a foo object that has that list of bars.
@@ -28,6 +29,10 @@ namespace AdelanteRedo.Controllers
             //db.Bars.Add(bar);
             //db.SaveChanges();
 
+            FooData fooData = new FooData(); //creating an instance of foodata
+
+            List<DataLib.Foo> results = fooData.GetAllFoos(); //calls the method from foodata
+            ViewBag.foosball = results; //pushes results from method into the view bag
 
             return View();
         }
