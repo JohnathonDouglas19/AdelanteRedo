@@ -28,5 +28,12 @@ namespace DataLib
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Bar> Bars { get; set; }
         public virtual DbSet<Foo> Foos { get; set; }
+        public virtual DbSet<Donor> Donors { get; set; }
+        public virtual DbSet<Meeting> Meetings { get; set; }
+        public virtual DbSet<Parent> Parents { get; set; }
+        public virtual DbSet<Staff> Staffs { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Volunteer> Volunteers { get; set; }
+        public virtual DbSet<MeetingStudentAttendance> MeetingStudentAttendances { get; set; }
     }
 }
