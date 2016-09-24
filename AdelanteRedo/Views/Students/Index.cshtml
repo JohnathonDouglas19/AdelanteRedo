@@ -1,0 +1,129 @@
+﻿@model IEnumerable<DataLib.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_MInitial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_Zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_HomeTele)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_CellPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_Picture_path)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_PimaryLang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student_SecondLang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STARTDATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ENDDATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parent.Parent_FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_MInitial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_HomeTele)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_CellPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_Picture_path)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_PimaryLang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student_SecondLang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STARTDATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ENDDATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parent.Parent_FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Student_NUM }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Student_NUM }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Student_NUM })
+        </td>
+    </tr>
+}
+
+</table>

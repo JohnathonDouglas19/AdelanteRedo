@@ -1,0 +1,90 @@
+﻿@model DataLib.Donor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Donor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Donor_FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donor_FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donor_LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donor_LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donor_Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donor_Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donor_City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donor_City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donor_State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donor_State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donor_Zip)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donor_Zip)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donor_HomeTele)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donor_HomeTele)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donor_CellPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donor_CellPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Donor_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Donor_Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Donor_NUM }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
