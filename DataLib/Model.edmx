@@ -9,16 +9,16 @@
           <Key>
             <PropertyRef Name="Donor_NUM" />
           </Key>
-          <Property Name="Donor_NUM" Type="char" MaxLength="4" Nullable="false" />
-          <Property Name="Donor_FirstName" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Donor_LastName" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Donor_Address" Type="char" MaxLength="40" />
-          <Property Name="Donor_City" Type="char" MaxLength="40" />
-          <Property Name="Donor_State" Type="char" MaxLength="2" />
-          <Property Name="Donor_Zip" Type="char" MaxLength="5" />
-          <Property Name="Donor_HomeTele" Type="char" MaxLength="10" />
-          <Property Name="Donor_CellPhone" Type="char" MaxLength="10" />
-          <Property Name="Donor_Email" Type="char" MaxLength="40" />
+          <Property Name="Donor_NUM" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Donor_FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Donor_LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Donor_Address" Type="varchar" MaxLength="40" />
+          <Property Name="Donor_City" Type="varchar" MaxLength="40" />
+          <Property Name="Donor_State" Type="varchar" MaxLength="2" />
+          <Property Name="Donor_Zip" Type="varchar" MaxLength="5" />
+          <Property Name="Donor_HomeTele" Type="varchar" MaxLength="10" />
+          <Property Name="Donor_CellPhone" Type="varchar" MaxLength="10" />
+          <Property Name="Donor_Email" Type="varchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="Meeting">
           <Key>
@@ -27,15 +27,15 @@
           <Property Name="Meeting_NUM" Type="decimal" Precision="6" Scale="0" Nullable="false" />
           <Property Name="Meeting_Start" Type="datetime" Nullable="false" />
           <Property Name="Meeting_End" Type="datetime" Nullable="false" />
-          <Property Name="Meeting_Type" Type="char" MaxLength="10" />
-          <Property Name="Meeting_Location" Type="char" MaxLength="20" />
+          <Property Name="Meeting_Type" Type="varchar" MaxLength="10" />
+          <Property Name="Meeting_Location" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="MeetingStaffAttendance">
           <Key>
             <PropertyRef Name="Staff_NUM" />
             <PropertyRef Name="Meeting_NUM" />
           </Key>
-          <Property Name="Staff_NUM" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Staff_NUM" Type="varchar" MaxLength="4" Nullable="false" />
           <Property Name="Meeting_NUM" Type="decimal" Precision="6" Scale="0" Nullable="false" />
           <Property Name="Attendance" Type="bit" />
         </EntityType>
@@ -44,7 +44,7 @@
             <PropertyRef Name="Student_NUM" />
             <PropertyRef Name="Meeting_NUM" />
           </Key>
-          <Property Name="Student_NUM" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Student_NUM" Type="varchar" MaxLength="4" Nullable="false" />
           <Property Name="Meeting_NUM" Type="decimal" Precision="6" Scale="0" Nullable="false" />
           <Property Name="Attendance" Type="bit" />
         </EntityType>
@@ -53,7 +53,7 @@
             <PropertyRef Name="Volunteer_NUM" />
             <PropertyRef Name="Meeting_NUM" />
           </Key>
-          <Property Name="Volunteer_NUM" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Volunteer_NUM" Type="varchar" MaxLength="4" Nullable="false" />
           <Property Name="Meeting_NUM" Type="decimal" Precision="6" Scale="0" Nullable="false" />
           <Property Name="Attendance" Type="bit" />
         </EntityType>
@@ -61,31 +61,32 @@
           <Key>
             <PropertyRef Name="Parent_NUM" />
           </Key>
-          <Property Name="Parent_NUM" Type="char" MaxLength="4" Nullable="false" />
-          <Property Name="Parent_FirstName" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Parent_LastName" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Parent_Address" Type="char" MaxLength="40" />
-          <Property Name="Parent_City" Type="char" MaxLength="40" />
-          <Property Name="Parent_State" Type="char" MaxLength="2" />
-          <Property Name="Parent_Zip" Type="char" MaxLength="5" />
-          <Property Name="Parent_HomeTele" Type="char" MaxLength="10" />
-          <Property Name="Parent_CellPhone" Type="char" MaxLength="10" />
-          <Property Name="Parent_Email" Type="char" MaxLength="40" />
+          <Property Name="Parent_NUM" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Parent_FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Parent_LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Parent_Address" Type="varchar" MaxLength="40" />
+          <Property Name="Parent_City" Type="varchar" MaxLength="40" />
+          <Property Name="Parent_State" Type="varchar" MaxLength="2" />
+          <Property Name="Parent_Zip" Type="varchar" MaxLength="5" />
+          <Property Name="Parent_HomeTele" Type="varchar" MaxLength="10" />
+          <Property Name="Parent_CellPhone" Type="varchar" MaxLength="10" />
+          <Property Name="Parent_Email" Type="varchar" MaxLength="40" />
+          <Property Name="Student_NUM" Type="varchar" MaxLength="4" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
             <PropertyRef Name="Staff_NUM" />
           </Key>
-          <Property Name="Staff_NUM" Type="char" MaxLength="4" Nullable="false" />
-          <Property Name="Staff_FirstName" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Staff_LastName" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Staff_Address" Type="char" MaxLength="40" />
-          <Property Name="Staff_City" Type="char" MaxLength="40" />
-          <Property Name="Staff_State" Type="char" MaxLength="2" />
-          <Property Name="Staff_Zip" Type="char" MaxLength="5" />
-          <Property Name="Staff_HomeTele" Type="char" MaxLength="10" />
-          <Property Name="Staff_CellPhone" Type="char" MaxLength="10" />
-          <Property Name="Staff_Email" Type="char" MaxLength="40" />
+          <Property Name="Staff_NUM" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Staff_FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Staff_LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Staff_Address" Type="varchar" MaxLength="40" />
+          <Property Name="Staff_City" Type="varchar" MaxLength="40" />
+          <Property Name="Staff_State" Type="varchar" MaxLength="2" />
+          <Property Name="Staff_Zip" Type="varchar" MaxLength="5" />
+          <Property Name="Staff_HomeTele" Type="varchar" MaxLength="10" />
+          <Property Name="Staff_CellPhone" Type="varchar" MaxLength="10" />
+          <Property Name="Staff_Email" Type="varchar" MaxLength="40" />
           <Property Name="STARTDATE" Type="date" />
           <Property Name="ENDDATE" Type="date" />
         </EntityType>
@@ -93,22 +94,22 @@
           <Key>
             <PropertyRef Name="Student_NUM" />
           </Key>
-          <Property Name="Student_NUM" Type="char" MaxLength="4" Nullable="false" />
-          <Property Name="Student_FirstName" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Student_LastName" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Student_MInitial" Type="char" MaxLength="1" />
-          <Property Name="Student_Gender" Type="char" MaxLength="1" />
-          <Property Name="Student_Address" Type="char" MaxLength="40" />
-          <Property Name="Student_City" Type="char" MaxLength="40" />
-          <Property Name="Student_State" Type="char" MaxLength="2" />
-          <Property Name="Student_Zip" Type="char" MaxLength="5" />
-          <Property Name="Student_HomeTele" Type="char" MaxLength="10" />
-          <Property Name="Student_CellPhone" Type="char" MaxLength="10" />
-          <Property Name="Student_Email" Type="char" MaxLength="40" />
-          <Property Name="Student_Picture_path" Type="char" MaxLength="40" />
-          <Property Name="Student_PimaryLang" Type="char" MaxLength="15" />
-          <Property Name="Student_SecondLang" Type="char" MaxLength="15" />
-          <Property Name="Parent_NUM" Type="char" MaxLength="4" />
+          <Property Name="Student_NUM" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Student_FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Student_LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Student_MInitial" Type="varchar" MaxLength="1" />
+          <Property Name="Student_Gender" Type="varchar" MaxLength="1" />
+          <Property Name="Student_Address" Type="varchar" MaxLength="40" />
+          <Property Name="Student_City" Type="varchar" MaxLength="40" />
+          <Property Name="Student_State" Type="varchar" MaxLength="2" />
+          <Property Name="Student_Zip" Type="varchar" MaxLength="5" />
+          <Property Name="Student_HomeTele" Type="varchar" MaxLength="10" />
+          <Property Name="Student_CellPhone" Type="varchar" MaxLength="10" />
+          <Property Name="Student_Email" Type="varchar" MaxLength="40" />
+          <Property Name="Student_Picture_path" Type="varchar" MaxLength="40" />
+          <Property Name="Student_PimaryLang" Type="varchar" MaxLength="15" />
+          <Property Name="Student_SecondLang" Type="varchar" MaxLength="15" />
+          <Property Name="Parent_NUM" Type="varchar" MaxLength="4" />
           <Property Name="STARTDATE" Type="date" />
           <Property Name="ENDDATE" Type="date" />
         </EntityType>
@@ -116,16 +117,16 @@
           <Key>
             <PropertyRef Name="Volunteer_NUM" />
           </Key>
-          <Property Name="Volunteer_NUM" Type="char" MaxLength="4" Nullable="false" />
-          <Property Name="Volunteer_FirstName" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Volunteer_LastName" Type="char" MaxLength="20" Nullable="false" />
-          <Property Name="Volunteer_Address" Type="char" MaxLength="40" />
-          <Property Name="Volunteer_City" Type="char" MaxLength="40" />
-          <Property Name="Volunteer_State" Type="char" MaxLength="2" />
-          <Property Name="Volunteer_Zip" Type="char" MaxLength="5" />
-          <Property Name="Volunteer_HomeTele" Type="char" MaxLength="10" />
-          <Property Name="Volunteer_CellPhone" Type="char" MaxLength="10" />
-          <Property Name="Volunteer_Email" Type="char" MaxLength="40" />
+          <Property Name="Volunteer_NUM" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="Volunteer_FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Volunteer_LastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Volunteer_Address" Type="varchar" MaxLength="40" />
+          <Property Name="Volunteer_City" Type="varchar" MaxLength="40" />
+          <Property Name="Volunteer_State" Type="varchar" MaxLength="2" />
+          <Property Name="Volunteer_Zip" Type="varchar" MaxLength="5" />
+          <Property Name="Volunteer_HomeTele" Type="varchar" MaxLength="10" />
+          <Property Name="Volunteer_CellPhone" Type="varchar" MaxLength="10" />
+          <Property Name="Volunteer_Email" Type="varchar" MaxLength="40" />
           <Property Name="STARTDATE" Type="date" />
           <Property Name="ENDDATE" Type="date" />
         </EntityType>
@@ -169,7 +170,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Meet_Meetings">
-          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MeetingStudentAttendance" Type="Self.MeetingStudentAttendance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Meeting">
@@ -217,7 +220,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Meetstaff_Meetings">
-          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MeetingStaffAttendance" Type="Self.MeetingStaffAttendance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Meeting">
@@ -229,7 +234,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Meetvolunteer_Meetings">
-          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="MeetingVolunteerAttendance" Type="Self.MeetingVolunteerAttendance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Meeting">
@@ -240,7 +247,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_STUDENT_PARENT">
+        <Association Name="FK_Parent_Student">
           <End Role="Parent" Type="Self.Parent" Multiplicity="0..1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
@@ -249,6 +256,18 @@
             </Principal>
             <Dependent Role="Student">
               <PropertyRef Name="Parent_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Parent">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Parent" Type="Self.Parent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_NUM" />
+            </Principal>
+            <Dependent Role="Parent">
+              <PropertyRef Name="Student_NUM" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -293,9 +312,13 @@
             <End Role="Meeting" EntitySet="Meeting" />
             <End Role="MeetingVolunteerAttendance" EntitySet="MeetingVolunteerAttendance" />
           </AssociationSet>
-          <AssociationSet Name="FK_STUDENT_PARENT" Association="Self.FK_STUDENT_PARENT">
+          <AssociationSet Name="FK_Parent_Student" Association="Self.FK_Parent_Student">
             <End Role="Parent" EntitySet="Parent" />
             <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Parent" Association="Self.FK_Student_Parent">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Parent" EntitySet="Parent" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -353,21 +376,11 @@
           </AssociationSet>
           <EntitySet Name="Donors" EntityType="goyals420_troutModel.Donor" />
           <EntitySet Name="Meetings" EntityType="goyals420_troutModel.Meeting" />
-          <EntitySet Name="Parents" EntityType="goyals420_troutModel.Parent" />
           <EntitySet Name="Staffs" EntityType="goyals420_troutModel.Staff" />
-          <EntitySet Name="Students" EntityType="goyals420_troutModel.Student" />
           <EntitySet Name="Volunteers" EntityType="goyals420_troutModel.Volunteer" />
           <EntitySet Name="MeetingStudentAttendances" EntityType="goyals420_troutModel.MeetingStudentAttendance" />
           <AssociationSet Name="FK_Meet_Meetings" Association="goyals420_troutModel.FK_Meet_Meetings">
             <End Role="Meeting" EntitySet="Meetings" />
-            <End Role="MeetingStudentAttendance" EntitySet="MeetingStudentAttendances" />
-          </AssociationSet>
-          <AssociationSet Name="FK_STUDENT_PARENT" Association="goyals420_troutModel.FK_STUDENT_PARENT">
-            <End Role="Parent" EntitySet="Parents" />
-            <End Role="Student" EntitySet="Students" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Meet_Student" Association="goyals420_troutModel.FK_Meet_Student">
-            <End Role="Student" EntitySet="Students" />
             <End Role="MeetingStudentAttendance" EntitySet="MeetingStudentAttendances" />
           </AssociationSet>
           <EntitySet Name="MeetingStaffAttendances" EntityType="goyals420_troutModel.MeetingStaffAttendance" />
@@ -388,21 +401,35 @@
             <End Role="Volunteer" EntitySet="Volunteers" />
             <End Role="MeetingVolunteerAttendance" EntitySet="MeetingVolunteerAttendances" />
           </AssociationSet>
+          <EntitySet Name="Parents" EntityType="goyals420_troutModel.Parent" />
+          <EntitySet Name="Students" EntityType="goyals420_troutModel.Student" />
+          <AssociationSet Name="FK_Meet_Student" Association="goyals420_troutModel.FK_Meet_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="MeetingStudentAttendance" EntitySet="MeetingStudentAttendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parent_Student" Association="goyals420_troutModel.FK_Parent_Student">
+            <End Role="Parent" EntitySet="Parents" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Parent" Association="goyals420_troutModel.FK_Student_Parent">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Parent" EntitySet="Parents" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Donor">
           <Key>
             <PropertyRef Name="Donor_NUM" />
           </Key>
-          <Property Name="Donor_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="Donor_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Donor_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Donor_Address" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Donor_City" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Donor_State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Name="Donor_Zip" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="Donor_HomeTele" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Donor_CellPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Donor_Email" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="Donor_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Donor_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Donor_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Donor_Address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Donor_City" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Donor_State" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Donor_Zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Donor_HomeTele" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Donor_CellPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Donor_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Meeting">
           <Key>
@@ -411,85 +438,44 @@
           <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
           <Property Name="Meeting_Start" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Meeting_End" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Meeting_Type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Meeting_Location" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="Meeting_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Meeting_Location" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="MeetingStudentAttendances" Relationship="goyals420_troutModel.FK_Meet_Meetings" FromRole="Meeting" ToRole="MeetingStudentAttendance" />
           <NavigationProperty Name="MeetingStaffAttendances" Relationship="goyals420_troutModel.FK_Meetstaff_Meetings" FromRole="Meeting" ToRole="MeetingStaffAttendance" />
           <NavigationProperty Name="MeetingVolunteerAttendances" Relationship="goyals420_troutModel.FK_Meetvolunteer_Meetings" FromRole="Meeting" ToRole="MeetingVolunteerAttendance" />
-        </EntityType>
-        <EntityType Name="Parent">
-          <Key>
-            <PropertyRef Name="Parent_NUM" />
-          </Key>
-          <Property Name="Parent_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="Parent_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Parent_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Parent_Address" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Parent_City" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Parent_State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Name="Parent_Zip" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="Parent_HomeTele" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Parent_CellPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Parent_Email" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Students" Relationship="goyals420_troutModel.FK_STUDENT_PARENT" FromRole="Parent" ToRole="Student" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
             <PropertyRef Name="Staff_NUM" />
           </Key>
-          <Property Name="Staff_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="Staff_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Staff_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Staff_Address" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Staff_City" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Staff_State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Name="Staff_Zip" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="Staff_HomeTele" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Staff_CellPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Staff_Email" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="Staff_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Staff_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Staff_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Staff_Address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Staff_City" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Staff_State" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Staff_Zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Staff_HomeTele" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Staff_CellPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Staff_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="STARTDATE" Type="DateTime" Precision="0" />
           <Property Name="ENDDATE" Type="DateTime" Precision="0" />
           <NavigationProperty Name="MeetingStaffAttendances" Relationship="goyals420_troutModel.FK_Meet_Staff" FromRole="Staff" ToRole="MeetingStaffAttendance" />
-        </EntityType>
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="Student_NUM" />
-          </Key>
-          <Property Name="Student_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="Student_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Student_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Student_MInitial" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Student_Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Student_Address" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Student_City" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Student_State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Name="Student_Zip" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="Student_HomeTele" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Student_CellPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Student_Email" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Student_Picture_path" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Student_PimaryLang" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
-          <Property Name="Student_SecondLang" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
-          <Property Name="Parent_NUM" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="STARTDATE" Type="DateTime" Precision="0" />
-          <Property Name="ENDDATE" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Parent" Relationship="goyals420_troutModel.FK_STUDENT_PARENT" FromRole="Student" ToRole="Parent" />
-          <NavigationProperty Name="MeetingStudentAttendances" Relationship="goyals420_troutModel.FK_Meet_Student" FromRole="Student" ToRole="MeetingStudentAttendance" />
         </EntityType>
         <EntityType Name="Volunteer">
           <Key>
             <PropertyRef Name="Volunteer_NUM" />
           </Key>
-          <Property Name="Volunteer_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="Volunteer_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Volunteer_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="Volunteer_Address" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Volunteer_City" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="Volunteer_State" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Name="Volunteer_Zip" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-          <Property Name="Volunteer_HomeTele" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Volunteer_CellPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="Volunteer_Email" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="Volunteer_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_Address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_City" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_State" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_Zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_HomeTele" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_CellPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="STARTDATE" Type="DateTime" Precision="0" />
           <Property Name="ENDDATE" Type="DateTime" Precision="0" />
           <NavigationProperty Name="MeetingVolunteerAttendances" Relationship="goyals420_troutModel.FK_Meet_Volunteer" FromRole="Volunteer" ToRole="MeetingVolunteerAttendance" />
@@ -499,7 +485,7 @@
             <PropertyRef Name="Student_NUM" />
             <PropertyRef Name="Meeting_NUM" />
           </Key>
-          <Property Name="Student_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="Student_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
           <Property Name="Attendance" Type="Boolean" />
           <NavigationProperty Name="Meeting" Relationship="goyals420_troutModel.FK_Meet_Meetings" FromRole="MeetingStudentAttendance" ToRole="Meeting" />
@@ -517,36 +503,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_STUDENT_PARENT">
-          <End Type="goyals420_troutModel.Parent" Role="Parent" Multiplicity="0..1" />
-          <End Type="goyals420_troutModel.Student" Role="Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Parent">
-              <PropertyRef Name="Parent_NUM" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="Parent_NUM" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Meet_Student">
-          <End Type="goyals420_troutModel.Student" Role="Student" Multiplicity="1" />
-          <End Type="goyals420_troutModel.MeetingStudentAttendance" Role="MeetingStudentAttendance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="Student_NUM" />
-            </Principal>
-            <Dependent Role="MeetingStudentAttendance">
-              <PropertyRef Name="Student_NUM" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="MeetingStaffAttendance">
           <Key>
             <PropertyRef Name="Staff_NUM" />
             <PropertyRef Name="Meeting_NUM" />
           </Key>
-          <Property Name="Staff_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="Staff_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
           <Property Name="Attendance" Type="Boolean" />
           <NavigationProperty Name="Meeting" Relationship="goyals420_troutModel.FK_Meetstaff_Meetings" FromRole="MeetingStaffAttendance" ToRole="Meeting" />
@@ -557,7 +519,7 @@
             <PropertyRef Name="Volunteer_NUM" />
             <PropertyRef Name="Meeting_NUM" />
           </Key>
-          <Property Name="Volunteer_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="Volunteer_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
           <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
           <Property Name="Attendance" Type="Boolean" />
           <NavigationProperty Name="Meeting" Relationship="goyals420_troutModel.FK_Meetvolunteer_Meetings" FromRole="MeetingVolunteerAttendance" ToRole="Meeting" />
@@ -608,6 +570,86 @@
             </Principal>
             <Dependent Role="MeetingVolunteerAttendance">
               <PropertyRef Name="Volunteer_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Parent">
+          <Key>
+            <PropertyRef Name="Parent_NUM" />
+          </Key>
+          <Property Name="Parent_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_Address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_City" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_State" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_Zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_HomeTele" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_CellPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Student_NUM" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Students" Relationship="goyals420_troutModel.FK_Parent_Student" FromRole="Parent" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="goyals420_troutModel.FK_Student_Parent" FromRole="Parent" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Student_NUM" />
+          </Key>
+          <Property Name="Student_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Student_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Student_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Student_MInitial" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Student_Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Student_Address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Student_City" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Student_State" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Student_Zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Student_HomeTele" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Student_CellPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Student_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Student_Picture_path" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Student_PimaryLang" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Student_SecondLang" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_NUM" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="STARTDATE" Type="DateTime" Precision="0" />
+          <Property Name="ENDDATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="MeetingStudentAttendances" Relationship="goyals420_troutModel.FK_Meet_Student" FromRole="Student" ToRole="MeetingStudentAttendance" />
+          <NavigationProperty Name="Parent" Relationship="goyals420_troutModel.FK_Parent_Student" FromRole="Student" ToRole="Parent" />
+          <NavigationProperty Name="Parents" Relationship="goyals420_troutModel.FK_Student_Parent" FromRole="Student" ToRole="Parent" />
+        </EntityType>
+        <Association Name="FK_Meet_Student">
+          <End Type="goyals420_troutModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="goyals420_troutModel.MeetingStudentAttendance" Role="MeetingStudentAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_NUM" />
+            </Principal>
+            <Dependent Role="MeetingStudentAttendance">
+              <PropertyRef Name="Student_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parent_Student">
+          <End Type="goyals420_troutModel.Parent" Role="Parent" Multiplicity="0..1" />
+          <End Type="goyals420_troutModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parent">
+              <PropertyRef Name="Parent_NUM" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Parent_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Parent">
+          <End Type="goyals420_troutModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="goyals420_troutModel.Parent" Role="Parent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_NUM" />
+            </Principal>
+            <Dependent Role="Parent">
+              <PropertyRef Name="Student_NUM" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -671,22 +713,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Parents">
-            <EntityTypeMapping TypeName="goyals420_troutModel.Parent">
-              <MappingFragment StoreEntitySet="Parent">
-                <ScalarProperty Name="Parent_Email" ColumnName="Parent_Email" />
-                <ScalarProperty Name="Parent_CellPhone" ColumnName="Parent_CellPhone" />
-                <ScalarProperty Name="Parent_HomeTele" ColumnName="Parent_HomeTele" />
-                <ScalarProperty Name="Parent_Zip" ColumnName="Parent_Zip" />
-                <ScalarProperty Name="Parent_State" ColumnName="Parent_State" />
-                <ScalarProperty Name="Parent_City" ColumnName="Parent_City" />
-                <ScalarProperty Name="Parent_Address" ColumnName="Parent_Address" />
-                <ScalarProperty Name="Parent_LastName" ColumnName="Parent_LastName" />
-                <ScalarProperty Name="Parent_FirstName" ColumnName="Parent_FirstName" />
-                <ScalarProperty Name="Parent_NUM" ColumnName="Parent_NUM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Staffs">
             <EntityTypeMapping TypeName="goyals420_troutModel.Staff">
               <MappingFragment StoreEntitySet="Staff">
@@ -702,30 +728,6 @@
                 <ScalarProperty Name="Staff_LastName" ColumnName="Staff_LastName" />
                 <ScalarProperty Name="Staff_FirstName" ColumnName="Staff_FirstName" />
                 <ScalarProperty Name="Staff_NUM" ColumnName="Staff_NUM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="goyals420_troutModel.Student">
-              <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
-                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
-                <ScalarProperty Name="Parent_NUM" ColumnName="Parent_NUM" />
-                <ScalarProperty Name="Student_SecondLang" ColumnName="Student_SecondLang" />
-                <ScalarProperty Name="Student_PimaryLang" ColumnName="Student_PimaryLang" />
-                <ScalarProperty Name="Student_Picture_path" ColumnName="Student_Picture_path" />
-                <ScalarProperty Name="Student_Email" ColumnName="Student_Email" />
-                <ScalarProperty Name="Student_CellPhone" ColumnName="Student_CellPhone" />
-                <ScalarProperty Name="Student_HomeTele" ColumnName="Student_HomeTele" />
-                <ScalarProperty Name="Student_Zip" ColumnName="Student_Zip" />
-                <ScalarProperty Name="Student_State" ColumnName="Student_State" />
-                <ScalarProperty Name="Student_City" ColumnName="Student_City" />
-                <ScalarProperty Name="Student_Address" ColumnName="Student_Address" />
-                <ScalarProperty Name="Student_Gender" ColumnName="Student_Gender" />
-                <ScalarProperty Name="Student_MInitial" ColumnName="Student_MInitial" />
-                <ScalarProperty Name="Student_LastName" ColumnName="Student_LastName" />
-                <ScalarProperty Name="Student_FirstName" ColumnName="Student_FirstName" />
-                <ScalarProperty Name="Student_NUM" ColumnName="Student_NUM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -771,6 +773,47 @@
                 <ScalarProperty Name="Attendance" ColumnName="Attendance" />
                 <ScalarProperty Name="Meeting_NUM" ColumnName="Meeting_NUM" />
                 <ScalarProperty Name="Volunteer_NUM" ColumnName="Volunteer_NUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parents">
+            <EntityTypeMapping TypeName="goyals420_troutModel.Parent">
+              <MappingFragment StoreEntitySet="Parent">
+                <ScalarProperty Name="Student_NUM" ColumnName="Student_NUM" />
+                <ScalarProperty Name="Parent_Email" ColumnName="Parent_Email" />
+                <ScalarProperty Name="Parent_CellPhone" ColumnName="Parent_CellPhone" />
+                <ScalarProperty Name="Parent_HomeTele" ColumnName="Parent_HomeTele" />
+                <ScalarProperty Name="Parent_Zip" ColumnName="Parent_Zip" />
+                <ScalarProperty Name="Parent_State" ColumnName="Parent_State" />
+                <ScalarProperty Name="Parent_City" ColumnName="Parent_City" />
+                <ScalarProperty Name="Parent_Address" ColumnName="Parent_Address" />
+                <ScalarProperty Name="Parent_LastName" ColumnName="Parent_LastName" />
+                <ScalarProperty Name="Parent_FirstName" ColumnName="Parent_FirstName" />
+                <ScalarProperty Name="Parent_NUM" ColumnName="Parent_NUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="goyals420_troutModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="Parent_NUM" ColumnName="Parent_NUM" />
+                <ScalarProperty Name="Student_SecondLang" ColumnName="Student_SecondLang" />
+                <ScalarProperty Name="Student_PimaryLang" ColumnName="Student_PimaryLang" />
+                <ScalarProperty Name="Student_Picture_path" ColumnName="Student_Picture_path" />
+                <ScalarProperty Name="Student_Email" ColumnName="Student_Email" />
+                <ScalarProperty Name="Student_CellPhone" ColumnName="Student_CellPhone" />
+                <ScalarProperty Name="Student_HomeTele" ColumnName="Student_HomeTele" />
+                <ScalarProperty Name="Student_Zip" ColumnName="Student_Zip" />
+                <ScalarProperty Name="Student_State" ColumnName="Student_State" />
+                <ScalarProperty Name="Student_City" ColumnName="Student_City" />
+                <ScalarProperty Name="Student_Address" ColumnName="Student_Address" />
+                <ScalarProperty Name="Student_Gender" ColumnName="Student_Gender" />
+                <ScalarProperty Name="Student_MInitial" ColumnName="Student_MInitial" />
+                <ScalarProperty Name="Student_LastName" ColumnName="Student_LastName" />
+                <ScalarProperty Name="Student_FirstName" ColumnName="Student_FirstName" />
+                <ScalarProperty Name="Student_NUM" ColumnName="Student_NUM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -11,20 +11,21 @@
         <AssociationConnector Association="goyals420_troutModel.FK_dbo_Bars_dbo_Foos_FooId" ManuallyRouted="false" />
         <EntityTypeShape EntityType="goyals420_troutModel.Donor" Width="1.5" PointX="6.125" PointY="0.5" />
         <EntityTypeShape EntityType="goyals420_troutModel.Meeting" Width="1.5" PointX="10.375" PointY="0.5" />
-        <EntityTypeShape EntityType="goyals420_troutModel.Parent" Width="1.5" PointX="5.75" PointY="5.25" />
         <EntityTypeShape EntityType="goyals420_troutModel.Staff" Width="1.5" PointX="14.125" PointY="3.625" />
-        <EntityTypeShape EntityType="goyals420_troutModel.Student" Width="1.5" PointX="8.375" PointY="4.875" />
         <EntityTypeShape EntityType="goyals420_troutModel.Volunteer" Width="1.5" PointX="10.25" PointY="6.25" />
         <EntityTypeShape EntityType="goyals420_troutModel.MeetingStudentAttendance" Width="1.5" PointX="8.125" PointY="2.125" />
         <AssociationConnector Association="goyals420_troutModel.FK_Meet_Meetings" />
-        <AssociationConnector Association="goyals420_troutModel.FK_STUDENT_PARENT" />
-        <AssociationConnector Association="goyals420_troutModel.FK_Meet_Student" />
         <EntityTypeShape EntityType="goyals420_troutModel.MeetingStaffAttendance" Width="1.5" PointX="12.625" PointY="0.875" />
         <EntityTypeShape EntityType="goyals420_troutModel.MeetingVolunteerAttendance" Width="1.5" PointX="10.375" PointY="3.625" />
         <AssociationConnector Association="goyals420_troutModel.FK_Meetstaff_Meetings" />
         <AssociationConnector Association="goyals420_troutModel.FK_Meet_Staff" />
         <AssociationConnector Association="goyals420_troutModel.FK_Meetvolunteer_Meetings" />
         <AssociationConnector Association="goyals420_troutModel.FK_Meet_Volunteer" />
+        <EntityTypeShape EntityType="goyals420_troutModel.Parent" Width="1.5" PointX="5.625" PointY="6.875" />
+        <EntityTypeShape EntityType="goyals420_troutModel.Student" Width="1.5" PointX="3.375" PointY="6.125" />
+        <AssociationConnector Association="goyals420_troutModel.FK_Meet_Student" />
+        <AssociationConnector Association="goyals420_troutModel.FK_Parent_Student" />
+        <AssociationConnector Association="goyals420_troutModel.FK_Student_Parent" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
