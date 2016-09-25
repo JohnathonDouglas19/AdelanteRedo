@@ -44,11 +44,41 @@ namespace AdelanteRedo.Controllers
             return View();
         }
 
+        public ActionResult Programs()
+        {
+            ViewBag.Message = "Your programs page.";
+
+            return View();
+        }
+
+        public ActionResult Donate()
+        {
+            ViewBag.Message = "Your donate page.";
+
+            return View();
+        }
+
+        public ActionResult Students()
+        {
+            ViewBag.Message = "Your students page.";
+
+            return View();
+        }
+
+        public ActionResult Parents()
+        {
+            ViewBag.Message = "Your parents page.";
+
+            return View();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
+
+       
     }
 }

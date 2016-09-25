@@ -3811,12 +3811,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .nav > li {
-  position: relative;
+  position: center;
   display: block;
 }
 
 .nav > li > a {
-  position: relative;
+  position: center;
   display: block;
   padding: 10px 15px;
 }
@@ -3880,11 +3880,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #555555;
+  color: #de2f0b;
   cursor: default;
   background-color: #ffffff;
   border: 1px solid #dddddd;
-  border-bottom-color: transparent;
+  /*border-bottom-color: ;*/
 }
 
 .nav-tabs.nav-justified {
@@ -4193,8 +4193,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
-  font-size: 18px;
+  padding: 50px 30px 50px 30px;
+  font-size: 30px;
   line-height: 20px;
 }
 

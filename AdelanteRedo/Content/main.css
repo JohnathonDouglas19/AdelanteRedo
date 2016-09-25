@@ -106,7 +106,7 @@ body > section {
 
 .section-title h2 {
   color: #1f2021;
-  font-size: 30px;
+  font-size: 60px;
   position: relative;
   margin-bottom: 25px;
   padding-bottom: 27px;
@@ -181,12 +181,12 @@ width: 11px;
 }
 
 .animated-nav .navbar-brand {
- padding: 15px 0;
+ padding: 50px 30px 50px 30px;
     
 }
 
 .animated-nav .navigation .navbar-nav > li > a {
-  padding: 23px 25px;
+  padding: 50px 30px 50px 30px;
 
 }
 
@@ -211,7 +211,7 @@ width: 11px;
 
 .navigation .navbar-nav > li > a {
   color: #de2f0b;
-  font-size: 13px;
+  font-size: 30px;
   font-weight: 600;
   padding: 38px 25px;
   text-transform: uppercase;
@@ -223,13 +223,13 @@ width: 11px;
 }
 
 .animated-nav .navigation .navbar-nav > li.current > a {
-  color: #1f2021;
+  color: #de2f0b;
   border-bottom: 1px solid #1f2021;
 }
 
 .navigation .navbar-nav > li > a:focus,
 .navigation .navbar-nav > li > a:hover {
-  background-color: transparent;
+  background-color: #de2f0b;
 }
 
 .search-form {
