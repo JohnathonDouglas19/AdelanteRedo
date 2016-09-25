@@ -43,10 +43,10 @@ namespace AdelanteRedo.Controllers
 
             return View();
         }
-
+    
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact us today!";
 
             return View();
         }
