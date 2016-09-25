@@ -18,6 +18,8 @@ namespace DataLib
         public Meeting()
         {
             this.MeetingStudentAttendances = new HashSet<MeetingStudentAttendance>();
+            this.MeetingStaffAttendances = new HashSet<MeetingStaffAttendance>();
+            this.MeetingVolunteerAttendances = new HashSet<MeetingVolunteerAttendance>();
         }
     
         public decimal Meeting_NUM { get; set; }
@@ -28,5 +30,9 @@ namespace DataLib
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MeetingStudentAttendance> MeetingStudentAttendances { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MeetingStaffAttendance> MeetingStaffAttendances { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MeetingVolunteerAttendance> MeetingVolunteerAttendances { get; set; }
     }
 }

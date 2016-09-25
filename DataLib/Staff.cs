@@ -14,6 +14,12 @@ namespace DataLib
     
     public partial class Staff
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Staff()
+        {
+            this.MeetingStaffAttendances = new HashSet<MeetingStaffAttendance>();
+        }
+    
         public string Staff_NUM { get; set; }
         public string Staff_FirstName { get; set; }
         public string Staff_LastName { get; set; }
@@ -26,5 +32,8 @@ namespace DataLib
         public string Staff_Email { get; set; }
         public Nullable<System.DateTime> STARTDATE { get; set; }
         public Nullable<System.DateTime> ENDDATE { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MeetingStaffAttendance> MeetingStaffAttendances { get; set; }
     }
 }
