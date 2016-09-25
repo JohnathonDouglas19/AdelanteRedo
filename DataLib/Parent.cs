@@ -30,8 +30,10 @@ namespace DataLib
         public string Parent_HomeTele { get; set; }
         public string Parent_CellPhone { get; set; }
         public string Parent_Email { get; set; }
+        public string Student_NUM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Student> Students { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

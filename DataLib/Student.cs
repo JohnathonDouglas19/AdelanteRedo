@@ -18,6 +18,7 @@ namespace DataLib
         public Student()
         {
             this.MeetingStudentAttendances = new HashSet<MeetingStudentAttendance>();
+            this.Parents = new HashSet<Parent>();
         }
     
         public string Student_NUM { get; set; }
@@ -39,8 +40,10 @@ namespace DataLib
         public Nullable<System.DateTime> STARTDATE { get; set; }
         public Nullable<System.DateTime> ENDDATE { get; set; }
     
-        public virtual Parent Parent { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MeetingStudentAttendance> MeetingStudentAttendances { get; set; }
+        public virtual Parent Parent { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Parent> Parents { get; set; }
     }
 }
