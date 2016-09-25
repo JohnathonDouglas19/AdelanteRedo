@@ -14,6 +14,12 @@ namespace DataLib
     
     public partial class Volunteer
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Volunteer()
+        {
+            this.MeetingVolunteerAttendances = new HashSet<MeetingVolunteerAttendance>();
+        }
+    
         public string Volunteer_NUM { get; set; }
         public string Volunteer_FirstName { get; set; }
         public string Volunteer_LastName { get; set; }
@@ -26,5 +32,8 @@ namespace DataLib
         public string Volunteer_Email { get; set; }
         public Nullable<System.DateTime> STARTDATE { get; set; }
         public Nullable<System.DateTime> ENDDATE { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MeetingVolunteerAttendance> MeetingVolunteerAttendances { get; set; }
     }
 }

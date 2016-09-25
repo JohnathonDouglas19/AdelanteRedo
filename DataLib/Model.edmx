@@ -30,12 +30,30 @@
           <Property Name="Meeting_Type" Type="char" MaxLength="10" />
           <Property Name="Meeting_Location" Type="char" MaxLength="20" />
         </EntityType>
+        <EntityType Name="MeetingStaffAttendance">
+          <Key>
+            <PropertyRef Name="Staff_NUM" />
+            <PropertyRef Name="Meeting_NUM" />
+          </Key>
+          <Property Name="Staff_NUM" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Meeting_NUM" Type="decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="Attendance" Type="bit" />
+        </EntityType>
         <EntityType Name="MeetingStudentAttendance">
           <Key>
             <PropertyRef Name="Student_NUM" />
             <PropertyRef Name="Meeting_NUM" />
           </Key>
           <Property Name="Student_NUM" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="Meeting_NUM" Type="decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="Attendance" Type="bit" />
+        </EntityType>
+        <EntityType Name="MeetingVolunteerAttendance">
+          <Key>
+            <PropertyRef Name="Volunteer_NUM" />
+            <PropertyRef Name="Meeting_NUM" />
+          </Key>
+          <Property Name="Volunteer_NUM" Type="char" MaxLength="4" Nullable="false" />
           <Property Name="Meeting_NUM" Type="decimal" Precision="6" Scale="0" Nullable="false" />
           <Property Name="Attendance" Type="bit" />
         </EntityType>
@@ -162,6 +180,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Meet_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="MeetingStaffAttendance" Type="Self.MeetingStaffAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Staff_NUM" />
+            </Principal>
+            <Dependent Role="MeetingStaffAttendance">
+              <PropertyRef Name="Staff_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Meet_Student">
           <End Role="Student" Type="Self.Student" Multiplicity="1" />
           <End Role="MeetingStudentAttendance" Type="Self.MeetingStudentAttendance" Multiplicity="*" />
@@ -171,6 +201,42 @@
             </Principal>
             <Dependent Role="MeetingStudentAttendance">
               <PropertyRef Name="Student_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meet_Volunteer">
+          <End Role="Volunteer" Type="Self.Volunteer" Multiplicity="1" />
+          <End Role="MeetingVolunteerAttendance" Type="Self.MeetingVolunteerAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Volunteer">
+              <PropertyRef Name="Volunteer_NUM" />
+            </Principal>
+            <Dependent Role="MeetingVolunteerAttendance">
+              <PropertyRef Name="Volunteer_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetstaff_Meetings">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="MeetingStaffAttendance" Type="Self.MeetingStaffAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Meeting_NUM" />
+            </Principal>
+            <Dependent Role="MeetingStaffAttendance">
+              <PropertyRef Name="Meeting_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetvolunteer_Meetings">
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="MeetingVolunteerAttendance" Type="Self.MeetingVolunteerAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Meeting_NUM" />
+            </Principal>
+            <Dependent Role="MeetingVolunteerAttendance">
+              <PropertyRef Name="Meeting_NUM" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -189,7 +255,9 @@
         <EntityContainer Name="goyals420_troutModelStoreContainer">
           <EntitySet Name="Donor" EntityType="Self.Donor" Schema="cistrout" store:Type="Tables" />
           <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="cistrout" store:Type="Tables" />
+          <EntitySet Name="MeetingStaffAttendance" EntityType="Self.MeetingStaffAttendance" Schema="cistrout" store:Type="Tables" />
           <EntitySet Name="MeetingStudentAttendance" EntityType="Self.MeetingStudentAttendance" Schema="cistrout" store:Type="Tables" />
+          <EntitySet Name="MeetingVolunteerAttendance" EntityType="Self.MeetingVolunteerAttendance" Schema="cistrout" store:Type="Tables" />
           <EntitySet Name="Parent" EntityType="Self.Parent" Schema="cistrout" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="cistrout" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="cistrout" store:Type="Tables" />
@@ -205,9 +273,25 @@
             <End Role="Meeting" EntitySet="Meeting" />
             <End Role="MeetingStudentAttendance" EntitySet="MeetingStudentAttendance" />
           </AssociationSet>
+          <AssociationSet Name="FK_Meet_Staff" Association="Self.FK_Meet_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="MeetingStaffAttendance" EntitySet="MeetingStaffAttendance" />
+          </AssociationSet>
           <AssociationSet Name="FK_Meet_Student" Association="Self.FK_Meet_Student">
             <End Role="Student" EntitySet="Student" />
             <End Role="MeetingStudentAttendance" EntitySet="MeetingStudentAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meet_Volunteer" Association="Self.FK_Meet_Volunteer">
+            <End Role="Volunteer" EntitySet="Volunteer" />
+            <End Role="MeetingVolunteerAttendance" EntitySet="MeetingVolunteerAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetstaff_Meetings" Association="Self.FK_Meetstaff_Meetings">
+            <End Role="Meeting" EntitySet="Meeting" />
+            <End Role="MeetingStaffAttendance" EntitySet="MeetingStaffAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetvolunteer_Meetings" Association="Self.FK_Meetvolunteer_Meetings">
+            <End Role="Meeting" EntitySet="Meeting" />
+            <End Role="MeetingVolunteerAttendance" EntitySet="MeetingVolunteerAttendance" />
           </AssociationSet>
           <AssociationSet Name="FK_STUDENT_PARENT" Association="Self.FK_STUDENT_PARENT">
             <End Role="Parent" EntitySet="Parent" />
@@ -286,6 +370,24 @@
             <End Role="Student" EntitySet="Students" />
             <End Role="MeetingStudentAttendance" EntitySet="MeetingStudentAttendances" />
           </AssociationSet>
+          <EntitySet Name="MeetingStaffAttendances" EntityType="goyals420_troutModel.MeetingStaffAttendance" />
+          <EntitySet Name="MeetingVolunteerAttendances" EntityType="goyals420_troutModel.MeetingVolunteerAttendance" />
+          <AssociationSet Name="FK_Meetstaff_Meetings" Association="goyals420_troutModel.FK_Meetstaff_Meetings">
+            <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="MeetingStaffAttendance" EntitySet="MeetingStaffAttendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meet_Staff" Association="goyals420_troutModel.FK_Meet_Staff">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="MeetingStaffAttendance" EntitySet="MeetingStaffAttendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetvolunteer_Meetings" Association="goyals420_troutModel.FK_Meetvolunteer_Meetings">
+            <End Role="Meeting" EntitySet="Meetings" />
+            <End Role="MeetingVolunteerAttendance" EntitySet="MeetingVolunteerAttendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meet_Volunteer" Association="goyals420_troutModel.FK_Meet_Volunteer">
+            <End Role="Volunteer" EntitySet="Volunteers" />
+            <End Role="MeetingVolunteerAttendance" EntitySet="MeetingVolunteerAttendances" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Donor">
           <Key>
@@ -312,6 +414,8 @@
           <Property Name="Meeting_Type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="Meeting_Location" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="MeetingStudentAttendances" Relationship="goyals420_troutModel.FK_Meet_Meetings" FromRole="Meeting" ToRole="MeetingStudentAttendance" />
+          <NavigationProperty Name="MeetingStaffAttendances" Relationship="goyals420_troutModel.FK_Meetstaff_Meetings" FromRole="Meeting" ToRole="MeetingStaffAttendance" />
+          <NavigationProperty Name="MeetingVolunteerAttendances" Relationship="goyals420_troutModel.FK_Meetvolunteer_Meetings" FromRole="Meeting" ToRole="MeetingVolunteerAttendance" />
         </EntityType>
         <EntityType Name="Parent">
           <Key>
@@ -345,6 +449,7 @@
           <Property Name="Staff_Email" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
           <Property Name="STARTDATE" Type="DateTime" Precision="0" />
           <Property Name="ENDDATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="MeetingStaffAttendances" Relationship="goyals420_troutModel.FK_Meet_Staff" FromRole="Staff" ToRole="MeetingStaffAttendance" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -387,6 +492,7 @@
           <Property Name="Volunteer_Email" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
           <Property Name="STARTDATE" Type="DateTime" Precision="0" />
           <Property Name="ENDDATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="MeetingVolunteerAttendances" Relationship="goyals420_troutModel.FK_Meet_Volunteer" FromRole="Volunteer" ToRole="MeetingVolunteerAttendance" />
         </EntityType>
         <EntityType Name="MeetingStudentAttendance">
           <Key>
@@ -432,6 +538,76 @@
             </Principal>
             <Dependent Role="MeetingStudentAttendance">
               <PropertyRef Name="Student_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MeetingStaffAttendance">
+          <Key>
+            <PropertyRef Name="Staff_NUM" />
+            <PropertyRef Name="Meeting_NUM" />
+          </Key>
+          <Property Name="Staff_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
+          <Property Name="Attendance" Type="Boolean" />
+          <NavigationProperty Name="Meeting" Relationship="goyals420_troutModel.FK_Meetstaff_Meetings" FromRole="MeetingStaffAttendance" ToRole="Meeting" />
+          <NavigationProperty Name="Staff" Relationship="goyals420_troutModel.FK_Meet_Staff" FromRole="MeetingStaffAttendance" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="MeetingVolunteerAttendance">
+          <Key>
+            <PropertyRef Name="Volunteer_NUM" />
+            <PropertyRef Name="Meeting_NUM" />
+          </Key>
+          <Property Name="Volunteer_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
+          <Property Name="Attendance" Type="Boolean" />
+          <NavigationProperty Name="Meeting" Relationship="goyals420_troutModel.FK_Meetvolunteer_Meetings" FromRole="MeetingVolunteerAttendance" ToRole="Meeting" />
+          <NavigationProperty Name="Volunteer" Relationship="goyals420_troutModel.FK_Meet_Volunteer" FromRole="MeetingVolunteerAttendance" ToRole="Volunteer" />
+        </EntityType>
+        <Association Name="FK_Meetstaff_Meetings">
+          <End Type="goyals420_troutModel.Meeting" Role="Meeting" Multiplicity="1" />
+          <End Type="goyals420_troutModel.MeetingStaffAttendance" Role="MeetingStaffAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Meeting_NUM" />
+            </Principal>
+            <Dependent Role="MeetingStaffAttendance">
+              <PropertyRef Name="Meeting_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meet_Staff">
+          <End Type="goyals420_troutModel.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="goyals420_troutModel.MeetingStaffAttendance" Role="MeetingStaffAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Staff_NUM" />
+            </Principal>
+            <Dependent Role="MeetingStaffAttendance">
+              <PropertyRef Name="Staff_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetvolunteer_Meetings">
+          <End Type="goyals420_troutModel.Meeting" Role="Meeting" Multiplicity="1" />
+          <End Type="goyals420_troutModel.MeetingVolunteerAttendance" Role="MeetingVolunteerAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Meeting_NUM" />
+            </Principal>
+            <Dependent Role="MeetingVolunteerAttendance">
+              <PropertyRef Name="Meeting_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meet_Volunteer">
+          <End Type="goyals420_troutModel.Volunteer" Role="Volunteer" Multiplicity="1" />
+          <End Type="goyals420_troutModel.MeetingVolunteerAttendance" Role="MeetingVolunteerAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Volunteer">
+              <PropertyRef Name="Volunteer_NUM" />
+            </Principal>
+            <Dependent Role="MeetingVolunteerAttendance">
+              <PropertyRef Name="Volunteer_NUM" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -577,6 +753,24 @@
                 <ScalarProperty Name="Attendance" ColumnName="Attendance" />
                 <ScalarProperty Name="Meeting_NUM" ColumnName="Meeting_NUM" />
                 <ScalarProperty Name="Student_NUM" ColumnName="Student_NUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingStaffAttendances">
+            <EntityTypeMapping TypeName="goyals420_troutModel.MeetingStaffAttendance">
+              <MappingFragment StoreEntitySet="MeetingStaffAttendance">
+                <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+                <ScalarProperty Name="Meeting_NUM" ColumnName="Meeting_NUM" />
+                <ScalarProperty Name="Staff_NUM" ColumnName="Staff_NUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingVolunteerAttendances">
+            <EntityTypeMapping TypeName="goyals420_troutModel.MeetingVolunteerAttendance">
+              <MappingFragment StoreEntitySet="MeetingVolunteerAttendance">
+                <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+                <ScalarProperty Name="Meeting_NUM" ColumnName="Meeting_NUM" />
+                <ScalarProperty Name="Volunteer_NUM" ColumnName="Volunteer_NUM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

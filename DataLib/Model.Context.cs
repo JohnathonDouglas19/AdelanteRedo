@@ -35,5 +35,7 @@ namespace DataLib
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<Volunteer> Volunteers { get; set; }
         public virtual DbSet<MeetingStudentAttendance> MeetingStudentAttendances { get; set; }
+        public virtual DbSet<MeetingStaffAttendance> MeetingStaffAttendances { get; set; }
+        public virtual DbSet<MeetingVolunteerAttendance> MeetingVolunteerAttendances { get; set; }
     }
 }
