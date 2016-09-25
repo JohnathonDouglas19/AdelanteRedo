@@ -494,7 +494,6 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Course\" />
     <Folder Include="Views\Enrollment\" />
-    <Folder Include="Views\Student\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
