@@ -39,14 +39,14 @@ namespace AdelanteRedo.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "“In Adelante everyone has a dream, everyone speaks the same language, and everyone is FAMILY” - Sabrina Lloret";
 
             return View();
         }
     
         public ActionResult Contact()
         {
-            ViewBag.Message = "Contact us today!";
+            ViewBag.Message = "We’d love to hear from you!";
 
             return View();
         }
