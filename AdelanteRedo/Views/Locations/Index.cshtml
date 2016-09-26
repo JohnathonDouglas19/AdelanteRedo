@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DataLib.Location>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Location_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Location_NUM }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Location_NUM }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Location_NUM })
+        </td>
+    </tr>
+}
+
+</table>
