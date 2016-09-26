@@ -205,6 +205,7 @@
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
+    <Compile Include="Controllers\MeetingStudentAttendancesController.cs" />
     <Compile Include="Controllers\ParentsController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
@@ -499,6 +500,11 @@
     <Content Include="Views\Meetings\Details.cshtml" />
     <Content Include="Views\Meetings\Edit.cshtml" />
     <Content Include="Views\Meetings\Index.cshtml" />
+    <Content Include="Views\MeetingStudentAttendances\Create.cshtml" />
+    <Content Include="Views\MeetingStudentAttendances\Delete.cshtml" />
+    <Content Include="Views\MeetingStudentAttendances\Details.cshtml" />
+    <Content Include="Views\MeetingStudentAttendances\Edit.cshtml" />
+    <Content Include="Views\MeetingStudentAttendances\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
