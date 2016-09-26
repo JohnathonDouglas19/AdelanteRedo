@@ -65,6 +65,14 @@ namespace AdelanteRedo.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "UserRoles")]
+        public string UserRoles { get; set; }
+
+        [Required]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -80,6 +88,13 @@ namespace AdelanteRedo.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
+
+    public class ListUserViewModel
+    {
+        public IList<ApplicationUser> users { get; set; }
+        public IList<string> roles { get; set; }
+    }
+    
 
     public class ResetPasswordViewModel
     {

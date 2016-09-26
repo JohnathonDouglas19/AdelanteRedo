@@ -18,10 +18,15 @@ namespace AdelanteRedo.Models
         }
     }
 
+    public class ApplicationRole : IdentityRole
+    {
+        public string Description;
+    }
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("AdelanteConnection", throwIfV1Schema: false)
         {
         }
 

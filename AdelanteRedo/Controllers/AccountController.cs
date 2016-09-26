@@ -165,6 +165,9 @@ namespace AdelanteRedo.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
+                //ViewBag.Name = new SelectList(Context.Roles.Where(u => !u.Name.Contains("Admin"))
+                //    .ToList(), "Name", "Name");
+
                 AddErrors(result);
             }
 
