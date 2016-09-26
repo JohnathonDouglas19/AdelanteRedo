@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DataLib.Meeting>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Meeting_Start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Meeting_End)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Meeting_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location.Location_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Meeting_Start)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Meeting_End)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Meeting_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.Location_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Meeting_NUM }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Meeting_NUM }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Meeting_NUM })
+        </td>
+    </tr>
+}
+
+</table>

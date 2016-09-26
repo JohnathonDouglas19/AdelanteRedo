@@ -64,6 +64,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="FooData.cs" />
+    <Compile Include="Location.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Meeting.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

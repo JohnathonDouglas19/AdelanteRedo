@@ -20,6 +20,13 @@
           <Property Name="Donor_CellPhone" Type="varchar" MaxLength="10" />
           <Property Name="Donor_Email" Type="varchar" MaxLength="40" />
         </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Location_NUM" />
+          </Key>
+          <Property Name="Location_NUM" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Location_Name" Type="varchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="Meeting">
           <Key>
             <PropertyRef Name="Meeting_NUM" />
@@ -28,7 +35,7 @@
           <Property Name="Meeting_Start" Type="datetime" Nullable="false" />
           <Property Name="Meeting_End" Type="datetime" Nullable="false" />
           <Property Name="Meeting_Type" Type="varchar" MaxLength="10" />
-          <Property Name="Meeting_Location" Type="varchar" MaxLength="20" />
+          <Property Name="Location_Name" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="MeetingStaffAttendance">
           <Key>
@@ -169,6 +176,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Location_Meeting">
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="Meeting" Type="Self.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="Location_NUM" />
+            </Principal>
+            <Dependent Role="Meeting">
+              <PropertyRef Name="Location_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Meet_Meetings">
           <End Role="Meeting" Type="Self.Meeting" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -247,7 +266,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Parent_Student">
+        <Association Name="FK_ParentLink_Student">
           <End Role="Parent" Type="Self.Parent" Multiplicity="0..1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
@@ -273,6 +292,7 @@
         </Association>
         <EntityContainer Name="goyals420_troutModelStoreContainer">
           <EntitySet Name="Donor" EntityType="Self.Donor" Schema="cistrout" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="cistrout" store:Type="Tables" />
           <EntitySet Name="Meeting" EntityType="Self.Meeting" Schema="cistrout" store:Type="Tables" />
           <EntitySet Name="MeetingStaffAttendance" EntityType="Self.MeetingStaffAttendance" Schema="cistrout" store:Type="Tables" />
           <EntitySet Name="MeetingStudentAttendance" EntityType="Self.MeetingStudentAttendance" Schema="cistrout" store:Type="Tables" />
@@ -287,6 +307,10 @@
           <AssociationSet Name="FK_dbo_Bars_dbo_Foos_FooId" Association="Self.FK_dbo_Bars_dbo_Foos_FooId">
             <End Role="Foos" EntitySet="Foos" />
             <End Role="Bars" EntitySet="Bars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Location_Meeting" Association="Self.FK_Location_Meeting">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Meeting" EntitySet="Meeting" />
           </AssociationSet>
           <AssociationSet Name="FK_Meet_Meetings" Association="Self.FK_Meet_Meetings">
             <End Role="Meeting" EntitySet="Meeting" />
@@ -312,7 +336,7 @@
             <End Role="Meeting" EntitySet="Meeting" />
             <End Role="MeetingVolunteerAttendance" EntitySet="MeetingVolunteerAttendance" />
           </AssociationSet>
-          <AssociationSet Name="FK_Parent_Student" Association="Self.FK_Parent_Student">
+          <AssociationSet Name="FK_ParentLink_Student" Association="Self.FK_ParentLink_Student">
             <End Role="Parent" EntitySet="Parent" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
@@ -325,95 +349,59 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="goyals420_troutModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="C__MigrationHistory">
-          <Key>
-            <PropertyRef Name="MigrationId" />
-            <PropertyRef Name="ContextKey" />
-          </Key>
-          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Bar">
-          <Key>
-            <PropertyRef Name="BarID" />
-          </Key>
-          <Property Name="BarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FooId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Foo" Relationship="Self.FK_dbo_Bars_dbo_Foos_FooId" FromRole="Bars" ToRole="Foos" />
-        </EntityType>
-        <EntityType Name="Foo">
-          <Key>
-            <PropertyRef Name="FooId" />
-          </Key>
-          <Property Name="FooId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FooName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Bars" Relationship="Self.FK_dbo_Bars_dbo_Foos_FooId" FromRole="Foos" ToRole="Bars" />
-        </EntityType>
-        <Association Name="FK_dbo_Bars_dbo_Foos_FooId">
-          <End Role="Foos" Type="Self.Foo" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Bars" Type="Self.Bar" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Foos">
-              <PropertyRef Name="FooId" />
-            </Principal>
-            <Dependent Role="Bars">
-              <PropertyRef Name="FooId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="goyals420_troutEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
-          <EntitySet Name="Bars" EntityType="Self.Bar" />
-          <EntitySet Name="Foos" EntityType="Self.Foo" />
-          <AssociationSet Name="FK_dbo_Bars_dbo_Foos_FooId" Association="Self.FK_dbo_Bars_dbo_Foos_FooId">
-            <End Role="Foos" EntitySet="Foos" />
-            <End Role="Bars" EntitySet="Bars" />
-          </AssociationSet>
           <EntitySet Name="Donors" EntityType="goyals420_troutModel.Donor" />
+          <EntitySet Name="Locations" EntityType="goyals420_troutModel.Location" />
           <EntitySet Name="Meetings" EntityType="goyals420_troutModel.Meeting" />
-          <EntitySet Name="Staffs" EntityType="goyals420_troutModel.Staff" />
-          <EntitySet Name="Volunteers" EntityType="goyals420_troutModel.Volunteer" />
+          <EntitySet Name="MeetingStaffAttendances" EntityType="goyals420_troutModel.MeetingStaffAttendance" />
           <EntitySet Name="MeetingStudentAttendances" EntityType="goyals420_troutModel.MeetingStudentAttendance" />
+          <EntitySet Name="MeetingVolunteerAttendances" EntityType="goyals420_troutModel.MeetingVolunteerAttendance" />
+          <EntitySet Name="Parents" EntityType="goyals420_troutModel.Parent" />
+          <EntitySet Name="Staffs" EntityType="goyals420_troutModel.Staff" />
+          <EntitySet Name="Students" EntityType="goyals420_troutModel.Student" />
+          <EntitySet Name="Volunteers" EntityType="goyals420_troutModel.Volunteer" />
+          <EntitySet Name="C__MigrationHistory" EntityType="goyals420_troutModel.C__MigrationHistory" />
+          <EntitySet Name="Bars" EntityType="goyals420_troutModel.Bar" />
+          <EntitySet Name="Foos" EntityType="goyals420_troutModel.Foo" />
+          <AssociationSet Name="FK_Location_Meeting" Association="goyals420_troutModel.FK_Location_Meeting">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Meeting" EntitySet="Meetings" />
+          </AssociationSet>
           <AssociationSet Name="FK_Meet_Meetings" Association="goyals420_troutModel.FK_Meet_Meetings">
             <End Role="Meeting" EntitySet="Meetings" />
             <End Role="MeetingStudentAttendance" EntitySet="MeetingStudentAttendances" />
           </AssociationSet>
-          <EntitySet Name="MeetingStaffAttendances" EntityType="goyals420_troutModel.MeetingStaffAttendance" />
-          <EntitySet Name="MeetingVolunteerAttendances" EntityType="goyals420_troutModel.MeetingVolunteerAttendance" />
           <AssociationSet Name="FK_Meetstaff_Meetings" Association="goyals420_troutModel.FK_Meetstaff_Meetings">
             <End Role="Meeting" EntitySet="Meetings" />
-            <End Role="MeetingStaffAttendance" EntitySet="MeetingStaffAttendances" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Meet_Staff" Association="goyals420_troutModel.FK_Meet_Staff">
-            <End Role="Staff" EntitySet="Staffs" />
             <End Role="MeetingStaffAttendance" EntitySet="MeetingStaffAttendances" />
           </AssociationSet>
           <AssociationSet Name="FK_Meetvolunteer_Meetings" Association="goyals420_troutModel.FK_Meetvolunteer_Meetings">
             <End Role="Meeting" EntitySet="Meetings" />
             <End Role="MeetingVolunteerAttendance" EntitySet="MeetingVolunteerAttendances" />
           </AssociationSet>
-          <AssociationSet Name="FK_Meet_Volunteer" Association="goyals420_troutModel.FK_Meet_Volunteer">
-            <End Role="Volunteer" EntitySet="Volunteers" />
-            <End Role="MeetingVolunteerAttendance" EntitySet="MeetingVolunteerAttendances" />
+          <AssociationSet Name="FK_Meet_Staff" Association="goyals420_troutModel.FK_Meet_Staff">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="MeetingStaffAttendance" EntitySet="MeetingStaffAttendances" />
           </AssociationSet>
-          <EntitySet Name="Parents" EntityType="goyals420_troutModel.Parent" />
-          <EntitySet Name="Students" EntityType="goyals420_troutModel.Student" />
           <AssociationSet Name="FK_Meet_Student" Association="goyals420_troutModel.FK_Meet_Student">
             <End Role="Student" EntitySet="Students" />
             <End Role="MeetingStudentAttendance" EntitySet="MeetingStudentAttendances" />
           </AssociationSet>
-          <AssociationSet Name="FK_Parent_Student" Association="goyals420_troutModel.FK_Parent_Student">
+          <AssociationSet Name="FK_Meet_Volunteer" Association="goyals420_troutModel.FK_Meet_Volunteer">
+            <End Role="Volunteer" EntitySet="Volunteers" />
+            <End Role="MeetingVolunteerAttendance" EntitySet="MeetingVolunteerAttendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParentLink_Student" Association="goyals420_troutModel.FK_ParentLink_Student">
             <End Role="Parent" EntitySet="Parents" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
           <AssociationSet Name="FK_Student_Parent" Association="goyals420_troutModel.FK_Student_Parent">
             <End Role="Student" EntitySet="Students" />
             <End Role="Parent" EntitySet="Parents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Bars_dbo_Foos_FooId" Association="goyals420_troutModel.FK_dbo_Bars_dbo_Foos_FooId">
+            <End Role="Foo" EntitySet="Foos" />
+            <End Role="Bar" EntitySet="Bars" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Donor">
@@ -431,6 +419,14 @@
           <Property Name="Donor_CellPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Donor_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Location_NUM" />
+          </Key>
+          <Property Name="Location_NUM" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Meetings" Relationship="goyals420_troutModel.FK_Location_Meeting" FromRole="Location" ToRole="Meeting" />
+        </EntityType>
         <EntityType Name="Meeting">
           <Key>
             <PropertyRef Name="Meeting_NUM" />
@@ -439,10 +435,62 @@
           <Property Name="Meeting_Start" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Meeting_End" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Meeting_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Meeting_Location" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Location" Relationship="goyals420_troutModel.FK_Location_Meeting" FromRole="Meeting" ToRole="Location" />
           <NavigationProperty Name="MeetingStudentAttendances" Relationship="goyals420_troutModel.FK_Meet_Meetings" FromRole="Meeting" ToRole="MeetingStudentAttendance" />
           <NavigationProperty Name="MeetingStaffAttendances" Relationship="goyals420_troutModel.FK_Meetstaff_Meetings" FromRole="Meeting" ToRole="MeetingStaffAttendance" />
           <NavigationProperty Name="MeetingVolunteerAttendances" Relationship="goyals420_troutModel.FK_Meetvolunteer_Meetings" FromRole="Meeting" ToRole="MeetingVolunteerAttendance" />
+        </EntityType>
+        <EntityType Name="MeetingStaffAttendance">
+          <Key>
+            <PropertyRef Name="Staff_NUM" />
+            <PropertyRef Name="Meeting_NUM" />
+          </Key>
+          <Property Name="Staff_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
+          <Property Name="Attendance" Type="Boolean" />
+          <NavigationProperty Name="Meeting" Relationship="goyals420_troutModel.FK_Meetstaff_Meetings" FromRole="MeetingStaffAttendance" ToRole="Meeting" />
+          <NavigationProperty Name="Staff" Relationship="goyals420_troutModel.FK_Meet_Staff" FromRole="MeetingStaffAttendance" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="MeetingStudentAttendance">
+          <Key>
+            <PropertyRef Name="Student_NUM" />
+            <PropertyRef Name="Meeting_NUM" />
+          </Key>
+          <Property Name="Student_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
+          <Property Name="Attendance" Type="Boolean" />
+          <NavigationProperty Name="Meeting" Relationship="goyals420_troutModel.FK_Meet_Meetings" FromRole="MeetingStudentAttendance" ToRole="Meeting" />
+          <NavigationProperty Name="Student" Relationship="goyals420_troutModel.FK_Meet_Student" FromRole="MeetingStudentAttendance" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="MeetingVolunteerAttendance">
+          <Key>
+            <PropertyRef Name="Volunteer_NUM" />
+            <PropertyRef Name="Meeting_NUM" />
+          </Key>
+          <Property Name="Volunteer_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
+          <Property Name="Attendance" Type="Boolean" />
+          <NavigationProperty Name="Meeting" Relationship="goyals420_troutModel.FK_Meetvolunteer_Meetings" FromRole="MeetingVolunteerAttendance" ToRole="Meeting" />
+          <NavigationProperty Name="Volunteer" Relationship="goyals420_troutModel.FK_Meet_Volunteer" FromRole="MeetingVolunteerAttendance" ToRole="Volunteer" />
+        </EntityType>
+        <EntityType Name="Parent">
+          <Key>
+            <PropertyRef Name="Parent_NUM" />
+          </Key>
+          <Property Name="Parent_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_Address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_City" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_State" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_Zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_HomeTele" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_CellPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Student_NUM" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Students" Relationship="goyals420_troutModel.FK_ParentLink_Student" FromRole="Parent" ToRole="Student" />
+          <NavigationProperty Name="Student" Relationship="goyals420_troutModel.FK_Student_Parent" FromRole="Parent" ToRole="Student" />
         </EntityType>
         <EntityType Name="Staff">
           <Key>
@@ -461,135 +509,6 @@
           <Property Name="STARTDATE" Type="DateTime" Precision="0" />
           <Property Name="ENDDATE" Type="DateTime" Precision="0" />
           <NavigationProperty Name="MeetingStaffAttendances" Relationship="goyals420_troutModel.FK_Meet_Staff" FromRole="Staff" ToRole="MeetingStaffAttendance" />
-        </EntityType>
-        <EntityType Name="Volunteer">
-          <Key>
-            <PropertyRef Name="Volunteer_NUM" />
-          </Key>
-          <Property Name="Volunteer_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Volunteer_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Volunteer_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Volunteer_Address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Volunteer_City" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Volunteer_State" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="Volunteer_Zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="Volunteer_HomeTele" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Volunteer_CellPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Volunteer_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="STARTDATE" Type="DateTime" Precision="0" />
-          <Property Name="ENDDATE" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="MeetingVolunteerAttendances" Relationship="goyals420_troutModel.FK_Meet_Volunteer" FromRole="Volunteer" ToRole="MeetingVolunteerAttendance" />
-        </EntityType>
-        <EntityType Name="MeetingStudentAttendance">
-          <Key>
-            <PropertyRef Name="Student_NUM" />
-            <PropertyRef Name="Meeting_NUM" />
-          </Key>
-          <Property Name="Student_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
-          <Property Name="Attendance" Type="Boolean" />
-          <NavigationProperty Name="Meeting" Relationship="goyals420_troutModel.FK_Meet_Meetings" FromRole="MeetingStudentAttendance" ToRole="Meeting" />
-          <NavigationProperty Name="Student" Relationship="goyals420_troutModel.FK_Meet_Student" FromRole="MeetingStudentAttendance" ToRole="Student" />
-        </EntityType>
-        <Association Name="FK_Meet_Meetings">
-          <End Type="goyals420_troutModel.Meeting" Role="Meeting" Multiplicity="1" />
-          <End Type="goyals420_troutModel.MeetingStudentAttendance" Role="MeetingStudentAttendance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Meeting">
-              <PropertyRef Name="Meeting_NUM" />
-            </Principal>
-            <Dependent Role="MeetingStudentAttendance">
-              <PropertyRef Name="Meeting_NUM" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="MeetingStaffAttendance">
-          <Key>
-            <PropertyRef Name="Staff_NUM" />
-            <PropertyRef Name="Meeting_NUM" />
-          </Key>
-          <Property Name="Staff_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
-          <Property Name="Attendance" Type="Boolean" />
-          <NavigationProperty Name="Meeting" Relationship="goyals420_troutModel.FK_Meetstaff_Meetings" FromRole="MeetingStaffAttendance" ToRole="Meeting" />
-          <NavigationProperty Name="Staff" Relationship="goyals420_troutModel.FK_Meet_Staff" FromRole="MeetingStaffAttendance" ToRole="Staff" />
-        </EntityType>
-        <EntityType Name="MeetingVolunteerAttendance">
-          <Key>
-            <PropertyRef Name="Volunteer_NUM" />
-            <PropertyRef Name="Meeting_NUM" />
-          </Key>
-          <Property Name="Volunteer_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Meeting_NUM" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
-          <Property Name="Attendance" Type="Boolean" />
-          <NavigationProperty Name="Meeting" Relationship="goyals420_troutModel.FK_Meetvolunteer_Meetings" FromRole="MeetingVolunteerAttendance" ToRole="Meeting" />
-          <NavigationProperty Name="Volunteer" Relationship="goyals420_troutModel.FK_Meet_Volunteer" FromRole="MeetingVolunteerAttendance" ToRole="Volunteer" />
-        </EntityType>
-        <Association Name="FK_Meetstaff_Meetings">
-          <End Type="goyals420_troutModel.Meeting" Role="Meeting" Multiplicity="1" />
-          <End Type="goyals420_troutModel.MeetingStaffAttendance" Role="MeetingStaffAttendance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Meeting">
-              <PropertyRef Name="Meeting_NUM" />
-            </Principal>
-            <Dependent Role="MeetingStaffAttendance">
-              <PropertyRef Name="Meeting_NUM" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Meet_Staff">
-          <End Type="goyals420_troutModel.Staff" Role="Staff" Multiplicity="1" />
-          <End Type="goyals420_troutModel.MeetingStaffAttendance" Role="MeetingStaffAttendance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Staff">
-              <PropertyRef Name="Staff_NUM" />
-            </Principal>
-            <Dependent Role="MeetingStaffAttendance">
-              <PropertyRef Name="Staff_NUM" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Meetvolunteer_Meetings">
-          <End Type="goyals420_troutModel.Meeting" Role="Meeting" Multiplicity="1" />
-          <End Type="goyals420_troutModel.MeetingVolunteerAttendance" Role="MeetingVolunteerAttendance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Meeting">
-              <PropertyRef Name="Meeting_NUM" />
-            </Principal>
-            <Dependent Role="MeetingVolunteerAttendance">
-              <PropertyRef Name="Meeting_NUM" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Meet_Volunteer">
-          <End Type="goyals420_troutModel.Volunteer" Role="Volunteer" Multiplicity="1" />
-          <End Type="goyals420_troutModel.MeetingVolunteerAttendance" Role="MeetingVolunteerAttendance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Volunteer">
-              <PropertyRef Name="Volunteer_NUM" />
-            </Principal>
-            <Dependent Role="MeetingVolunteerAttendance">
-              <PropertyRef Name="Volunteer_NUM" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Parent">
-          <Key>
-            <PropertyRef Name="Parent_NUM" />
-          </Key>
-          <Property Name="Parent_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="Parent_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Parent_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="Parent_Address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Parent_City" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Parent_State" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="Parent_Zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <Property Name="Parent_HomeTele" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Parent_CellPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="Parent_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Student_NUM" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Students" Relationship="goyals420_troutModel.FK_Parent_Student" FromRole="Parent" ToRole="Student" />
-          <NavigationProperty Name="Student" Relationship="goyals420_troutModel.FK_Student_Parent" FromRole="Parent" ToRole="Student" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -614,9 +533,120 @@
           <Property Name="STARTDATE" Type="DateTime" Precision="0" />
           <Property Name="ENDDATE" Type="DateTime" Precision="0" />
           <NavigationProperty Name="MeetingStudentAttendances" Relationship="goyals420_troutModel.FK_Meet_Student" FromRole="Student" ToRole="MeetingStudentAttendance" />
-          <NavigationProperty Name="Parent" Relationship="goyals420_troutModel.FK_Parent_Student" FromRole="Student" ToRole="Parent" />
+          <NavigationProperty Name="Parent" Relationship="goyals420_troutModel.FK_ParentLink_Student" FromRole="Student" ToRole="Parent" />
           <NavigationProperty Name="Parents" Relationship="goyals420_troutModel.FK_Student_Parent" FromRole="Student" ToRole="Parent" />
         </EntityType>
+        <EntityType Name="Volunteer">
+          <Key>
+            <PropertyRef Name="Volunteer_NUM" />
+          </Key>
+          <Property Name="Volunteer_NUM" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_Address" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_City" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_State" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_Zip" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_HomeTele" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_CellPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Volunteer_Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="STARTDATE" Type="DateTime" Precision="0" />
+          <Property Name="ENDDATE" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="MeetingVolunteerAttendances" Relationship="goyals420_troutModel.FK_Meet_Volunteer" FromRole="Volunteer" ToRole="MeetingVolunteerAttendance" />
+        </EntityType>
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Bar">
+          <Key>
+            <PropertyRef Name="BarID" />
+          </Key>
+          <Property Name="BarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FooId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Foo" Relationship="goyals420_troutModel.FK_dbo_Bars_dbo_Foos_FooId" FromRole="Bar" ToRole="Foo" />
+        </EntityType>
+        <EntityType Name="Foo">
+          <Key>
+            <PropertyRef Name="FooId" />
+          </Key>
+          <Property Name="FooId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FooName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bars" Relationship="goyals420_troutModel.FK_dbo_Bars_dbo_Foos_FooId" FromRole="Foo" ToRole="Bar" />
+        </EntityType>
+        <Association Name="FK_Location_Meeting">
+          <End Type="goyals420_troutModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="goyals420_troutModel.Meeting" Role="Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="Location_NUM" />
+            </Principal>
+            <Dependent Role="Meeting">
+              <PropertyRef Name="Location_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meet_Meetings">
+          <End Type="goyals420_troutModel.Meeting" Role="Meeting" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="goyals420_troutModel.MeetingStudentAttendance" Role="MeetingStudentAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Meeting_NUM" />
+            </Principal>
+            <Dependent Role="MeetingStudentAttendance">
+              <PropertyRef Name="Meeting_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetstaff_Meetings">
+          <End Type="goyals420_troutModel.Meeting" Role="Meeting" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="goyals420_troutModel.MeetingStaffAttendance" Role="MeetingStaffAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Meeting_NUM" />
+            </Principal>
+            <Dependent Role="MeetingStaffAttendance">
+              <PropertyRef Name="Meeting_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetvolunteer_Meetings">
+          <End Type="goyals420_troutModel.Meeting" Role="Meeting" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="goyals420_troutModel.MeetingVolunteerAttendance" Role="MeetingVolunteerAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meeting">
+              <PropertyRef Name="Meeting_NUM" />
+            </Principal>
+            <Dependent Role="MeetingVolunteerAttendance">
+              <PropertyRef Name="Meeting_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meet_Staff">
+          <End Type="goyals420_troutModel.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="goyals420_troutModel.MeetingStaffAttendance" Role="MeetingStaffAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="Staff_NUM" />
+            </Principal>
+            <Dependent Role="MeetingStaffAttendance">
+              <PropertyRef Name="Staff_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Meet_Student">
           <End Type="goyals420_troutModel.Student" Role="Student" Multiplicity="1" />
           <End Type="goyals420_troutModel.MeetingStudentAttendance" Role="MeetingStudentAttendance" Multiplicity="*" />
@@ -629,7 +659,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Parent_Student">
+        <Association Name="FK_Meet_Volunteer">
+          <End Type="goyals420_troutModel.Volunteer" Role="Volunteer" Multiplicity="1" />
+          <End Type="goyals420_troutModel.MeetingVolunteerAttendance" Role="MeetingVolunteerAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Volunteer">
+              <PropertyRef Name="Volunteer_NUM" />
+            </Principal>
+            <Dependent Role="MeetingVolunteerAttendance">
+              <PropertyRef Name="Volunteer_NUM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParentLink_Student">
           <End Type="goyals420_troutModel.Parent" Role="Parent" Multiplicity="0..1" />
           <End Type="goyals420_troutModel.Student" Role="Student" Multiplicity="*" />
           <ReferentialConstraint>
@@ -653,39 +695,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        <Association Name="FK_dbo_Bars_dbo_Foos_FooId">
+          <End Type="goyals420_troutModel.Foo" Role="Foo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="goyals420_troutModel.Bar" Role="Bar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Foo">
+              <PropertyRef Name="FooId" />
+            </Principal>
+            <Dependent Role="Bar">
+              <PropertyRef Name="FooId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="goyals420_troutModelStoreContainer" CdmEntityContainer="goyals420_troutEntities">
-          <EntitySetMapping Name="C__MigrationHistory">
-            <EntityTypeMapping TypeName="goyals420_troutModel.C__MigrationHistory">
-              <MappingFragment StoreEntitySet="__MigrationHistory">
-                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
-                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
-                <ScalarProperty Name="Model" ColumnName="Model" />
-                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Bars">
-            <EntityTypeMapping TypeName="goyals420_troutModel.Bar">
-              <MappingFragment StoreEntitySet="Bars">
-                <ScalarProperty Name="BarID" ColumnName="BarID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="FooId" ColumnName="FooId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Foos">
-            <EntityTypeMapping TypeName="goyals420_troutModel.Foo">
-              <MappingFragment StoreEntitySet="Foos">
-                <ScalarProperty Name="FooId" ColumnName="FooId" />
-                <ScalarProperty Name="FooName" ColumnName="FooName" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Donors">
             <EntityTypeMapping TypeName="goyals420_troutModel.Donor">
               <MappingFragment StoreEntitySet="Donor">
@@ -702,59 +731,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="goyals420_troutModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="Location_Name" ColumnName="Location_Name" />
+                <ScalarProperty Name="Location_NUM" ColumnName="Location_NUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Meetings">
             <EntityTypeMapping TypeName="goyals420_troutModel.Meeting">
               <MappingFragment StoreEntitySet="Meeting">
-                <ScalarProperty Name="Meeting_Location" ColumnName="Meeting_Location" />
+                <ScalarProperty Name="Location_Name" ColumnName="Location_Name" />
                 <ScalarProperty Name="Meeting_Type" ColumnName="Meeting_Type" />
                 <ScalarProperty Name="Meeting_End" ColumnName="Meeting_End" />
                 <ScalarProperty Name="Meeting_Start" ColumnName="Meeting_Start" />
                 <ScalarProperty Name="Meeting_NUM" ColumnName="Meeting_NUM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Staffs">
-            <EntityTypeMapping TypeName="goyals420_troutModel.Staff">
-              <MappingFragment StoreEntitySet="Staff">
-                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
-                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
-                <ScalarProperty Name="Staff_Email" ColumnName="Staff_Email" />
-                <ScalarProperty Name="Staff_CellPhone" ColumnName="Staff_CellPhone" />
-                <ScalarProperty Name="Staff_HomeTele" ColumnName="Staff_HomeTele" />
-                <ScalarProperty Name="Staff_Zip" ColumnName="Staff_Zip" />
-                <ScalarProperty Name="Staff_State" ColumnName="Staff_State" />
-                <ScalarProperty Name="Staff_City" ColumnName="Staff_City" />
-                <ScalarProperty Name="Staff_Address" ColumnName="Staff_Address" />
-                <ScalarProperty Name="Staff_LastName" ColumnName="Staff_LastName" />
-                <ScalarProperty Name="Staff_FirstName" ColumnName="Staff_FirstName" />
-                <ScalarProperty Name="Staff_NUM" ColumnName="Staff_NUM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Volunteers">
-            <EntityTypeMapping TypeName="goyals420_troutModel.Volunteer">
-              <MappingFragment StoreEntitySet="Volunteer">
-                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
-                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
-                <ScalarProperty Name="Volunteer_Email" ColumnName="Volunteer_Email" />
-                <ScalarProperty Name="Volunteer_CellPhone" ColumnName="Volunteer_CellPhone" />
-                <ScalarProperty Name="Volunteer_HomeTele" ColumnName="Volunteer_HomeTele" />
-                <ScalarProperty Name="Volunteer_Zip" ColumnName="Volunteer_Zip" />
-                <ScalarProperty Name="Volunteer_State" ColumnName="Volunteer_State" />
-                <ScalarProperty Name="Volunteer_City" ColumnName="Volunteer_City" />
-                <ScalarProperty Name="Volunteer_Address" ColumnName="Volunteer_Address" />
-                <ScalarProperty Name="Volunteer_LastName" ColumnName="Volunteer_LastName" />
-                <ScalarProperty Name="Volunteer_FirstName" ColumnName="Volunteer_FirstName" />
-                <ScalarProperty Name="Volunteer_NUM" ColumnName="Volunteer_NUM" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MeetingStudentAttendances">
-            <EntityTypeMapping TypeName="goyals420_troutModel.MeetingStudentAttendance">
-              <MappingFragment StoreEntitySet="MeetingStudentAttendance">
-                <ScalarProperty Name="Attendance" ColumnName="Attendance" />
-                <ScalarProperty Name="Meeting_NUM" ColumnName="Meeting_NUM" />
-                <ScalarProperty Name="Student_NUM" ColumnName="Student_NUM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -764,6 +756,15 @@
                 <ScalarProperty Name="Attendance" ColumnName="Attendance" />
                 <ScalarProperty Name="Meeting_NUM" ColumnName="Meeting_NUM" />
                 <ScalarProperty Name="Staff_NUM" ColumnName="Staff_NUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MeetingStudentAttendances">
+            <EntityTypeMapping TypeName="goyals420_troutModel.MeetingStudentAttendance">
+              <MappingFragment StoreEntitySet="MeetingStudentAttendance">
+                <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+                <ScalarProperty Name="Meeting_NUM" ColumnName="Meeting_NUM" />
+                <ScalarProperty Name="Student_NUM" ColumnName="Student_NUM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -793,6 +794,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="goyals420_troutModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="Staff_Email" ColumnName="Staff_Email" />
+                <ScalarProperty Name="Staff_CellPhone" ColumnName="Staff_CellPhone" />
+                <ScalarProperty Name="Staff_HomeTele" ColumnName="Staff_HomeTele" />
+                <ScalarProperty Name="Staff_Zip" ColumnName="Staff_Zip" />
+                <ScalarProperty Name="Staff_State" ColumnName="Staff_State" />
+                <ScalarProperty Name="Staff_City" ColumnName="Staff_City" />
+                <ScalarProperty Name="Staff_Address" ColumnName="Staff_Address" />
+                <ScalarProperty Name="Staff_LastName" ColumnName="Staff_LastName" />
+                <ScalarProperty Name="Staff_FirstName" ColumnName="Staff_FirstName" />
+                <ScalarProperty Name="Staff_NUM" ColumnName="Staff_NUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="goyals420_troutModel.Student">
               <MappingFragment StoreEntitySet="Student">
@@ -814,6 +833,51 @@
                 <ScalarProperty Name="Student_LastName" ColumnName="Student_LastName" />
                 <ScalarProperty Name="Student_FirstName" ColumnName="Student_FirstName" />
                 <ScalarProperty Name="Student_NUM" ColumnName="Student_NUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Volunteers">
+            <EntityTypeMapping TypeName="goyals420_troutModel.Volunteer">
+              <MappingFragment StoreEntitySet="Volunteer">
+                <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+                <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+                <ScalarProperty Name="Volunteer_Email" ColumnName="Volunteer_Email" />
+                <ScalarProperty Name="Volunteer_CellPhone" ColumnName="Volunteer_CellPhone" />
+                <ScalarProperty Name="Volunteer_HomeTele" ColumnName="Volunteer_HomeTele" />
+                <ScalarProperty Name="Volunteer_Zip" ColumnName="Volunteer_Zip" />
+                <ScalarProperty Name="Volunteer_State" ColumnName="Volunteer_State" />
+                <ScalarProperty Name="Volunteer_City" ColumnName="Volunteer_City" />
+                <ScalarProperty Name="Volunteer_Address" ColumnName="Volunteer_Address" />
+                <ScalarProperty Name="Volunteer_LastName" ColumnName="Volunteer_LastName" />
+                <ScalarProperty Name="Volunteer_FirstName" ColumnName="Volunteer_FirstName" />
+                <ScalarProperty Name="Volunteer_NUM" ColumnName="Volunteer_NUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="goyals420_troutModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bars">
+            <EntityTypeMapping TypeName="goyals420_troutModel.Bar">
+              <MappingFragment StoreEntitySet="Bars">
+                <ScalarProperty Name="FooId" ColumnName="FooId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BarID" ColumnName="BarID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Foos">
+            <EntityTypeMapping TypeName="goyals420_troutModel.Foo">
+              <MappingFragment StoreEntitySet="Foos">
+                <ScalarProperty Name="FooName" ColumnName="FooName" />
+                <ScalarProperty Name="FooId" ColumnName="FooId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

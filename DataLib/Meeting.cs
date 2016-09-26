@@ -26,8 +26,9 @@ namespace DataLib
         public System.DateTime Meeting_Start { get; set; }
         public System.DateTime Meeting_End { get; set; }
         public string Meeting_Type { get; set; }
-        public string Meeting_Location { get; set; }
+        public string Location_Name { get; set; }
     
+        public virtual Location Location { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MeetingStudentAttendance> MeetingStudentAttendances { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,0 +1,54 @@
+﻿@model DataLib.Meeting
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Details</h2>
+
+<div>
+    <h4>Meeting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting_Start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Meeting_Start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting_End)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Meeting_End)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Meeting_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Meeting_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.Location_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.Location_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Meeting_NUM }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
