@@ -13,8 +13,5 @@ namespace AdelanteRedo.Models
                         : base("AdelanteConnection")
         {
         }
-
-        public DbSet<Foo> Foos { get; set; }
-        public DbSet<Bar> Bars { get; set; }
     }
 }
