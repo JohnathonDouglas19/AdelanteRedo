@@ -15,7 +15,7 @@ namespace AdelanteRedo
             createRolesandUsers();
         }
 
-        // In this method we will create default User roles and Admin user for login   
+        // In this method we will create default User roles, Admin, and SuperAdmin user for login   
         private void createRolesandUsers()
         {
             ApplicationDbContext context = new ApplicationDbContext();
@@ -24,16 +24,16 @@ namespace AdelanteRedo
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
 
-            //In Startup iam creating first Admin Role and creating a default Admin User    
-            if (!roleManager.RoleExists("Admin"))
+            //In Startup iam creating first SuperAdmin Role and creating a default Admin User    
+            if (!roleManager.RoleExists("SuperAdmin"))
             {
 
-                //first we create Admin rool
+                //first we create SuperAdmin Role
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Admin";
+                role.Name = "SuperAdmin";
                 roleManager.Create(role);
 
-                //Here we create a Admin super user who will maintain the website
+                //Here we create a SuperAdmin user who will maintain the website
 
                 var user = new ApplicationUser();
                 user.UserName = "superadmin@email.com";
@@ -43,32 +43,101 @@ namespace AdelanteRedo
 
                 var chkUser = UserManager.Create(user, userPWD);
 
-                //Add default User to Role Admin
+                //Add default User to Role SuperAdmin
                 if (chkUser.Succeeded)
                 {
-                    var result1 = UserManager.AddToRole(user.Id, "Admin");
+                    var result1 = UserManager.AddToRole(user.Id, "SuperAdmin");
 
                 }
             }
+        
             //copy these if statements in the future for however many roles need to be generated
             //can change what they are
-            //creating Creating Manager role
-            if (!roleManager.RoleExists("Manager"))
+            //creating Creating Administrator role
+            if (!roleManager.RoleExists("Administrator"))
+            {
+
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Administrator";
+                roleManager.Create(role);
+
+                
+                //Here we create a Administrator user who will maintain the website
+
+                var user = new ApplicationUser();
+                user.UserName = "administrator@email.com";
+                user.Email =    "administrator@email.com";
+
+                string userPWD = "adelante123";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add default User to Role Administrator
+                if (chkUser.Succeeded)
                 {
-                    var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                    role.Name = "Manager";
-                    roleManager.Create(role);
+                    var result1 = UserManager.AddToRole(user.Id, "Administrator");
 
                 }
 
-            //creating Creating Employee role
-            if (!roleManager.RoleExists("Employee"))
-            {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Employee";
-                roleManager.Create(role);
 
             }
+
+            
+            //creating Creating Student role
+            if (!roleManager.RoleExists("Student"))
+            {
+
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Student";
+                roleManager.Create(role);
+
+                //Here we create a Student user who will maintain the website
+
+                var user = new ApplicationUser();
+                user.UserName = "student@email.com";
+                user.Email =    "student@email.com";
+
+                string userPWD = "adelante123";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add default User to Role Student
+                if (chkUser.Succeeded)
+                {
+                    var result1 = UserManager.AddToRole(user.Id, "Student");
+
+                }
+
+            }
+
+            //creating Creating Volunteer role
+            if (!roleManager.RoleExists("Volunteer"))
+            {
+
+                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                role.Name = "Volunteer";
+                roleManager.Create(role);
+
+                //Here we create a Volunteer user who will maintain the website
+
+                var user = new ApplicationUser();
+                user.UserName = "volunteer@email.com";
+                user.Email =    "volunteer@email.com";
+
+                string userPWD = "adelante123";
+
+                var chkUser = UserManager.Create(user, userPWD);
+
+                //Add default User to Role Volunteer
+                if (chkUser.Succeeded)
+                {
+                    var result1 = UserManager.AddToRole(user.Id, "Volunteer");
+
+                }
+
+
+            }
+
         }
     }
 }
