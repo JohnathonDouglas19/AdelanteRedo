@@ -64,8 +64,8 @@ namespace AdelanteRedo.Models
 
     public class RegisterViewModel
     {
-        [Required]
-        [Display(Name = "UserRoles")]
+        //[Required]
+        //[Display(Name = "UserRoles")]
         public string UserRoles { get; set; }
 
         [Required]

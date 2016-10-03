@@ -231,10 +231,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-AdelanteRedo-20160907044221.mdf" />
-    <Content Include="App_Data\aspnet-AdelanteRedo-20160907044221_log.ldf">
-      <DependentUpon>aspnet-AdelanteRedo-20160907044221.mdf</DependentUpon>
-    </Content>
     <Content Include="bin\AdelanteRedo.dll" />
     <Content Include="bin\AdelanteRedo.pdb" />
     <Content Include="bin\Antlr3.Runtime.dll" />
@@ -512,6 +508,7 @@
     <Content Include="Views\Admin\UserManagement.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Course\" />
     <Folder Include="Views\Enrollment\" />
