@@ -10,7 +10,7 @@ namespace AdelanteRedo.Models
     public class AdelanteContext : DbContext
     {
         public AdelanteContext()
-                        : base("AdelanteConnection")
+                        : base("DefaultConnection")
         {
         }
     }
