@@ -7,17 +7,18 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DataLib;
+using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
     public class StudentsController : Controller
     {
-        private goyals420_troutEntities db = new goyals420_troutEntities();
-
+        private ApplicationDbContext db = new ApplicationDbContext();
+        
         // GET: Students
         public ActionResult Index()
         {
-            var students = db.Students.Include(s => s.Parent);
+            var students = db.Students.ToList();
             return View(students.ToList());
         }
 
@@ -28,7 +29,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Models.Student student = db.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -39,7 +40,7 @@ namespace AdelanteRedo.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
-            ViewBag.Parent_NUM = new SelectList(db.Parents, "Parent_NUM", "Parent_FirstName");
+            ViewBag.Parent_NUM = new SelectList(db.Set<Parent>(), "Parent_NUM", "Parent_FirstName");
             return View();
         }
 
@@ -48,7 +49,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Student_NUM,Student_FirstName,Student_LastName,Student_MInitial,Student_Gender,Student_Address,Student_City,Student_State,Student_Zip,Student_HomeTele,Student_CellPhone,Student_Email,Student_Picture_path,Student_PimaryLang,Student_SecondLang,Parent_NUM,STARTDATE,ENDDATE")] Student student)
+        public ActionResult Create([Bind(Include = "Student_NUM,Student_FirstName,Student_LastName,Student_MInitial,Student_Gender,Student_Address,Student_City,Student_State,Student_Zip,Student_HomeTele,Student_CellPhone,Student_Email,Student_Picture_path,Student_PimaryLang,Student_SecondLang,Parent_NUM,STARTDATE,ENDDATE")] Models.Student student)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +58,7 @@ namespace AdelanteRedo.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Parent_NUM = new SelectList(db.Parents, "Parent_NUM", "Parent_FirstName", student.Parent_NUM);
+            //ViewBag.Parent_NUM = new SelectList(db.Set<Parent>(), "Parent_NUM", "Parent_FirstName", student.Parent_NUM);
             return View(student);
         }
 
@@ -68,12 +69,13 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Models.Student student = db.Set<Models.Student>().Find(id);
             if (student == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Parent_NUM = new SelectList(db.Parents, "Parent_NUM", "Parent_FirstName", student.Parent_NUM);
+            //TODO: Update
+            //ViewBag.Parent_NUM = new SelectList(db.Set<Parent>(), "Parent_NUM", "Parent_FirstName", student.Parent_NUM);
             return View(student);
         }
 
@@ -82,7 +84,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Student_NUM,Student_FirstName,Student_LastName,Student_MInitial,Student_Gender,Student_Address,Student_City,Student_State,Student_Zip,Student_HomeTele,Student_CellPhone,Student_Email,Student_Picture_path,Student_PimaryLang,Student_SecondLang,Parent_NUM,STARTDATE,ENDDATE")] Student student)
+        public ActionResult Edit([Bind(Include = "Student_NUM,Student_FirstName,Student_LastName,Student_MInitial,Student_Gender,Student_Address,Student_City,Student_State,Student_Zip,Student_HomeTele,Student_CellPhone,Student_Email,Student_Picture_path,Student_PimaryLang,Student_SecondLang,Parent_NUM,STARTDATE,ENDDATE")] Models.Student student)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +92,7 @@ namespace AdelanteRedo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Parent_NUM = new SelectList(db.Parents, "Parent_NUM", "Parent_FirstName", student.Parent_NUM);
+           // ViewBag.Parent_NUM = new SelectList(db.Set<Parent>(), "Parent_NUM", "Parent_FirstName", student.Parent_NUM);
             return View(student);
         }
 
@@ -101,7 +103,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Models.Student student = db.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -114,7 +116,7 @@ namespace AdelanteRedo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Student student = db.Students.Find(id);
+            Models.Student student = db.Students.Find(id);
             db.Students.Remove(student);
             db.SaveChanges();
             return RedirectToAction("Index");

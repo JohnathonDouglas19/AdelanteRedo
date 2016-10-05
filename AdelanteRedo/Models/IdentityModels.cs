@@ -18,21 +18,25 @@ namespace AdelanteRedo.Models
         }
     }
 
-    public class ApplicationRole : IdentityRole
-    {
-        public string Description;
-    }
-
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer<ApplicationDbContext>(new CreateDatabaseIfNotExists<ApplicationDbContext>());
+            Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
+
         }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+        //TODO: Add Sets for all entities in the Database.
+        public DbSet<Student> Students { get; set; }
+       // public DbSet<Parent> Parents { get; set; }
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Enrollment> Enrollments { get; set; }
     }
 }
