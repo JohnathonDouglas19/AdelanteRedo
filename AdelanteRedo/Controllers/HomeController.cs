@@ -77,7 +77,7 @@ namespace AdelanteRedo.Controllers
             return View();
         }
         [CaptchaValidator(
-        PrivateKey = "6LcfuQgUAAAAAJG4I1kYjH0dsI_aFV5okRA7w5N-",
+        PrivateKey = "",
         ErrorMessage = "Invalid input captcha.",
         RequiredMessage = "The captcha field is required.")]
         [HttpPost]
@@ -91,10 +91,12 @@ namespace AdelanteRedo.Controllers
 
             //See the referenced code for explanation of this example.
             //http://www.c-sharpcorner.com/uploadfile/sourabh_mishra1/sending-an-e-mail-using-asp-net-mvc/
-            if (ModelState.IsValid)
-            {
+
+            //TODO: Uncomment when pushing to production to enable reCaptcha validation.
+            //if (ModelState.IsValid)
+            //{
                 MailMessage mail = new MailMessage();
-                mail.To.Add("gmailEmail");
+                mail.To.Add("adelantehispanic@gmail.com");
                 mail.From = new MailAddress(viewModel.Email);
                 mail.Subject = "Contact Form Submission";
                 string Body = viewModel.Message;
@@ -105,15 +107,15 @@ namespace AdelanteRedo.Controllers
                 smtp.Port = 587;
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new System.Net.NetworkCredential
-                ("gmailEmail", "gmailPassword");// Enter senders User name and password  
+                ("adelantehispanic@gmail.com", "Adelante");// Enter senders User name and password  
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
                 return View("Index");
-            }
-            else
-            {
-                return View();
-            }
+            //}
+            //else
+            //{
+            //    return View();
+            //}
             return View();
         }
        
