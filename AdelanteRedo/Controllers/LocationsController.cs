@@ -21,7 +21,7 @@ namespace AdelanteRedo.Controllers
         }
 
         // GET: Locations/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -46,7 +46,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LocationID,Location_Name")] Location location)
+        public ActionResult Create([Bind(Include = "LocationID,Location_name")] Location location)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +59,7 @@ namespace AdelanteRedo.Controllers
         }
 
         // GET: Locations/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -78,7 +78,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LocationID,Location_Name")] Location location)
+        public ActionResult Edit([Bind(Include = "LocationID,Location_name")] Location location)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace AdelanteRedo.Controllers
         }
 
         // GET: Locations/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -107,7 +107,7 @@ namespace AdelanteRedo.Controllers
         // POST: Locations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Location location = db.Location.Find(id);
             db.Location.Remove(location);

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AdelanteRedo.Models.MeetingStudentAttendance>
+﻿@model IEnumerable<AdelanteRedo.Models.MeetingStaffAttendance>
 
 @{
     ViewBag.Title = "Index";
@@ -23,7 +23,7 @@
             @Html.DisplayNameFor(model => model.Meeting.Meeting_Type)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Student.LastName)
+            @Html.DisplayNameFor(model => model.Staff.Staff_FirstName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Attendance)
@@ -37,15 +37,15 @@
             @Html.DisplayFor(modelItem => item.Meeting.Meeting_Type)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Student.LastName)
+            @Html.DisplayFor(modelItem => item.Staff.Staff_FirstName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Attendance)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MeetingStudentAttendanceID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MeetingStudentAttendanceID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MeetingStudentAttendanceID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.MeetingStaffAttendanceID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MeetingStaffAttendanceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MeetingStaffAttendanceID })
         </td>
     </tr>
 }

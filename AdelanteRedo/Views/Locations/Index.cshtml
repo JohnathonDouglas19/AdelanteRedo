@@ -1,8 +1,13 @@
-﻿@model IEnumerable<DataLib.Location>
+﻿@model IEnumerable<AdelanteRedo.Models.Location>
 
 @{
     ViewBag.Title = "Index";
 }
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -16,7 +21,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Location_Name)
+            @Html.DisplayNameFor(model => model.Location_name)
         </th>
         <th></th>
     </tr>
@@ -24,12 +29,12 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Location_Name)
+            @Html.DisplayFor(modelItem => item.Location_name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Location_NUM }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Location_NUM }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Location_NUM })
+            @Html.ActionLink("Edit", "Edit", new { id=item.LocationID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LocationID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.LocationID })
         </td>
     </tr>
 }

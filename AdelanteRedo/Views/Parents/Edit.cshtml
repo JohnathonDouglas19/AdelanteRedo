@@ -1,8 +1,12 @@
-﻿@model DataLib.Parent
+﻿@model AdelanteRedo.Models.Parent
 
 @{
     ViewBag.Title = "Edit";
 }
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -19,7 +23,7 @@
         <h4>Parent</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Parent_NUM)
+        @Html.HiddenFor(model => model.ParentID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Parent_FirstName, htmlAttributes: new { @class = "control-label col-md-2" })

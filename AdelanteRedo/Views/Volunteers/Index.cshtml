@@ -1,0 +1,101 @@
+﻿@model IEnumerable<AdelanteRedo.Models.Volunteer>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer_FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer_LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer_City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer_State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer_Zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer_HomeTele)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer_CellPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volunteer_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STARTDATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ENDDATE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer_FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer_LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer_City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer_State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer_Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer_HomeTele)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer_CellPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Volunteer_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STARTDATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ENDDATE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VolunteerID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VolunteerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VolunteerID })
+        </td>
+    </tr>
+}
+
+</table>

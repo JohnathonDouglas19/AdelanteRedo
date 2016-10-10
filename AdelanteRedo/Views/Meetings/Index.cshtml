@@ -1,8 +1,12 @@
-﻿@model IEnumerable<DataLib.Meeting>
+﻿@model IEnumerable<AdelanteRedo.Models.Meeting>
 
 @{
     ViewBag.Title = "Index";
 }
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -25,7 +29,7 @@
             @Html.DisplayNameFor(model => model.Meeting_Type)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Location.Location_Name)
+            @Html.DisplayNameFor(model => model.Location_Name)
         </th>
         <th></th>
     </tr>
@@ -42,7 +46,7 @@
             @Html.DisplayFor(modelItem => item.Meeting_Type)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Location.Location_Name)
+            @Html.DisplayFor(modelItem => item.Location_Name)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MeetingID }) |
