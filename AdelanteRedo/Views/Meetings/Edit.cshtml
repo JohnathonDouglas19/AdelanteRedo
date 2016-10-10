@@ -19,7 +19,7 @@
         <h4>Meeting</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Meeting_NUM)
+        @Html.HiddenFor(model => model.MeetingID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Meeting_Start, htmlAttributes: new { @class = "control-label col-md-2" })

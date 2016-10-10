@@ -6,18 +6,18 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DataLib;
+using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
     public class MeetingsController : Controller
     {
-        private goyals420_troutEntities db = new goyals420_troutEntities();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Meetings
         public ActionResult Index()
         {
-            var meetings = db.Meetings.Include(m => m.Location);
+            var meetings = db.Meeting.Include(m => m.Location);
             return View(meetings.ToList());
         }
 
@@ -28,7 +28,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meetings.Find(id);
+            Meeting meeting = db.Meeting.Find(id);
             if (meeting == null)
             {
                 return HttpNotFound();
@@ -39,7 +39,7 @@ namespace AdelanteRedo.Controllers
         // GET: Meetings/Create
         public ActionResult Create()
         {
-            ViewBag.Location_Name = new SelectList(db.Locations, "Location_NUM", "Location_Name");
+            ViewBag.Location_Name = new SelectList(db.Location, "LocationID", "Location_Name");
             return View();
         }
 
@@ -48,16 +48,16 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Meeting_NUM,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
+        public ActionResult Create([Bind(Include = "MeetingID,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
-                db.Meetings.Add(meeting);
+                db.Meeting.Add(meeting);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Location_Name = new SelectList(db.Locations, "Location_NUM", "Location_Name", meeting.Location_Name);
+            ViewBag.Location_Name = new SelectList(db.Location, "LocationID", "Location_Name", meeting.Location_Name);
             return View(meeting);
         }
 
@@ -68,12 +68,12 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meetings.Find(id);
+            Meeting meeting = db.Meeting.Find(id);
             if (meeting == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Location_Name = new SelectList(db.Locations, "Location_NUM", "Location_Name", meeting.Location_Name);
+            ViewBag.Location_Name = new SelectList(db.Location, "LocationID", "Location_Name", meeting.Location_Name);
             return View(meeting);
         }
 
@@ -82,7 +82,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Meeting_NUM,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
+        public ActionResult Edit([Bind(Include = "MeetingID,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace AdelanteRedo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Location_Name = new SelectList(db.Locations, "Location_NUM", "Location_Name", meeting.Location_Name);
+            ViewBag.Location_Name = new SelectList(db.Location, "LocationID", "Location_Name", meeting.Location_Name);
             return View(meeting);
         }
 
@@ -101,7 +101,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meetings.Find(id);
+            Meeting meeting = db.Meeting.Find(id);
             if (meeting == null)
             {
                 return HttpNotFound();
@@ -114,8 +114,8 @@ namespace AdelanteRedo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(decimal id)
         {
-            Meeting meeting = db.Meetings.Find(id);
-            db.Meetings.Remove(meeting);
+            Meeting meeting = db.Meeting.Find(id);
+            db.Meeting.Remove(meeting);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

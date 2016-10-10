@@ -8,7 +8,7 @@ namespace AdelanteRedo.Models
 {
     public class Student
     {
-        public int Id { get; set; }
+        public int StudentID { get; set; }
 
         [Display(Name = "Last Name")]
         public string LastName { get; set; }

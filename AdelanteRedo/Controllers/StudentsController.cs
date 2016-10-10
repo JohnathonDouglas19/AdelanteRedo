@@ -6,7 +6,6 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DataLib;
 using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
@@ -49,7 +48,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Student_NUM,Student_FirstName,Student_LastName,Student_MInitial,Student_Gender,Student_Address,Student_City,Student_State,Student_Zip,Student_HomeTele,Student_CellPhone,Student_Email,Student_Picture_path,Student_PimaryLang,Student_SecondLang,Parent_NUM,STARTDATE,ENDDATE")] Models.Student student)
+        public ActionResult Create([Bind(Include = "StudentID,Student_FirstName,Student_LastName,Student_MInitial,Student_Gender,Student_Address,Student_City,Student_State,Student_Zip,Student_HomeTele,Student_CellPhone,Student_Email,Student_Picture_path,Student_PimaryLang,Student_SecondLang,Parent_NUM,STARTDATE,ENDDATE")] Models.Student student)
         {
             if (ModelState.IsValid)
             {
@@ -84,7 +83,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Student_NUM,Student_FirstName,Student_LastName,Student_MInitial,Student_Gender,Student_Address,Student_City,Student_State,Student_Zip,Student_HomeTele,Student_CellPhone,Student_Email,Student_Picture_path,Student_PimaryLang,Student_SecondLang,Parent_NUM,STARTDATE,ENDDATE")] Models.Student student)
+        public ActionResult Edit([Bind(Include = "StudentID,Student_FirstName,Student_LastName,Student_MInitial,Student_Gender,Student_Address,Student_City,Student_State,Student_Zip,Student_HomeTele,Student_CellPhone,Student_Email,Student_Picture_path,Student_PimaryLang,Student_SecondLang,Parent_NUM,STARTDATE,ENDDATE")] Models.Student student)
         {
             if (ModelState.IsValid)
             {
