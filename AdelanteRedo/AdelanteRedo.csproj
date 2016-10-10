@@ -221,14 +221,24 @@
     <Compile Include="Models\AdelanteContext.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Grant.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MailViewModel.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Meeting.cs" />
+    <Compile Include="Models\MeetingStaffAttendance.cs" />
+    <Compile Include="Models\MeetingStudentAttendance.cs" />
+    <Compile Include="Models\MeetingVolunteerAttendance.cs" />
+    <Compile Include="Models\Parent.cs" />
     <Compile Include="Models\Program.cs" />
+    <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentParent.cs" />
+    <Compile Include="Models\Volunteer.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -478,11 +488,11 @@
     <Content Include="Views\Attendance\Details.cshtml" />
     <Content Include="Views\Attendance\Edit.cshtml" />
     <Content Include="Views\Attendance\Index.cshtml" />
-    <Content Include="Views\Donors\Create.cshtml" />
-    <Content Include="Views\Donors\Delete.cshtml" />
-    <Content Include="Views\Donors\Details.cshtml" />
-    <Content Include="Views\Donors\Edit.cshtml" />
-    <Content Include="Views\Donors\Index.cshtml" />
+    <Content Include="Views\Donorsold\Create.cshtml" />
+    <Content Include="Views\Donorsold\Delete.cshtml" />
+    <Content Include="Views\Donorsold\Details.cshtml" />
+    <Content Include="Views\Donorsold\Edit.cshtml" />
+    <Content Include="Views\Donorsold\Index.cshtml" />
     <Content Include="Views\Parents\Create.cshtml" />
     <Content Include="Views\Parents\Delete.cshtml" />
     <Content Include="Views\Parents\Details.cshtml" />
@@ -511,6 +521,7 @@
     <Content Include="Views\MeetingStudentAttendances\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\UserManagement.cshtml" />
+    <Content Include="Views\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -528,12 +539,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataLib\DataLib.csproj">
-      <Project>{9b803ca5-acbd-48bc-953a-dc573ef15bd1}</Project>
-      <Name>DataLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

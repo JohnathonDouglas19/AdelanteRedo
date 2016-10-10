@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DataLib;
+using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
     public class ParentsController : Controller
     {
-        private goyals420_troutEntities db = new goyals420_troutEntities();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Parents
         public ActionResult Index()

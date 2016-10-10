@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DataLib;
+using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
     public class DonorsController : Controller
     {
-        private goyals420_troutEntities db = new goyals420_troutEntities();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Donors
         public ActionResult Index()
         {
-            return View(db.Donors.ToList());
+            var Donor = db.Donor.ToList();
+            return View(Donor.ToList());
         }
 
         // GET: Donors/Details/5
@@ -27,7 +28,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Donor donor = db.Donors.Find(id);
+            Donor donor = db.Donor.Find(id);
             if (donor == null)
             {
                 return HttpNotFound();
@@ -50,7 +51,7 @@ namespace AdelanteRedo.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Donors.Add(donor);
+                db.Donor.Add(donor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +66,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Donor donor = db.Donors.Find(id);
+            Donor donor = db.Donor.Find(id);
             if (donor == null)
             {
                 return HttpNotFound();
@@ -96,7 +97,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Donor donor = db.Donors.Find(id);
+            Donor donor = db.Donor.Find(id);
             if (donor == null)
             {
                 return HttpNotFound();
@@ -109,8 +110,8 @@ namespace AdelanteRedo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Donor donor = db.Donors.Find(id);
-            db.Donors.Remove(donor);
+            Donor donor = db.Donor.Find(id);
+            db.Donor.Remove(donor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
