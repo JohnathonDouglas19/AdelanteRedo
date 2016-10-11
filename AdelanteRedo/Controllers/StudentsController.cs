@@ -13,22 +13,21 @@ namespace AdelanteRedo.Controllers
     public class StudentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+
         // GET: Students
         public ActionResult Index()
         {
-            var students = db.Students.ToList();
-            return View(students.ToList());
+            return View(db.Students.ToList());
         }
 
         // GET: Students/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Models.Student student = db.Students.Find(id);
+            Student student = db.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -39,7 +38,6 @@ namespace AdelanteRedo.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
-            ViewBag.Parent_NUM = new SelectList(db.Set<Parent>(), "Parent_NUM", "Parent_FirstName");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StudentID,Student_FirstName,Student_LastName,Student_MInitial,Student_Gender,Student_Address,Student_City,Student_State,Student_Zip,Student_HomeTele,Student_CellPhone,Student_Email,Student_Picture_path,Student_PimaryLang,Student_SecondLang,Parent_NUM,STARTDATE,ENDDATE")] Models.Student student)
+        public ActionResult Create([Bind(Include = "StudentID,LastName,FirstName,EnrollmentDate")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -57,24 +55,21 @@ namespace AdelanteRedo.Controllers
                 return RedirectToAction("Index");
             }
 
-            //ViewBag.Parent_NUM = new SelectList(db.Set<Parent>(), "Parent_NUM", "Parent_FirstName", student.Parent_NUM);
             return View(student);
         }
 
         // GET: Students/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Models.Student student = db.Set<Models.Student>().Find(id);
+            Student student = db.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
             }
-            //TODO: Update
-            //ViewBag.Parent_NUM = new SelectList(db.Set<Parent>(), "Parent_NUM", "Parent_FirstName", student.Parent_NUM);
             return View(student);
         }
 
@@ -83,7 +78,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StudentID,Student_FirstName,Student_LastName,Student_MInitial,Student_Gender,Student_Address,Student_City,Student_State,Student_Zip,Student_HomeTele,Student_CellPhone,Student_Email,Student_Picture_path,Student_PimaryLang,Student_SecondLang,Parent_NUM,STARTDATE,ENDDATE")] Models.Student student)
+        public ActionResult Edit([Bind(Include = "StudentID,LastName,FirstName,EnrollmentDate")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -91,18 +86,17 @@ namespace AdelanteRedo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-           // ViewBag.Parent_NUM = new SelectList(db.Set<Parent>(), "Parent_NUM", "Parent_FirstName", student.Parent_NUM);
             return View(student);
         }
 
         // GET: Students/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Models.Student student = db.Students.Find(id);
+            Student student = db.Students.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -113,9 +107,9 @@ namespace AdelanteRedo.Controllers
         // POST: Students/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Models.Student student = db.Students.Find(id);
+            Student student = db.Students.Find(id);
             db.Students.Remove(student);
             db.SaveChanges();
             return RedirectToAction("Index");

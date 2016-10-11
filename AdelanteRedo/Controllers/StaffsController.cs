@@ -10,107 +10,107 @@ using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
-    public class MeetingsController : Controller
+    public class StaffsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Meetings
+        // GET: Staffs
         public ActionResult Index()
         {
-            return View(db.Meeting.ToList());
+            return View(db.Staffs.ToList());
         }
 
-        // GET: Meetings/Details/5
+        // GET: Staffs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meeting.Find(id);
-            if (meeting == null)
+            Staff staff = db.Staffs.Find(id);
+            if (staff == null)
             {
                 return HttpNotFound();
             }
-            return View(meeting);
+            return View(staff);
         }
 
-        // GET: Meetings/Create
+        // GET: Staffs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Meetings/Create
+        // POST: Staffs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MeetingID,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
+        public ActionResult Create([Bind(Include = "StaffID,Staff_FirstName,Staff_LastName,Staff_Address,Staff_City,Staff_State,Staff_Zip,Staff_HomeTele,Staff_CellPhone,Staff_Email,STARTDATE,ENDDATE")] Staff staff)
         {
             if (ModelState.IsValid)
             {
-                db.Meeting.Add(meeting);
+                db.Staffs.Add(staff);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(meeting);
+            return View(staff);
         }
 
-        // GET: Meetings/Edit/5
+        // GET: Staffs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meeting.Find(id);
-            if (meeting == null)
+            Staff staff = db.Staffs.Find(id);
+            if (staff == null)
             {
                 return HttpNotFound();
             }
-            return View(meeting);
+            return View(staff);
         }
 
-        // POST: Meetings/Edit/5
+        // POST: Staffs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MeetingID,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
+        public ActionResult Edit([Bind(Include = "StaffID,Staff_FirstName,Staff_LastName,Staff_Address,Staff_City,Staff_State,Staff_Zip,Staff_HomeTele,Staff_CellPhone,Staff_Email,STARTDATE,ENDDATE")] Staff staff)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(meeting).State = EntityState.Modified;
+                db.Entry(staff).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(meeting);
+            return View(staff);
         }
 
-        // GET: Meetings/Delete/5
+        // GET: Staffs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meeting.Find(id);
-            if (meeting == null)
+            Staff staff = db.Staffs.Find(id);
+            if (staff == null)
             {
                 return HttpNotFound();
             }
-            return View(meeting);
+            return View(staff);
         }
 
-        // POST: Meetings/Delete/5
+        // POST: Staffs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Meeting meeting = db.Meeting.Find(id);
-            db.Meeting.Remove(meeting);
+            Staff staff = db.Staffs.Find(id);
+            db.Staffs.Remove(staff);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

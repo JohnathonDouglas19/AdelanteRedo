@@ -14,15 +14,15 @@ namespace AdelanteRedo.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: MeetingStudentAttendance
+        // GET: MeetingStudentAttendances
         public ActionResult Index()
         {
-            var meetingStudentAttendances = db.MeetingStudentAttendance.Include(m => m.Meeting).Include(m => m.Student);
-            return View(meetingStudentAttendances.ToList());
+            var meetingStudentAttendance = db.MeetingStudentAttendance.Include(m => m.Meeting).Include(m => m.Student);
+            return View(meetingStudentAttendance.ToList());
         }
 
-        // GET: MeetingStudentAttendance/Details/5
-        public ActionResult Details(string id)
+        // GET: MeetingStudentAttendances/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -36,20 +36,20 @@ namespace AdelanteRedo.Controllers
             return View(meetingStudentAttendance);
         }
 
-        // GET: MeetingStudentAttendance/Create
+        // GET: MeetingStudentAttendances/Create
         public ActionResult Create()
         {
             ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type");
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Student_FirstName");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName");
             return View();
         }
 
-        // POST: MeetingStudentAttendance/Create
+        // POST: MeetingStudentAttendances/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StudentID,MeetingID,Attendance")] MeetingStudentAttendance meetingStudentAttendance)
+        public ActionResult Create([Bind(Include = "MeetingStudentAttendanceID,StudentID,MeetingID,Attendance")] MeetingStudentAttendance meetingStudentAttendance)
         {
             if (ModelState.IsValid)
             {
@@ -59,33 +59,33 @@ namespace AdelanteRedo.Controllers
             }
 
             ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Student_FirstName", meetingStudentAttendance.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
 
-        // GET: MeetingStudentAttendance/Edit/5
-        public ActionResult Edit(Decimal MeetingID)
+        // GET: MeetingStudentAttendances/Edit/5
+        public ActionResult Edit(int? id)
         {
-            if (MeetingID == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MeetingStudentAttendance meetingStudentAttendance = db.MeetingStudentAttendance.Find(MeetingID);
+            MeetingStudentAttendance meetingStudentAttendance = db.MeetingStudentAttendance.Find(id);
             if (meetingStudentAttendance == null)
             {
                 return HttpNotFound();
             }
             ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Student_FirstName", meetingStudentAttendance.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
 
-        // POST: MeetingStudentAttendance/Edit/5
+        // POST: MeetingStudentAttendances/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StudentID,MeetingID,Attendance")] MeetingStudentAttendance meetingStudentAttendance)
+        public ActionResult Edit([Bind(Include = "MeetingStudentAttendanceID,StudentID,MeetingID,Attendance")] MeetingStudentAttendance meetingStudentAttendance)
         {
             if (ModelState.IsValid)
             {
@@ -94,12 +94,12 @@ namespace AdelanteRedo.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "Student_FirstName", meetingStudentAttendance.StudentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
 
-        // GET: MeetingStudentAttendance/Delete/5
-        public ActionResult Delete(string id)
+        // GET: MeetingStudentAttendances/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -113,10 +113,10 @@ namespace AdelanteRedo.Controllers
             return View(meetingStudentAttendance);
         }
 
-        // POST: MeetingStudentAttendance/Delete/5
+        // POST: MeetingStudentAttendances/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             MeetingStudentAttendance meetingStudentAttendance = db.MeetingStudentAttendance.Find(id);
             db.MeetingStudentAttendance.Remove(meetingStudentAttendance);

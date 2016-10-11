@@ -1,25 +1,35 @@
-﻿@model DataLib.MeetingStudentAttendance
+﻿@model AdelanteRedo.Models.MeetingVolunteerAttendance
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Edit</h2>
 
-<h2>Create</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>MeetingStudentAttendance</h4>
+        <h4>MeetingVolunteerAttendance</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MeetingVolunteerAttendanceID)
+
         <div class="form-group">
-            @Html.LabelFor(model => model.StudentID, "StudentID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.VolunteerID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("StudentID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.VolunteerID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VolunteerID, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -43,7 +53,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>

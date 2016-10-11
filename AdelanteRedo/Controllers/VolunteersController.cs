@@ -10,107 +10,108 @@ using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
-    public class MeetingsController : Controller
+    public class VolunteersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Meetings
+        // GET: Volunteers
         public ActionResult Index()
         {
-            return View(db.Meeting.ToList());
+            return View(db.Volunteers.ToList());
         }
 
-        // GET: Meetings/Details/5
-        public ActionResult Details(int? id)
+        // GET: Volunteers/Details/5
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meeting.Find(id);
-            if (meeting == null)
+            Volunteer volunteer = db.Volunteers.Find(id);
+            if (volunteer == null)
             {
                 return HttpNotFound();
             }
-            return View(meeting);
+            return View(volunteer);
         }
 
-        // GET: Meetings/Create
+        // GET: Volunteers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Meetings/Create
+        // POST: Volunteers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MeetingID,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
+        public ActionResult Create([Bind(Include = "VolunteerID,Volunteer_FirstName,Volunteer_LastName,Volunteer_Address,Volunteer_City,Volunteer_State,Volunteer_Zip,Volunteer_HomeTele,Volunteer_CellPhone,Volunteer_Email,STARTDATE,ENDDATE")] Volunteer volunteer)
         {
             if (ModelState.IsValid)
             {
-                db.Meeting.Add(meeting);
+                volunteer.VolunteerID = Guid.NewGuid();
+                db.Volunteers.Add(volunteer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(meeting);
+            return View(volunteer);
         }
 
-        // GET: Meetings/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Volunteers/Edit/5
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meeting.Find(id);
-            if (meeting == null)
+            Volunteer volunteer = db.Volunteers.Find(id);
+            if (volunteer == null)
             {
                 return HttpNotFound();
             }
-            return View(meeting);
+            return View(volunteer);
         }
 
-        // POST: Meetings/Edit/5
+        // POST: Volunteers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MeetingID,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
+        public ActionResult Edit([Bind(Include = "VolunteerID,Volunteer_FirstName,Volunteer_LastName,Volunteer_Address,Volunteer_City,Volunteer_State,Volunteer_Zip,Volunteer_HomeTele,Volunteer_CellPhone,Volunteer_Email,STARTDATE,ENDDATE")] Volunteer volunteer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(meeting).State = EntityState.Modified;
+                db.Entry(volunteer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(meeting);
+            return View(volunteer);
         }
 
-        // GET: Meetings/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Volunteers/Delete/5
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meeting.Find(id);
-            if (meeting == null)
+            Volunteer volunteer = db.Volunteers.Find(id);
+            if (volunteer == null)
             {
                 return HttpNotFound();
             }
-            return View(meeting);
+            return View(volunteer);
         }
 
-        // POST: Meetings/Delete/5
+        // POST: Volunteers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
-            Meeting meeting = db.Meeting.Find(id);
-            db.Meeting.Remove(meeting);
+            Volunteer volunteer = db.Volunteers.Find(id);
+            db.Volunteers.Remove(volunteer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -10,107 +10,116 @@ using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
-    public class MeetingsController : Controller
+    public class StudentParentsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Meetings
+        // GET: StudentParents
         public ActionResult Index()
         {
-            return View(db.Meeting.ToList());
+            var studentParent = db.StudentParent.Include(s => s.Parent).Include(s => s.Student);
+            return View(studentParent.ToList());
         }
 
-        // GET: Meetings/Details/5
+        // GET: StudentParents/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meeting.Find(id);
-            if (meeting == null)
+            StudentParent studentParent = db.StudentParent.Find(id);
+            if (studentParent == null)
             {
                 return HttpNotFound();
             }
-            return View(meeting);
+            return View(studentParent);
         }
 
-        // GET: Meetings/Create
+        // GET: StudentParents/Create
         public ActionResult Create()
         {
+            ViewBag.ParentID = new SelectList(db.Parents, "ParentID", "Parent_FirstName");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName");
             return View();
         }
 
-        // POST: Meetings/Create
+        // POST: StudentParents/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MeetingID,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
+        public ActionResult Create([Bind(Include = "StudentParentID,StudentID,ParentID")] StudentParent studentParent)
         {
             if (ModelState.IsValid)
             {
-                db.Meeting.Add(meeting);
+                db.StudentParent.Add(studentParent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(meeting);
+            ViewBag.ParentID = new SelectList(db.Parents, "ParentID", "Parent_FirstName", studentParent.ParentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", studentParent.StudentID);
+            return View(studentParent);
         }
 
-        // GET: Meetings/Edit/5
+        // GET: StudentParents/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meeting.Find(id);
-            if (meeting == null)
+            StudentParent studentParent = db.StudentParent.Find(id);
+            if (studentParent == null)
             {
                 return HttpNotFound();
             }
-            return View(meeting);
+            ViewBag.ParentID = new SelectList(db.Parents, "ParentID", "Parent_FirstName", studentParent.ParentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", studentParent.StudentID);
+            return View(studentParent);
         }
 
-        // POST: Meetings/Edit/5
+        // POST: StudentParents/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MeetingID,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
+        public ActionResult Edit([Bind(Include = "StudentParentID,StudentID,ParentID")] StudentParent studentParent)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(meeting).State = EntityState.Modified;
+                db.Entry(studentParent).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(meeting);
+            ViewBag.ParentID = new SelectList(db.Parents, "ParentID", "Parent_FirstName", studentParent.ParentID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", studentParent.StudentID);
+            return View(studentParent);
         }
 
-        // GET: Meetings/Delete/5
+        // GET: StudentParents/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Meeting meeting = db.Meeting.Find(id);
-            if (meeting == null)
+            StudentParent studentParent = db.StudentParent.Find(id);
+            if (studentParent == null)
             {
                 return HttpNotFound();
             }
-            return View(meeting);
+            return View(studentParent);
         }
 
-        // POST: Meetings/Delete/5
+        // POST: StudentParents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Meeting meeting = db.Meeting.Find(id);
-            db.Meeting.Remove(meeting);
+            StudentParent studentParent = db.StudentParent.Find(id);
+            db.StudentParent.Remove(studentParent);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
