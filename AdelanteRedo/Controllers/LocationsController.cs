@@ -6,28 +6,28 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DataLib;
+using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
     public class LocationsController : Controller
     {
-        private goyals420_troutEntities db = new goyals420_troutEntities();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Locations
         public ActionResult Index()
         {
-            return View(db.Locations.ToList());
+            return View(db.Location.ToList());
         }
 
         // GET: Locations/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = db.Locations.Find(id);
+            Location location = db.Location.Find(id);
             if (location == null)
             {
                 return HttpNotFound();
@@ -46,11 +46,11 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Location_NUM,Location_Name")] Location location)
+        public ActionResult Create([Bind(Include = "LocationID,Location_name")] Location location)
         {
             if (ModelState.IsValid)
             {
-                db.Locations.Add(location);
+                db.Location.Add(location);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -59,13 +59,13 @@ namespace AdelanteRedo.Controllers
         }
 
         // GET: Locations/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = db.Locations.Find(id);
+            Location location = db.Location.Find(id);
             if (location == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Location_NUM,Location_Name")] Location location)
+        public ActionResult Edit([Bind(Include = "LocationID,Location_name")] Location location)
         {
             if (ModelState.IsValid)
             {
@@ -90,13 +90,13 @@ namespace AdelanteRedo.Controllers
         }
 
         // GET: Locations/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Location location = db.Locations.Find(id);
+            Location location = db.Location.Find(id);
             if (location == null)
             {
                 return HttpNotFound();
@@ -107,10 +107,10 @@ namespace AdelanteRedo.Controllers
         // POST: Locations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Location location = db.Locations.Find(id);
-            db.Locations.Remove(location);
+            Location location = db.Location.Find(id);
+            db.Location.Remove(location);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

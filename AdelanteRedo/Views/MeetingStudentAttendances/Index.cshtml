@@ -1,8 +1,12 @@
-﻿@model IEnumerable<DataLib.MeetingStudentAttendance>
+﻿@model IEnumerable<AdelanteRedo.Models.MeetingStudentAttendance>
 
 @{
     ViewBag.Title = "Index";
 }
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -16,13 +20,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Attendance)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Meeting.Meeting_Type)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Student.Student_FirstName)
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Attendance)
         </th>
         <th></th>
     </tr>
@@ -30,18 +34,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Attendance)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Meeting.Meeting_Type)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Student.Student_FirstName)
+            @Html.DisplayFor(modelItem => item.Student.LastName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.DisplayFor(modelItem => item.Attendance)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MeetingStudentAttendanceID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MeetingStudentAttendanceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MeetingStudentAttendanceID })
         </td>
     </tr>
 }

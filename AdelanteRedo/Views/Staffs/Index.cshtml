@@ -1,0 +1,101 @@
+﻿@model IEnumerable<AdelanteRedo.Models.Staff>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff_FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff_LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff_City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff_State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff_Zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff_HomeTele)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff_CellPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Staff_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STARTDATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ENDDATE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff_FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff_LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff_City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff_State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff_Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff_HomeTele)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff_CellPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Staff_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STARTDATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ENDDATE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StaffID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StaffID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StaffID })
+        </td>
+    </tr>
+}
+
+</table>

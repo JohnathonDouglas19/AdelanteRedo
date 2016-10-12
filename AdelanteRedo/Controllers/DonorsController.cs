@@ -6,28 +6,28 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DataLib;
+using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
     public class DonorsController : Controller
     {
-        private goyals420_troutEntities db = new goyals420_troutEntities();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Donors
         public ActionResult Index()
         {
-            return View(db.Donors.ToList());
+            return View(db.Donor.ToList());
         }
 
         // GET: Donors/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Donor donor = db.Donors.Find(id);
+            Donor donor = db.Donor.Find(id);
             if (donor == null)
             {
                 return HttpNotFound();
@@ -46,11 +46,11 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Donor_NUM,Donor_FirstName,Donor_LastName,Donor_Address,Donor_City,Donor_State,Donor_Zip,Donor_HomeTele,Donor_CellPhone,Donor_Email")] Donor donor)
+        public ActionResult Create([Bind(Include = "DonorID,Donor_FirstName,Donor_LastName,Donor_Address,Donor_City,Donor_State,Donor_Zip,Donor_HomeTele,Donor_CellPhone,Donor_Email")] Donor donor)
         {
             if (ModelState.IsValid)
             {
-                db.Donors.Add(donor);
+                db.Donor.Add(donor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -59,13 +59,13 @@ namespace AdelanteRedo.Controllers
         }
 
         // GET: Donors/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Donor donor = db.Donors.Find(id);
+            Donor donor = db.Donor.Find(id);
             if (donor == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Donor_NUM,Donor_FirstName,Donor_LastName,Donor_Address,Donor_City,Donor_State,Donor_Zip,Donor_HomeTele,Donor_CellPhone,Donor_Email")] Donor donor)
+        public ActionResult Edit([Bind(Include = "DonorID,Donor_FirstName,Donor_LastName,Donor_Address,Donor_City,Donor_State,Donor_Zip,Donor_HomeTele,Donor_CellPhone,Donor_Email")] Donor donor)
         {
             if (ModelState.IsValid)
             {
@@ -90,13 +90,13 @@ namespace AdelanteRedo.Controllers
         }
 
         // GET: Donors/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Donor donor = db.Donors.Find(id);
+            Donor donor = db.Donor.Find(id);
             if (donor == null)
             {
                 return HttpNotFound();
@@ -107,10 +107,10 @@ namespace AdelanteRedo.Controllers
         // POST: Donors/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Donor donor = db.Donors.Find(id);
-            db.Donors.Remove(donor);
+            Donor donor = db.Donor.Find(id);
+            db.Donor.Remove(donor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

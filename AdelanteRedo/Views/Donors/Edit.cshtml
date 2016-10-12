@@ -1,9 +1,17 @@
-﻿@model DataLib.Donor
+﻿@model AdelanteRedo.Models.Donor
 
 @{
     ViewBag.Title = "Edit";
 }
-
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <h2>Edit</h2>
 
 
@@ -15,7 +23,7 @@
         <h4>Donor</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Donor_NUM)
+        @Html.HiddenFor(model => model.DonorID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Donor_FirstName, htmlAttributes: new { @class = "control-label col-md-2" })

@@ -34,9 +34,20 @@ namespace AdelanteRedo.Models
         }
         //TODO: Add Sets for all entities in the Database.
         public DbSet<Student> Students { get; set; }
-       // public DbSet<Parent> Parents { get; set; }
+        public DbSet<Parent> Parents { get; set; }
+        public DbSet<StudentParent> StudentParent { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
+        public DbSet<MeetingStudentAttendance> MeetingStudentAttendance { get; set; }
+        public DbSet<MeetingStaffAttendance> MeetingStaffAttendance { get; set; }
+        public DbSet<MeetingVolunteerAttendance> MeetingVolunteerAttendance { get; set; }
+        public DbSet<Donor> Donor { get; set; }
+        public DbSet<Location> Location { get; set; }
+        public DbSet<Meeting> Meeting { get; set; }
+
+        public System.Data.Entity.DbSet<AdelanteRedo.Models.Staff> Staffs { get; set; }
+
+        public System.Data.Entity.DbSet<AdelanteRedo.Models.Volunteer> Volunteers { get; set; }
     }
 }

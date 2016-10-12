@@ -1,8 +1,12 @@
-﻿@model DataLib.Meeting
+﻿@model AdelanteRedo.Models.Meeting
 
 @{
     ViewBag.Title = "Details";
 }
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -39,16 +43,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Location.Location_Name)
+            @Html.DisplayNameFor(model => model.Location_Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Location.Location_Name)
+            @Html.DisplayFor(model => model.Location_Name)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Meeting_NUM }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MeetingID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

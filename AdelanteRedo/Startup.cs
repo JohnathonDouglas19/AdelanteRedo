@@ -27,7 +27,6 @@ namespace AdelanteRedo
             //In Startup iam creating first SuperAdmin Role and creating a default Admin User    
             if (!roleManager.RoleExists("SuperAdmin"))
             {
-                //THIS CODE IS CURSEDDDD
 
                 //first we create SuperAdmin Role
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();

@@ -1,8 +1,12 @@
-﻿@model IEnumerable<DataLib.Donor>
+﻿@model IEnumerable<AdelanteRedo.Models.Donor>
 
 @{
     ViewBag.Title = "Index";
 }
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -75,9 +79,9 @@
             @Html.DisplayFor(modelItem => item.Donor_Email)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Donor_NUM }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Donor_NUM }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Donor_NUM })
+            @Html.ActionLink("Edit", "Edit", new { id=item.DonorID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DonorID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DonorID })
         </td>
     </tr>
 }

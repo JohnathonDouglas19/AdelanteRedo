@@ -204,16 +204,20 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\AttendanceController.cs" />
     <Compile Include="Controllers\DonorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
+    <Compile Include="Controllers\MeetingStaffAttendancesController.cs" />
     <Compile Include="Controllers\MeetingStudentAttendancesController.cs" />
+    <Compile Include="Controllers\MeetingVolunteerAttendancesController.cs" />
     <Compile Include="Controllers\ParentsController.cs" />
     <Compile Include="Controllers\ProgramController.cs" />
+    <Compile Include="Controllers\StaffsController.cs" />
+    <Compile Include="Controllers\StudentParentsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\VolunteersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -221,14 +225,24 @@
     <Compile Include="Models\AdelanteContext.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Grant.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MailViewModel.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Meeting.cs" />
+    <Compile Include="Models\MeetingStaffAttendance.cs" />
+    <Compile Include="Models\MeetingStudentAttendance.cs" />
+    <Compile Include="Models\MeetingVolunteerAttendance.cs" />
+    <Compile Include="Models\Parent.cs" />
     <Compile Include="Models\Program.cs" />
+    <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentParent.cs" />
+    <Compile Include="Models\Volunteer.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -473,44 +487,64 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Attendance\Create.cshtml" />
-    <Content Include="Views\Attendance\Delete.cshtml" />
-    <Content Include="Views\Attendance\Details.cshtml" />
-    <Content Include="Views\Attendance\Edit.cshtml" />
-    <Content Include="Views\Attendance\Index.cshtml" />
-    <Content Include="Views\Donors\Create.cshtml" />
-    <Content Include="Views\Donors\Delete.cshtml" />
-    <Content Include="Views\Donors\Details.cshtml" />
-    <Content Include="Views\Donors\Edit.cshtml" />
-    <Content Include="Views\Donors\Index.cshtml" />
-    <Content Include="Views\Parents\Create.cshtml" />
-    <Content Include="Views\Parents\Delete.cshtml" />
-    <Content Include="Views\Parents\Details.cshtml" />
-    <Content Include="Views\Parents\Edit.cshtml" />
-    <Content Include="Views\Parents\Index.cshtml" />
-    <Content Include="Views\Students\Create.cshtml" />
-    <Content Include="Views\Students\Delete.cshtml" />
-    <Content Include="Views\Students\Details.cshtml" />
-    <Content Include="Views\Students\Edit.cshtml" />
-    <Content Include="Views\Students\Index.cshtml" />
     <Content Include="Views\Program\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\UserManagement.cshtml" />
     <Content Include="Views\Locations\Create.cshtml" />
     <Content Include="Views\Locations\Delete.cshtml" />
     <Content Include="Views\Locations\Details.cshtml" />
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
-    <Content Include="Views\Meetings\Create.cshtml" />
-    <Content Include="Views\Meetings\Delete.cshtml" />
-    <Content Include="Views\Meetings\Details.cshtml" />
-    <Content Include="Views\Meetings\Edit.cshtml" />
-    <Content Include="Views\Meetings\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Parents\Create.cshtml" />
+    <Content Include="Views\Parents\Delete.cshtml" />
+    <Content Include="Views\Parents\Details.cshtml" />
+    <Content Include="Views\Parents\Edit.cshtml" />
+    <Content Include="Views\Parents\Index.cshtml" />
+    <Content Include="Views\Donors\Create.cshtml" />
+    <Content Include="Views\Donors\Delete.cshtml" />
+    <Content Include="Views\Donors\Details.cshtml" />
+    <Content Include="Views\Donors\Edit.cshtml" />
+    <Content Include="Views\Donors\Index.cshtml" />
+    <Content Include="Views\StudentParents\Create.cshtml" />
+    <Content Include="Views\StudentParents\Delete.cshtml" />
+    <Content Include="Views\StudentParents\Details.cshtml" />
+    <Content Include="Views\StudentParents\Edit.cshtml" />
+    <Content Include="Views\StudentParents\Index.cshtml" />
+    <Content Include="Views\MeetingStaffAttendances\Create.cshtml" />
+    <Content Include="Views\MeetingStaffAttendances\Delete.cshtml" />
+    <Content Include="Views\MeetingStaffAttendances\Details.cshtml" />
+    <Content Include="Views\MeetingStaffAttendances\Edit.cshtml" />
+    <Content Include="Views\MeetingStaffAttendances\Index.cshtml" />
     <Content Include="Views\MeetingStudentAttendances\Create.cshtml" />
     <Content Include="Views\MeetingStudentAttendances\Delete.cshtml" />
     <Content Include="Views\MeetingStudentAttendances\Details.cshtml" />
     <Content Include="Views\MeetingStudentAttendances\Edit.cshtml" />
     <Content Include="Views\MeetingStudentAttendances\Index.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\UserManagement.cshtml" />
+    <Content Include="Views\Staffs\Create.cshtml" />
+    <Content Include="Views\Staffs\Delete.cshtml" />
+    <Content Include="Views\Staffs\Details.cshtml" />
+    <Content Include="Views\Staffs\Edit.cshtml" />
+    <Content Include="Views\Staffs\Index.cshtml" />
+    <Content Include="Views\Meetings\Create.cshtml" />
+    <Content Include="Views\Meetings\Delete.cshtml" />
+    <Content Include="Views\Meetings\Details.cshtml" />
+    <Content Include="Views\Meetings\Edit.cshtml" />
+    <Content Include="Views\Meetings\Index.cshtml" />
+    <Content Include="Views\MeetingVolunteerAttendances\Create.cshtml" />
+    <Content Include="Views\MeetingVolunteerAttendances\Delete.cshtml" />
+    <Content Include="Views\MeetingVolunteerAttendances\Details.cshtml" />
+    <Content Include="Views\MeetingVolunteerAttendances\Edit.cshtml" />
+    <Content Include="Views\MeetingVolunteerAttendances\Index.cshtml" />
+    <Content Include="Views\Volunteers\Create.cshtml" />
+    <Content Include="Views\Volunteers\Delete.cshtml" />
+    <Content Include="Views\Volunteers\Details.cshtml" />
+    <Content Include="Views\Volunteers\Edit.cshtml" />
+    <Content Include="Views\Volunteers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -528,12 +562,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataLib\DataLib.csproj">
-      <Project>{9b803ca5-acbd-48bc-953a-dc573ef15bd1}</Project>
-      <Name>DataLib</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
