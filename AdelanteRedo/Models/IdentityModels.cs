@@ -45,7 +45,7 @@ namespace AdelanteRedo.Models
         public DbSet<Donor> Donor { get; set; }
         public DbSet<Location> Location { get; set; }
         public DbSet<Meeting> Meeting { get; set; }
-
+        public DbSet<Event> Events { get; set; }
         public System.Data.Entity.DbSet<AdelanteRedo.Models.Staff> Staffs { get; set; }
 
         public System.Data.Entity.DbSet<AdelanteRedo.Models.Volunteer> Volunteers { get; set; }
