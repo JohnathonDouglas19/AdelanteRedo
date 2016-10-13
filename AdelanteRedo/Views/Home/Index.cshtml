@@ -21,7 +21,14 @@
     <!-- Site Title -->
     <title>Adelante Hispanic Achievers</title>
 
+    <!--
+    Google Fonts
+    ============================================= -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700" rel="stylesheet" type="text/css">
+
+    <!--
+    CSS
+    ============================================= -->
     @Styles.Render("~/Content/css")
 
 
@@ -29,6 +36,15 @@
 
 <body>
 
+    <!--
+    Fixed Navigation
+    ==================================== -->
+    <!--
+    End Fixed Navigation
+    ==================================== -->
+    <!--
+    Home Slider
+    ==================================== -->
     <section id="home">
         <div id="home-carousel" class="carousel slide" data-interval="false">
             <ol class="carousel-indicators">
@@ -36,25 +52,41 @@
                 <li data-target="#home-carousel" data-slide-to="1"></li>
                 <li data-target="#home-carousel" data-slide-to="2"></li>
             </ol>
+            <!--/.carousel-indicators-->
 
             <div class="carousel-inner">
 
                 <div class="item active" style="background-image: url('/img/new_front.jpg')">
+                    
                     <div class="carousel-caption">
                         <div class="animated bounceInRight">
                             <h2>Bienvenidos!</h2> <br><h3>Welcome to Adelante Hispanic Acheivers!</h3>
+                            <!--<p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam. Accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>-->
                         </div>
                     </div>
                 </div>
 
                 <div class="item" style="background-image: url('/img/slider/dental_school.jpg')">
-
+                    <!--<div class="carousel-caption">
+                        <div class="animated bounceInDown">
+                            <h2>HELLO WORLD! <br>WE ARE KASPER,WE MAKE ART.</h2>
+                            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam. Accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+                        </div>
+                    </div>
+                        -->
                 </div>
 
                 <div class="item" style="background-image: url('/img/slider/mara_and_mayor.jpg')">
-
+                    <!--<div class="carousel-caption">
+                        <div class="animated bounceInUp">
+                            <h2>HELLO WORLD! <br>WE ARE KASPER,WE MAKE ART.</h2>
+                            <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam. Accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt.</p>
+                        </div>
+                    </div>
+                        -->
                 </div>
             </div>
+            <!--/.carousel-inner-->
             <nav id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
                 <a class="sl-prev hidden-xs" href="#home-carousel" data-slide="prev">
                     <i class="fa fa-angle-left fa-3x"></i>
@@ -69,19 +101,19 @@
     <br />
     <br />
     <br />
-
+    <!--
+    End #home Slider
+    ========================== -->
+    <!--
+    #about
+    ========================== -->
     <section id="about">
         <div class="container">
             <div class="row">
 
-                <div class="section-title text-center wow fadeInUp" style="padding: 0px 0px 0px 0px; ">
+                <div class="section-title text-center wow fadeInUp">
                     <h2>About Us</h2>
                     <p>
-                        Adelante Hispanic Achievers was created to address the challenges facing Louisville’s Hispanic youth and help them succeed in four critical areas: personal, social, cultural, and educational. Adelante is a volunteer-based, non-profit, 501(C)3 organization that was founded in January 2004 by former JCPS school board chair Stephen Imhoff and a core of community leaders who shared the belief that with support and resources, Louisville’s Hispanic students and their families could have a bright future. It is the only organization in Jefferson County chartered to provide educational resources to Latino youth. Adelante serves 145 students and their families per year, won the 2012 CNPE Pyramid Award for Excellence in Governance, and became a national Bright Spot in Hispanic Education in 2015.
-
-                        Adelante operates with two full time staff and a volunteer base with expertise in science, medicine, engineering, law, and education. Our partners provide tutoring, mentoring, career exposure, college prep, data collection, accounting, and marketing. We have graduated five cohorts of students, all of whom attend the college of his or her choice with scholarships. Our programs are provided free of charge.
-                    </p>
-                    @*<p>
                         Louisville's community has seen a 122% increase in the Hispanic/Latino population over the last decade, and its numbers continue to grow.
                         This diverse Hispanic population contributes to an ever evolving, multi-cultural Louisville, significantly impacting our future as a community.
                     </p>
@@ -92,18 +124,22 @@
                     <p>
                         Adelante was founded in January 2004 by former JCPS school board chair Stephen Imhoff and a core of community leaders who shared the belief that with support and resources, Louisville’s Hispanic students and their families can have a bright future.
                         Adelante’s mission is to inspire Hispanic/Latino youth and families to achieve their dreams and contribute as creative and educated world citizens.
-                    </p>*@
+                    </p>
                 </div>
                 <div class="about-us text-center wow fadeInDown">
+                    <!--<img src="img/about.png" alt="About Us" class="img-responsive">-->
                 </div>
             </div>
         </div>
         <br />
+        <!--</section>-->
+        <!--section id="service">-->
+        <!--used to be service-->
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>Our Mission and Goals</h2>
+                        <h2>Our Goals</h2>
                         <p>Caption Here.</p>
                     </div>
                 </div>
@@ -112,34 +148,60 @@
                 <div class="col-md-6 col-sm-12 wow fadeInLeft">
                     <div class="media">
                         <a href="#" class="pull-left">
+                            <img src="/img/icons/checkmark.png" class="media-object">
                         </a>
                         <div class="media-body">
-                            <h3>Mission</h3>
-                            <p>Adelante Hispanic Achievers’ mission is to inspire and empower Hispanic/Latino youth and their families to become self-sufficient, successful individuals who have the tools they need to achieve their dreams and participate as creative, educated world citizens.</p>
+                            <h3> Encourage youth to set and meet high personal, educational, and career goals.</h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 wow fadeInRight" data-wow-delay="0.2s">
                     <div class="media">
                         <a href="#" class="pull-left">
+                            <img src="/img/icons/checkmark.png">
                         </a>
                         <div class="media-body">
-                            <h3>Goals</h3>
-                            <p>Our goals are to guide Hispanic youth as they set and meet high educational, personal, and career goals and to surround each student with a network of supportive, informed adults including parents, mentors, tutors, community leaders, and other positive role-models.</p>
+                            <h3>Help Hispanic parents enjoy an active and informed role in the children’s education.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 wow fadeInLeft">
+                    <div class="media">
+                        <a href="#" class="pull-left">
+                            <img src="/img/icons/checkmark.png">
+                        </a>
+                        <div class="media-body">
+                            <h3>Connect Hispanic youth and their families with community resources to facilitate their participation in U.S. society.</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="media">
+                        <a href="#" class="pull-left">
+                            <img src="/img/icons/checkmark.png">
+                        </a>
+                        <div class="media-body">
+                            <h3>Provide Hispanic youth and their families with opportunities for civic involvement and invite them to serve as cultural ambassadors.</h3>
                         </div>
                     </div>
                 </div>
             </div> <!-- end .row -->
         </div> <!-- end .container -->
+        <!--</section>-->
         <br />
         <br />
         <br />
+
     </section>
+
+    <!--#parents-- <!--used to be testimonials-->
+
     <section id="parents">
         <div class="section-title text-center wow fadeInDown">
             <h2>Parents</h2>
             <p><big>Caption here</big></p>
         </div>
+        <!--<section id="count">-->
         <div class="container">
             <div class="row">
                 <div class="counter-section clearfix">
@@ -149,6 +211,7 @@
                                 <i class="fa fa-check-square fa-lg"></i>
                             </div>
                             <span data-to="3.22">0</span>
+                            <!--Need to get this to show .22 after the 3-->
                             <p><big>Average student's GPA</big></p>
                         </div>
                     </div>
@@ -282,6 +345,8 @@
                 </div>  <!-- end .col-md-5 -->
             </div>
         </div>
+        <!--</section>-->
+        <!--<section id="parents">-used to be quotes-->
         <div class="container">
             <div class="row wow zoomIn">
                 <div class="col-lg-12">
@@ -295,20 +360,21 @@
     </section>
     <br />
     <br />
+
     <section id="programs">
+        <!--used to be portfolio-->
         <div class="section-title text-center wow fadeInDown">
             <h2>Programs</h2>
-            <p><big>All of our programs are free. All programs include parent involvement (workshops, presentations, and individual support).</big></p>
+            <p><big>All of our programs and services are free.</big></p>
         </div>
         <nav class="project-filter clearfix text-center wow fadeInLeft" data-wow-delay="0.5s">
             <ul class="list-inline">
+                <li><a href="javascript:;" class="filter" data-filter="all">All</a></li>
                 <li><a href="javascript:;" class="filter" data-filter=".mentoring">Mentoring and Enrichment</a></li>
-                <li><a href="javascript:;" class="filter" data-filter=".readiness">College Readiness</a></li>
-                <li><a href="javascript:;" class="filter" data-filter=".corps">College Corps</a></li>
-                <li><a href="javascript:;" class="filter" data-filter=".tutoring">After School Tutoring</a></li>
+                <li><a href="javascript:;" class="filter" data-filter=".tutoring">Tutoring and Homework Help</a></li>
+                <li><a href="javascript:;" class="filter" data-filter=".college">College Readiness</a></li>
                 <li><a href="javascript:;" class="filter" data-filter=".ambassadors">Ambassadors</a></li>
-                <li><a href="javascript:;" class="filter" data-filter=".tjx">TJX/Bick Hile Scholarship Program</a></li>
-                <li><a href="javascript:;" class="filter" data-filter=".bellarmine">Bellarmine Academy Martes (BAM)</a></li>
+                <li><a href="javascript:;" class="filter" data-filter=".scholars">TJX Scholars</a></li>
             </ul>
         </nav>
         <div id="projects" class="clearfix">
@@ -316,7 +382,7 @@
                 <img class="img-responsive" src="/img/kids.png" alt="Portfolio Item">
                 <a href="/img/kids.png" title="Title One" rel="portfolio" class="fancybox"><span class="plus"></span></a>
                 <figcaption class="mask">
-                    <h3>Intensive Learning</h3>
+                    <h3>Tutoring and Homework Help</h3>
                     <span>Caption Here</span>
                 </figcaption>
             </figure>
@@ -381,19 +447,50 @@
     <br />
     <br />
     <br />
+    <!--
+    End #Portfolio
+    ========================== -->
+    <!--
+    #pricing - used to be called pricing
+    ========================== -->
     <section id="donate">
+        <div class="section-title text-center wow fadeInDown">
+            <h2>Donate</h2>
+            <p><big>Please consider donating to help make Adelante's mission possible.</big></p>
+            <div class="col-md-12 wow fadeInUp">
+                <div class="special-plan text-center">
+                    <p>We accept online donations</p>
+                    <a href="#" class="btn btn-blue">Donate</a>
+                </div>
+            </div>
+        </div>
+
         <br />
         <br />
         <div class="row">
             <div class="section-title text-center wow fadeInUp">
                 <h2>Sponsors</h2>
                 <p><big>2015-2016</big></p>
+
+               @*Sponsor's logo*@
+     <div class="thumbnail">
+    <div id="DemoCarousel" class="carousel slide" data-interval="2000" data-ride="carousel">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#DemoCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#DemoCarousel" data-slide-to="1"></li>
+            <li data-target="#DemoCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            <div class="item active">
+                    <p><a href="http://www.give.org/"><img src="~/img/Logos/BBB.jpg" /></a></p>
             </div>
             <div class="item">
-                <ap><a href="https://www.cflouisville.org/"><img src="~/img/Logos/community.png" /></a><p>
+                    <ap><a href="https://www.cflouisville.org/"><img src="~/img/Logos/community.png" /></a><p>
             </div>
             <div class="item">
-                <p><a href="http://www.ge.com"><img src="~/img/Logos/GE.jpg" /></a></p>
+                    <p><a href="http://www.ge.com"><img src="~/img/Logos/GE.jpg" /></a></p>
             </div>
             <div class="item">
                 <p><a href="https://www.jefferson.kyschools.us/"><img src="~/img/Logos/jcpsco.png" /></a></p>
@@ -422,381 +519,340 @@
         <a class="carousel-control right" href="#DemoCarousel" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
-        </div>
-        </div>
+    </div>
+</div>
 
-        @*End*@
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp">
-            <div class="pricing-table text-center">
-                <div class="price">
-                    <!--<span class="plan">$15,000 - $18,000</span>-->
-                    <span class="value"><big><strong>$15,000 - $18,000</strong></big></span>
-                </div>
-                <ul class="text-center">
-                    <li>Community Foundation of Louisville/James Graham Brown Foundation</li>
-                    <li>The Gheens Foundation</li>
-                    <li>UPS</li>
-                    <!--<li>Feature N0 4</li>-->
-                </ul>
-                <!--<a href="#" class="btn btn-price">Buy Now</a>-->
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="pricing-table text-center">
-                <div class="price">
-                    <!--<span class="plan">$10,000</span>-->
-                    <span class="value"><big><strong>$10,000</strong></big></span>
-                </div>
-                <ul class="text-center">
-                    <li>TJ Maxx and TJX Companies- Scholarship Fund</li>
-                    <li>McDonald’s</li>
-                    <!--<li>Feature N0 3</li>
-                    <li>Feature N0 4</li>-->
-                </ul>
-                <!--<a href="#" class="btn btn-price">Buy Now</a>-->
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.6s">
-            <div class="pricing-table text-center">
-                <div class="price">
-                    <!--<span class="plan">$5,000 - $7,000</span>-->
-                    <span class="value"><big><strong>$5,000 - $7,000</strong></big></span>
-                </div>
-                <ul class="text-center">
-                    <li>Metro Government Family Services Fund</li>
-                    <li>State Farm</li>
-                    <!--<li>Feature N0 3</li>
-                    <li>Feature N0 4</li>-->
-                </ul>
-                <!--<a href="#" class="btn btn-price">Buy Now</a>-->
-            </div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
-            <div class="pricing-table text-center">
-                <div class="price">
-                    <!--<span class="plan">$4,000</span>-->
-                    <span class="value"><big><strong>$4,000</strong></big></span>
-                </div>
-                <ul class="text-center">
-                    <li>The Latin American Club of Louisville</li>
-                    <!--<li>Feature N0 2</li>
-                    <li>Feature N0 3</li>
-                    <li>Feature N0 4</li>-->
-                </ul>
-                <!--<a href="#" class="btn btn-price">Buy Now</a>-->
-            </div>
-        </div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
-                <div class="pricing-table text-center">
+            @*End*@
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp">
+                            <div class="pricing-table text-center">
                     <div class="price">
-                        <!--<span class="plan">$2,000</span>-->
-                        <span class="value"><big><strong>$2,000</strong></big></span>
+                        <!--<span class="plan">$15,000 - $18,000</span>-->
+                                <span class="value"><big><strong>$15,000 - $18,000</strong></big></span>
+                            </div>
+                            <ul class="text-center">
+                                <li>Community Foundation of Louisville/James Graham Brown Foundation</li>
+                                <li>The Gheens Foundation</li>
+                                <li>UPS</li>
+                        <!--<li>Feature N0 4</li>-->
+                            </ul>
+                    <!--<a href="#" class="btn btn-price">Buy Now</a>-->
+                        </div>
                     </div>
-                    <ul class="text-center">
-                        <li>Brown Forman</li>
-                        <li>The Women's Club of Louisville</li>
+                    <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="pricing-table text-center">
+                            <div class="price">
+                        <!--<span class="plan">$10,000</span>-->
+                                <span class="value"><big><strong>$10,000</strong></big></span>
+                            </div>
+                            <ul class="text-center">
+                                <li>TJ Maxx and TJX Companies- Scholarship Fund</li>
+                                <li>McDonald’s</li>
                         <!--<li>Feature N0 3</li>
                         <li>Feature N0 4</li>-->
-                    </ul>
+                            </ul>
                     <!--<a href="#" class="btn btn-price">Buy Now</a>-->
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
-                <div class="pricing-table text-center">
-                    <div class="price">
-                        <!--<span class="plan">$1,000</span>-->
-                        <span class="value"><big><strong>$1,000</strong></big></span>
-                    </div>
-                    <ul class="text-center">
-                        <li>GE Appliances</li>
-                        <li>Mr. and Mrs. Roland Blahnik </li>
-                        <li>Dr. and Mrs. Herbert Maguire</li>
-                        <li>Sam Swope Family Foundation</li>
-                        <li>Galleria/4th Street Live</li>
-                    </ul>
-                    <!--<a href="#" class="btn btn-price">Buy Now</a>-->
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
-                <div class="pricing-table text-center">
-                    <div class="price">
-                        <!--<span class="plan">$500</span>-->
-                        <span class="value"><big><strong>$500</strong></big></span>
-                    </div>
-                    <ul class="text-center">
-                        <li>Mr. and Mrs. Ben Voorhorst</li>
-                        <li>UofL  College of Education and Human Development's (CEHD) Diversity Committee</li>
-                    </ul>
-                    <!--<a href="#" class="btn btn-price">Buy Now</a>-->
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
-                <div class="pricing-table text-center">
-                    <div class="price">
-                        <!--<span class="plan">$250</span>-->
-                        <span class="value"><big><strong>$250</strong></big></span>
-                    </div>
-                    <ul class="text-center">
-                        <li>GE Appliances</li>
-                        <li>Ben Richmond Family</li>
-                    </ul>
-                    <!--<a href="#" class="btn btn-price">Buy Now</a>-->
-                </div>
-            </div>
-        </div>
-
-        <br />
-        <br />
-        <br />
-
-        <div class="container">
-            <div class="row">
-                <div class="section-title text-center wow fadeInUp">
-                    <h2>
-                        Community Partners
-                    </h2>
-                </div>
-                <div class="row">
-
-                    <div class="col-md-4 col-md-offset-2 col-sm-6 text-left wow fadeInLeft">
-                        <div class="media">
-                            <a href="#" class="pull-left">
-
-                            </a>
-                            <div class="media-body">
-                                <ul>
-                                    <big>
-                                        <li>Adhawks Advertising</li>
-                                        <li>Al Dia en America</li>
-                                        <li>Americana Community Center</li>
-                                        <li>Bellarmine University</li>
-                                        <li>Bernheim Forest</li>
-                                        <li>Bluegrass Community and Technical College</li>
-                                        <li>Buechel United Methodist Church</li>
-                                        <li>Center for Non-Profit Excellence</li>
-                                        <li>Centre College</li>
-                                        <li>Collegiate School</li>
-                                        <li>Ecken & Smith Accountants</li>
-                                        <li>Hanover College</li>
-                                        <li>Hispanic Latino Business Council</li>
-                                        <li>Hispanic Latino Coalition</li>
-                                        <li>Iroquois Free Public Library</li>
-                                        <li>G.L.I.P.</li>
-                                        <li>Jefferson County Public School System</li>
-                                    </big>
-                                </ul>
-                            </div>
                         </div>
                     </div>
-
-                    <div class="col-md-5 col-sm-6 wow text-left fadeInRight">
-                        <div class="media">
-                            <a href="#" class="pull-left"></a>
-                            <div class="media-body">
-
-                                <ul>
-                                    <big>
-                                        <li>Junior Achievement</li>
-                                        <li>Kentucky State University</li>
-                                        <li>Kentucky Youth Advocates</li>
-                                        <li>La Poderosa Radio</li>
-                                        <li>Leadership Louisville Center</li>
-                                        <li>Los Aztecas</li>
-                                        <li>Muhammad Ali Center</li>
-                                        <li>Northern Kentucky University</li>
-                                        <li>NSHMBA</li>
-                                        <li>Planned Parenthood of Kentucky</li>
-                                        <li>Republic Bank</li>
-                                        <li>Sacred Heart Academy</li>
-                                        <li>St. Francis High School</li>
-                                        <li>St. Xavier HS</li>
-                                        <li>TARC</li>
-                                        <li>University of Louisville</li>
-                                    </big>
-                                </ul>
+                    <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="pricing-table text-center">
+                            <div class="price">
+                        <!--<span class="plan">$5,000 - $7,000</span>-->
+                                <span class="value"><big><strong>$5,000 - $7,000</strong></big></span>
                             </div>
+                            <ul class="text-center">
+                                <li>Metro Government Family Services Fund</li>
+                                <li>State Farm</li>
+                        <!--<li>Feature N0 3</li>
+                        <li>Feature N0 4</li>-->
+                            </ul>
+                    <!--<a href="#" class="btn btn-price">Buy Now</a>-->
                         </div>
                     </div>
-                </div>
-            </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
+                        <div class="pricing-table text-center">
+                            <div class="price">
+                        <!--<span class="plan">$4,000</span>-->
+                                <span class="value"><big><strong>$4,000</strong></big></span>
+                            </div>
+                            <ul class="text-center">
+                                <li>The Latin American Club of Louisville</li>
+                        <!--<li>Feature N0 2</li>
+                        <li>Feature N0 3</li>
+                        <li>Feature N0 4</li>-->
+                            </ul>
+                    <!--<a href="#" class="btn btn-price">Buy Now</a>-->
+                        </div>
+                    </div>
         </div>
-    </section>
-    <br />
-    <br />
-    <br />
-    <!--
-    End #donate
-    ========================== -->
-    <!--
-    #subscribe
-    ========================== -->
-    <!--
-    End #subscribe
-    ========================== -->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="section-title text-center wow fadeInUp">
-                    <h2>Board of Directors</h2>
                     <div class="row">
-                        <div class="col-md-12 col-sm-12 text-left wow fadeInLeft">
-                            <div class="media">
-                                <a href="#" class="pull-left">
-                                </a>
-                                <div class="media-body">
-                                    <h3>Officers</h3>
-                                    <ul>
-                                        <li>Chair:Armando Unzueta Manager, Aircraft Maintenance, UPS Airlines</li>
-                                        <li>Chair Emeritus: Stephen P. Imhoff, Esq., Attorney-at-Law</li>
-                                        <li>Vice Chair: Gina Buendia-Cruz, MBA, Quality Control, General Electric</li>
-                                        <li>Treasurer: Guy Gomez, Owner/Operator, McDonald’s Restaurant</li>
-                                        <li>Secretary: Irina McGrath, ESL Middle School Resource Teacher</li>
-                                    </ul>
-                                    <h3>Members</h3>
-                                    <ul>
-                                        <li>Roland R. Blahnik,President Emeritus, Goodwill Industries of Kentucky, Inc.</li>
-                                        <li>Jose Neil Donis,  Editor\Publisher, “Al Día en America”</li>
-                                        <li>Sandro Fajardo, Vice President – Treasury Management/Republic Bank & Trust</li>
-                                        <li>Ben Ruiz, Creative Director & CEO Adhawks Advertising & Public Relations, Inc.</li>
-                                        <li>Sonia Ruiz  CFO, Adhawks Advertising & Public Relations, Inc. </li>
-                                        <li>Kim Huston Traffic and Delivery Manager, Humana</li>
-                                    </ul>
-                                    <h3>Advisory Board</h3>
-                                    <ul>
-                                        <li>Saul Garcia, Owner, Aztecas Restaurants</li>
-                                        <li>Ellie Kerstetter,  Attorney at Law</li>
-                                        <li>Miguel Lagunas</li>
-                                        <li>Jessica Ann Luetzow Director, Women Who Write</li>
-                                        <li>Abraham Solano, Pupil Personnel Department/ Jefferson County Public Schools</li>
-                                    </ul>
+                        <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
+                            <div class="pricing-table text-center">
+                                <div class="price">
+                        <!--<span class="plan">$2,000</span>-->
+                                    <span class="value"><big><strong>$2,000</strong></big></span>
+                                </div>
+                                <ul class="text-center">
+                                    <li>Brown Forman</li>
+                                    <li>The Women's Club of Louisville</li>
+                        <!--<li>Feature N0 3</li>
+                        <li>Feature N0 4</li>-->
+                                </ul>
+                    <!--<a href="#" class="btn btn-price">Buy Now</a>-->
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
+                            <div class="pricing-table text-center">
+                                <div class="price">
+                        <!--<span class="plan">$1,000</span>-->
+                                    <span class="value"><big><strong>$1,000</strong></big></span>
+                                </div>
+                                <ul class="text-center">
+                                    <li>GE Appliances</li>
+                                    <li>Mr. and Mrs. Roland Blahnik </li>
+                                    <li>Dr. and Mrs. Herbert Maguire</li>
+                                    <li>Sam Swope Family Foundation</li>
+                                    <li>Galleria/4th Street Live</li>
+                                </ul>
+                    <!--<a href="#" class="btn btn-price">Buy Now</a>-->
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
+                            <div class="pricing-table text-center">
+                                <div class="price">
+                        <!--<span class="plan">$500</span>-->
+                                    <span class="value"><big><strong>$500</strong></big></span>
+                                </div>
+                                <ul class="text-center">
+                                    <li>Mr. and Mrs. Ben Voorhorst</li>
+                                    <li>UofL  College of Education and Human Development's (CEHD) Diversity Committee</li>
+                                </ul>
+                    <!--<a href="#" class="btn btn-price">Buy Now</a>-->
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.9s">
+                            <div class="pricing-table text-center">
+                                <div class="price">
+                        <!--<span class="plan">$250</span>-->
+                                    <span class="value"><big><strong>$250</strong></big></span>
+                                </div>
+                                <ul class="text-center">
+                                    <li>GE Appliances</li>
+                                    <li>Ben Richmond Family</li>
+                                </ul>
+                    <!--<a href="#" class="btn btn-price">Buy Now</a>-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+                    <br />
+                    <br />
+                    <!--</section>
+
+             <section id="donate">-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="section-title text-center wow fadeInUp">
+                                <h2>Community Partners</h2>
+                                <div class="row">
+                        <div class="col-md-6 col-sm-12 text-left wow fadeInLeft">
+                                        <div class="media">
+                                            <a href="#" class="pull-left">
+
+                                            </a>
+                                            <div class="media-body">
+                                                <ul>
+                                                        <li>Adhawks Advertising</li>
+                                                        <li>Al Dia en America</li>
+                                                        <li>Americana Community Center</li>
+                                                        <li>Bellarmine University</li>
+                                                        <li>Bernheim Forest</li>
+                                                        <li>Bluegrass Community and Technical College</li>
+                                                        <li>Buechel United Methodist Church</li>
+                                                        <li>Center for Non-Profit Excellence</li>
+                                                        <li>Centre College</li>
+                                                        <li>Collegiate School</li>
+                                                        <li>Ecken & Smith Accountants</li>
+                                                        <li>Hanover College</li>
+                                                        <li>Hispanic Latino Business Council</li>
+                                                        <li>Hispanic Latino Coalition</li>
+                                                        <li>Iroquois Free Public Library</li>
+                                                        <li>G.L.I.P.</li>
+                                                        <li>Jefferson County Public School System</li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                        <div class="col-md-6 col-sm-12 wow text-left fadeInRight" data-wow-delay="0.2s">
+                                        <div class="media">
+                                <a href="#" class="pull-left"></a>
+                                            <div class="media-body">
+
+                                                <ul>
+                                                    <big>
+                                                        <li>Junior Achievement</li>
+                                                        <li>Kentucky State University</li>
+                                                        <li>Kentucky Youth Advocates</li>
+                                                        <li>La Poderosa Radio</li>
+                                                        <li>Leadership Louisville Center</li>
+                                                        <li>Los Aztecas</li>
+                                                        <li>Muhammad Ali Center</li>
+                                                        <li>Northern Kentucky University</li>
+                                                        <li>NSHMBA</li>
+                                                        <li>Planned Parenthood of Kentucky</li>
+                                                        <li>Republic Bank</li>
+                                                        <li>Sacred Heart Academy</li>
+                                                        <li>St. Francis High School</li>
+                                                        <li>St. Xavier HS</li>
+                                                        <li>TARC</li>
+                                                        <li>University of Louisville</li>
+                                                    </big>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-    <section id="students">
-        <!--used to be service-bottom-->
-        <div class="section-title text-center wow fadeInDown">
-            <h2>Students</h2>
-            <p><big>Caption here</big></p>
-        </div>
-        <div class="container">
-            <div class="mobile-device">
-                <img data-wow-delay="0.2s" class="img-responsive black  wow fadeInLeftBig" src="/img/kids.jpg">
-                <!--<img data-wow-delay="0.5s" class="img-responsive white  wow fadeInLeftBig" src="img/front-page.png" alt="iPhone White">-->
-            </div>
-            <div class="service-features wow fadeInRight">
-                <h2>Criteria and Enrollment</h2>
-                <p>Adelante accepts Hispanic students who attend middle or high school in Jefferson County, KY and the surrounding area. Every student will be allowed to participate in Adelante Hispanic Achievers’ programs provided that they follow the attendance and behavior code agreements outlined in this manual, and agree to academic and personal growth. Parents are accountable for their child’s attendance and progress.</p>
-            </div>
-        </div>
-    </section>
-    <br />
-    <br />
-    <br />
-    <!--
-    #contact
-    ========================== -->
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="section-title text-center wow fadeInDown">
-                    <h2>Contact Us</h2>
-                    <p>We'd love to hear from you! Sign up to receive email notifications about Adelenate's upcoming events and information on how you can help support Adelante's mission.</p>
-                </div>
+                </section>
+                <br />
+                <br />
+                <br />
+                <!--
+        End #donate
+        ========================== -->
+                <!--
+        #subscribe
+        ========================== -->
+                <!--
+        End #subscribe
+        ========================== -->
+                <section id="students">
+                    <!--used to be service-bottom-->
+                    <div class="section-title text-center wow fadeInDown">
+                        <h2>Students</h2>
+                        <p><big>Caption here</big></p>
+                    </div>
+                    <div class="container">
+                        <div class="mobile-device">
+                            <img data-wow-delay="0.2s" class="img-responsive black  wow fadeInLeftBig" src="/img/kids.jpg">
+                            <!--<img data-wow-delay="0.5s" class="img-responsive white  wow fadeInLeftBig" src="img/front-page.png" alt="iPhone White">-->
+                        </div>
+                        <div class="service-features wow fadeInRight">
+                            <h2>Requirements for Enrollment</h2>
+                            <ul>
+                                <li>We wecome students of Hispanic/Latino heritage.</li>
+                                <li>Students who join must commit to personal, social, academic, and cultural growth.</li>
+                                <li>Parents must help foster development of their children.</li>
+                                <li>
+                                    To participate in any Adelante program, parent/guardian and student must be present and
+                                    register on the first day of the program.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <br />
+                <br />
+                <br />
+                <!--
+        #contact
+        ========================== -->
                 <section id="contact">
                     <div class="container">
-                        <div class="col-md-12 text-center wow fadeInRight">
-
-                        </div>
-
-
-                        <div class="col-md-5 col-sm-9 wow fadeInLeft">
-                            <div class="contact-form clearfix">
-                                <form action="index.html" method="post">
-                                    <div class="input-field">
-                                        <input type="text" class="form-control" name="name" placeholder="Your Name" required="">
-                                    </div>
-                                    <div class="input-field">
-                                        <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                                    </div>
-                                    <div class="input-field message">
-                                        <textarea name="message" class="form-control" placeholder="Your Message" required=""></textarea>
-                                    </div>
-                                    @Html.Recaptcha()
-                                    @Html.ValidationMessage("ReCaptcha")
-                                    <input type="submit" class="btn btn-blue pull-right" value="SEND MESSAGE" id="msg-submit">
-                                </form>
+                        <div class="row">
+                            <div class="section-title text-center wow fadeInDown">g
+                                <h2>Contact Us</h2>
+                                <p>We'd love to hear from you!</p>
                             </div>
+                <!--<section id="contact">
+                    <div class="container">
+                        <div class="row">-->
+                <div class="col-md-7 wow fadeInLeft">
+                    <form action="#" method="post" class="subscription-form">
+                        <i class="fa fa-envelope-o fa-lg"></i>
+                        <input type="email" name="subscribe" class="subscribe" placeholder="YOUR EMAIL ADDRESS" required="">
+                        <input type="submit" value="SUBSCRIBE" id="mail-submit">
+                            </form>
                         </div>
-                        @*Google Map Location*@
-                        <div class="col-md-5 right">
-
-                            <div class="footer-map wow fadeInDown">
-
-                                <style>
-                                    #map {
-                                        height: 400px;
-                                        width: 100%;
-                                    }
-                                </style>
-                                <h3>Our Location</h3>
-                                <div id="map"></div>
-
-                                <script>
-
-                                    function initMap() {
-                                        var uluru = { lat: 38.207199, lng: -85.648527 };
-                                        var map = new google.maps.Map(document.getElementById('map'), {
-                                            zoom: 15,
-                                            center: uluru
-                                        });
-                                        var marker = new google.maps.Marker({
-                                            position: uluru,
-                                            map: map
-                                        });
-                                    }
-                                </script>
-
-                                <script async defer
-                                        - src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2aDMkX0rbpslQ46JyJ-V_dUsYCUdiem8&callback=initMap">
-
-                                </script>
+                <br />
+                <br />
+                <br />
+                <div class="col-md-4 text-left wow fadeInRight">
+                    <p>Sign up to receive email notifications about Adelenate's upcoming events and information on how you can help support Adelante's mission.</p>
+                        </div>
+                <br />
+                <br />
+                <br />
+                <!--</div>-->
+                <!--</div>-->
+                <!--</section>-->
+                                @using (Html.BeginForm("Index", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "contact-form", role = "form" }))
+            {
+                                    @Html.ValidationSummary()
+                                    <fieldset>
+                                        <div class="form-div-1">
+                                            <label class="name">
+                                @Html.TextBoxFor(m => m.Name, new { @placeholder = "Name", @type = "text" })
+                                            </label>
+                                        </div>
+                                        <div class="form-div-2">
+                                            <label class="email">
+                                @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email Address", @type = "email" })
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="message">
+                                @Html.TextAreaFor(m => m.Message, new { @placeholder = "Message" })
+                                            </label>
+                                        </div>
+                                        @* Insert reCaptcha here! :) *@
+                                        @Html.Recaptcha()
+                                        @Html.ValidationMessage("ReCaptcha")
+                                        <div class="button-wrapper">
+                                            <input type="submit" value="Send" name="submit" class="button"> <input type="reset" value="Reset" name="MFReset" class="button"><span>* Required Fields</span>
+                                        </div>
+                                    </fieldset>
+                                }
+                <div class="col-md-8 col-sm-9 wow fadeInLeft">
+                        <div class="contact-form clearfix">
+                            <form action="index.html" method="post">
+                                <div class="input-field">
+                                    <input type="text" class="form-control" name="name" placeholder="Your Name" required="">
                             </div>
+                                <div class="input-field">
+                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                                </div>
+                                <div class="input-field message">
+                                    <textarea name="message" class="form-control" placeholder="Your Message" required=""></textarea>
+                            </div>
+                                @Html.Recaptcha()
+                                @Html.ValidationMessage("ReCaptcha")
+                                <input type="submit" class="btn btn-blue pull-right" value="SEND MESSAGE" id="msg-submit">
+                            </form>
+                        </div> <!-- end .contact-form -->
+                    </div> <!-- .col-md-8 -->
+                <div class="col-md-4 col-sm-3 wow fadeInRight">
+                    <div class="contact-details">
+                    <br/>
+                    <br/>
+                        <span>Mara Maldonado, Director</span>
+                        <p>502.494.0353 <br> <br>maramaldonado@att.net</p>
+                    </div> <!-- end .contact-details -->
+                    <div class="contact-details">
+                        <span>Dustin Bishop, Volunteers/ Program Operations and Development </span>
+                        <p>231.649.1652 <br> <br> dustinjbishop@gmail.com </p>
+                    </div> <!-- end .contact-details -->
+                </div> <!-- .col-md-4 -->
                         </div>
-                       
                     </div>
-            </div>
-        </div>
-        <br />
-        <br />
-        <br />
-        <div class="col-md-4 text-left wow fadeInRight">
-            <p>Sign up to receive email notifications about Adelenate's upcoming events and information on how you can help support Adelante's mission.</p>
-        </div>
-        <br />
-        <br />
-        <br />
     </section>
-    <br />
-    <br />
-    <br />
-    </div>
-    </div>
-
+                    <br />
+                    <br />
+                    <br />
     <!--
     End #contact
     ========================== -->
@@ -804,66 +860,68 @@
     #footer
     ========================== -->
     <footer id="footer" class="text-center">
-        <div class="container">
-            <div class="row">
+                    <div class="container">
+                        <div class="row">
                 <div class="col-lg-12">
-                    <div class="footer-logo wow fadeInDown">
-                        <img src="/img/adelante-logo.png" alt="logo">
-                    </div>
+                                <div class="footer-logo wow fadeInDown">
+                                    <img src="/img/adelante-logo.png" alt="logo">
+                                </div>
                     <div class="footer-social wow fadeInUp">
-                        <h3>Privacy Policy</h3>
-                        <p>
-                            Adelante respects your privacy. We collect no information about you unless you choose to provide that information to us. We do not give, share, sell or transfer any personal information about you to any third parties.
-                            To prevent unauthorized access, maintain accuracy, and ensure the correct use of information, we have put in place appropriate physical, electronic, and administrative procedures to safeguard and secure any information that we collect.
-                            If you have any questions about our privacy practices, please contact us at our physical address or email: maramaldonado@att.net
-                        </p>
-                        <br />
+                                    <h3>Privacy Policy</h3>
+                                    <p>
+                                        Adelante respects your privacy. We collect no information about you unless you choose to provide that information to us. We do not give, share, sell or transfer any personal information about you to any third parties.
+                                        To prevent unauthorized access, maintain accuracy, and ensure the correct use of information, we have put in place appropriate physical, electronic, and administrative procedures to safeguard and secure any information that we collect.
+                                        If you have any questions about our privacy practices, please contact us at our physical address or email: maramaldonado@att.net
+                                    </p>
+                                    <br />
+                        <ul class="text-center list-inline">
+                            <li><a href="https://www.facebook.com/Adelante-Hispanic-Achievers-164080746962301/?hc_ref=SEARCH&fref=nf"><i class="fa fa-facebook fa-lg"></i></a></li>
+                            <li><a href="https://twitter.com/AdelanteKy"><i class="fa fa-twitter fa-lg"></i></a></li>
+                            <li><a href="https://plus.google.com/"><i class="fa fa-google-plus fa-lg"></i></a></li>
+                            <li><a href="https://www.youtube.com/"><i class="fa fa-youtube fa-lg"></i></a></li>
+                        </ul>
+                                </div>
 
+
+                                <div class="copyright">
+                        <p>Theme by <a href="http://graphberry.com">GraphBerry.com</a> Developed by <a target="_blank" href="http://www.themefisher.com">Themefisher</a></p>
                     </div>
+                </section>
 
-
-                    <div class="copyright">
-                        <p><small>theme by <a href="http://graphberry.com">graphberry.com</a> developed by <a target="_blank" href="http://www.themefisher.com">themefisher</a></small></p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        </section>
-
-        <!--
+                <!--
         End #contact
         ========================== -->
-        <!--
+                <!--
         #footer
         ========================== -->
-        <footer id="footer" class="text-center navbar-fixed-bottom" style="height: 55px; background-color: #333;">
+                <footer id="footer" class="text-center navbar-fixed-bottom" style="height: 55px; background-color: #333;">
 
 
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <a href="#" class="btn btn-primary btn-lg" role="button" style="background-color: #de2f0b; border-color: #de2f0b; position:center">Donate</a>
-                        <a href="https://www.facebook.com/Adelante-Hispanic-Achievers-164080746962301/?hc_ref=SEARCH&fref=nf"><i class="fa fa-facebook fa-lg" style="color: #3b5998;"></i></a>
-                        <a href="https://twitter.com/AdelanteKy"><i class="fa fa-twitter fa-lg" style="color: #00aced;"></i></a>
-                        <a href="https://www.youtube.com/"><i class="fa fa-youtube fa-lg" style="color: #e52d27;"></i></a>
-                        <a href="https://plus.google.com/"><i class="fa fa-google-plus fa-lg" style="color: #d34836;"></i></a>
-                        <a href="https://www.instagram.com/adelanteky/?hl=en"><i class="fa fa-instagram fa-lg" style="color: #e52d27;"></i></a>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="#" class="btn btn-primary btn-lg" role="button" style="background-color: #de2f0b; border-color: #de2f0b; position:center">Donate</a>
+                                <a href="https://www.facebook.com/Adelante-Hispanic-Achievers-164080746962301/?hc_ref=SEARCH&fref=nf"><i class="fa fa-facebook fa-lg" style="color: #3b5998;"></i></a>
+                                <a href="https://twitter.com/AdelanteKy"><i class="fa fa-twitter fa-lg" style="color: #00aced;"></i></a>
+                                <a href="https://www.youtube.com/"><i class="fa fa-youtube fa-lg" style="color: #e52d27;"></i></a>
+                                <a href="https://plus.google.com/"><i class="fa fa-google-plus fa-lg" style="color: #d34836;"></i></a>
+                                <a href="https://www.instagram.com/adelanteky/?hl=en"><i class="fa fa-instagram fa-lg" style="color: #e52d27;"></i></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </footer>
-        <!--
+                </footer>
+                <!--
         End #footer
         ========================== -->
-        <!--
+                <!--
         JavaScripts
         ========================== -->
-        <!-- main jQuery -->
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryval")
-        @Scripts.Render("~/bundles/modernizr")
-        @Scripts.Render("~/bundles/lib")
+                <!-- main jQuery -->
+
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/jqueryval")
+                @Scripts.Render("~/bundles/modernizr")
+                @Scripts.Render("~/bundles/lib")
 </body>
 </html>
 Contact GitHub API Training Shop Blog About
