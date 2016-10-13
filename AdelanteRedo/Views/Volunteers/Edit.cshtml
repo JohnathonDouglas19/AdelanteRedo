@@ -1,14 +1,5 @@
 ﻿@model AdelanteRedo.Models.Volunteer
-<head>
-    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-    <script type='text/javascript'>
-    $(function(){
-      $('.date-picker').datepicker();
-    })
-    </script>
-</head>
+
 @{
     ViewBag.Title = "Edit";
 }
@@ -109,7 +100,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.STARTDATE, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.STARTDATE, new { htmlAttributes = new { @class = "date-picker" } })
+                @Html.EditorFor(model => model.STARTDATE, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.STARTDATE, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -117,7 +108,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ENDDATE, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ENDDATE, new { htmlAttributes = new { @class = "date-picker" } })
+                @Html.EditorFor(model => model.ENDDATE, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ENDDATE, "", new { @class = "text-danger" })
             </div>
         </div>

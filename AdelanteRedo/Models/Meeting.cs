@@ -23,7 +23,6 @@ namespace AdelanteRedo.Models
         }
     
         public int MeetingID { get; set; }
-
         public System.DateTime Meeting_Start { get; set; }
         public System.DateTime Meeting_End { get; set; }
         public string Meeting_Type { get; set; }
