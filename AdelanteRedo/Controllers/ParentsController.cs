@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DataLib;
+using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
     public class ParentsController : Controller
     {
-        private goyals420_troutEntities db = new goyals420_troutEntities();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Parents
         public ActionResult Index()
@@ -21,7 +21,7 @@ namespace AdelanteRedo.Controllers
         }
 
         // GET: Parents/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -46,7 +46,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Parent_NUM,Parent_FirstName,Parent_LastName,Parent_Address,Parent_City,Parent_State,Parent_Zip,Parent_HomeTele,Parent_CellPhone,Parent_Email")] Parent parent)
+        public ActionResult Create([Bind(Include = "ParentID,Parent_FirstName,Parent_LastName,Parent_Address,Parent_City,Parent_State,Parent_Zip,Parent_HomeTele,Parent_CellPhone,Parent_Email")] Parent parent)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +59,7 @@ namespace AdelanteRedo.Controllers
         }
 
         // GET: Parents/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -78,7 +78,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Parent_NUM,Parent_FirstName,Parent_LastName,Parent_Address,Parent_City,Parent_State,Parent_Zip,Parent_HomeTele,Parent_CellPhone,Parent_Email")] Parent parent)
+        public ActionResult Edit([Bind(Include = "ParentID,Parent_FirstName,Parent_LastName,Parent_Address,Parent_City,Parent_State,Parent_Zip,Parent_HomeTele,Parent_CellPhone,Parent_Email")] Parent parent)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace AdelanteRedo.Controllers
         }
 
         // GET: Parents/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -107,7 +107,7 @@ namespace AdelanteRedo.Controllers
         // POST: Parents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
             Parent parent = db.Parents.Find(id);
             db.Parents.Remove(parent);

@@ -6,29 +6,29 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DataLib;
+using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
     public class MeetingStudentAttendancesController : Controller
     {
-        private goyals420_troutEntities db = new goyals420_troutEntities();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: MeetingStudentAttendances
         public ActionResult Index()
         {
-            var meetingStudentAttendances = db.MeetingStudentAttendances.Include(m => m.Meeting).Include(m => m.Student);
-            return View(meetingStudentAttendances.ToList());
+            var meetingStudentAttendance = db.MeetingStudentAttendance.Include(m => m.Meeting).Include(m => m.Student);
+            return View(meetingStudentAttendance.ToList());
         }
 
         // GET: MeetingStudentAttendances/Details/5
-        public ActionResult Details(string id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MeetingStudentAttendance meetingStudentAttendance = db.MeetingStudentAttendances.Find(id);
+            MeetingStudentAttendance meetingStudentAttendance = db.MeetingStudentAttendance.Find(id);
             if (meetingStudentAttendance == null)
             {
                 return HttpNotFound();
@@ -39,8 +39,8 @@ namespace AdelanteRedo.Controllers
         // GET: MeetingStudentAttendances/Create
         public ActionResult Create()
         {
-            ViewBag.Meeting_NUM = new SelectList(db.Meetings, "Meeting_NUM", "Meeting_Type");
-            ViewBag.Student_NUM = new SelectList(db.Students, "Student_NUM", "Student_FirstName");
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type");
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName");
             return View();
         }
 
@@ -49,34 +49,34 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Student_NUM,Meeting_NUM,Attendance")] MeetingStudentAttendance meetingStudentAttendance)
+        public ActionResult Create([Bind(Include = "MeetingStudentAttendanceID,StudentID,MeetingID,Attendance")] MeetingStudentAttendance meetingStudentAttendance)
         {
             if (ModelState.IsValid)
             {
-                db.MeetingStudentAttendances.Add(meetingStudentAttendance);
+                db.MeetingStudentAttendance.Add(meetingStudentAttendance);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Meeting_NUM = new SelectList(db.Meetings, "Meeting_NUM", "Meeting_Type", meetingStudentAttendance.Meeting_NUM);
-            ViewBag.Student_NUM = new SelectList(db.Students, "Student_NUM", "Student_FirstName", meetingStudentAttendance.Student_NUM);
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
 
         // GET: MeetingStudentAttendances/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MeetingStudentAttendance meetingStudentAttendance = db.MeetingStudentAttendances.Find(id);
+            MeetingStudentAttendance meetingStudentAttendance = db.MeetingStudentAttendance.Find(id);
             if (meetingStudentAttendance == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Meeting_NUM = new SelectList(db.Meetings, "Meeting_NUM", "Meeting_Type", meetingStudentAttendance.Meeting_NUM);
-            ViewBag.Student_NUM = new SelectList(db.Students, "Student_NUM", "Student_FirstName", meetingStudentAttendance.Student_NUM);
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
 
@@ -85,7 +85,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Student_NUM,Meeting_NUM,Attendance")] MeetingStudentAttendance meetingStudentAttendance)
+        public ActionResult Edit([Bind(Include = "MeetingStudentAttendanceID,StudentID,MeetingID,Attendance")] MeetingStudentAttendance meetingStudentAttendance)
         {
             if (ModelState.IsValid)
             {
@@ -93,19 +93,19 @@ namespace AdelanteRedo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Meeting_NUM = new SelectList(db.Meetings, "Meeting_NUM", "Meeting_Type", meetingStudentAttendance.Meeting_NUM);
-            ViewBag.Student_NUM = new SelectList(db.Students, "Student_NUM", "Student_FirstName", meetingStudentAttendance.Student_NUM);
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
+            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
 
         // GET: MeetingStudentAttendances/Delete/5
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MeetingStudentAttendance meetingStudentAttendance = db.MeetingStudentAttendances.Find(id);
+            MeetingStudentAttendance meetingStudentAttendance = db.MeetingStudentAttendance.Find(id);
             if (meetingStudentAttendance == null)
             {
                 return HttpNotFound();
@@ -116,10 +116,10 @@ namespace AdelanteRedo.Controllers
         // POST: MeetingStudentAttendances/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            MeetingStudentAttendance meetingStudentAttendance = db.MeetingStudentAttendances.Find(id);
-            db.MeetingStudentAttendances.Remove(meetingStudentAttendance);
+            MeetingStudentAttendance meetingStudentAttendance = db.MeetingStudentAttendance.Find(id);
+            db.MeetingStudentAttendance.Remove(meetingStudentAttendance);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -1,9 +1,12 @@
-﻿@model IEnumerable<DataLib.Parent>
+﻿@model IEnumerable<AdelanteRedo.Models.Parent>
 
 @{
     ViewBag.Title = "Index";
 }
-
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -22,6 +25,27 @@
         <th>
             @Html.DisplayNameFor(model => model.Parent_LastName)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parent_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parent_City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parent_State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parent_Zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parent_HomeTele)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parent_CellPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Parent_Email)
+        </th>
         <th></th>
     </tr>
 
@@ -34,9 +58,30 @@
             @Html.DisplayFor(modelItem => item.Parent_LastName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Parent_NUM }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Parent_NUM }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Parent_NUM })
+            @Html.DisplayFor(modelItem => item.Parent_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parent_City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parent_State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parent_Zip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parent_HomeTele)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parent_CellPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parent_Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ParentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ParentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ParentID })
         </td>
     </tr>
 }

@@ -1,8 +1,12 @@
-﻿@model IEnumerable<Models.Student>
+﻿@model IEnumerable<AdelanteRedo.Models.Student>
 
 @{
     ViewBag.Title = "Index";
 }
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -13,13 +17,24 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Student Last Name: @Html.TextBox("SearchString") <br />
+        <input type="submit" value="Search" />
+    </p>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Student_FirstName)
+            @Html.DisplayNameFor(model => model.LastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Student_LastName)
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
         </th>
         <th></th>
     </tr>
@@ -27,15 +42,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Student_FirstName)
+            @Html.DisplayFor(modelItem => item.LastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Student_LastName)
+            @Html.DisplayFor(modelItem => item.FirstName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Student_NUM }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Student_NUM }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Student_NUM })
+            @Html.DisplayFor(modelItem => item.EnrollmentDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StudentID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StudentID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StudentID })
         </td>
     </tr>
 }
