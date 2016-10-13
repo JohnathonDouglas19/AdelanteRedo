@@ -18,26 +18,126 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @*@Html.ActionLink("Adelante", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+               
+                @Html.ActionLink("The A-Team", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 <a class="navbar-brand" rel="home" href="#" title="Adelante Logo">
-                    <img style="max-width:500px; margin-top: -7px;"
+                    <img style="max-width:500px; max-height: 43px; margin-top: -7px;"
                          src="/img/adelante-logo.png">
                 </a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Programs", "Index", "Program")</li>
-                    <li>@Html.ActionLink("Donors", "Index", "Donors")</li>
-                    <li>@Html.ActionLink("Students", "Index", "Students")</li>
-                    <li>@Html.ActionLink("Parents", "Index", "Parents")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Events", "Index", "Meetings")</li>
-                    <li>@Html.ActionLink("Attendance", "Index", "MeetingStudentAttendances")</li>
-                    <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+            <div class="col-md-offset-6">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                    Student
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
+                                    <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+                                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                                </ul>
+                            </div>
+                        </li>
+                        @{
+                            if (User.IsInRole("Volunteer"))
+                            {
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                            Volunteer
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
+                                            <li>@Html.ActionLink("Students", "Index", "Student")</li>
+                                            <li>@Html.ActionLink("Enrollments", "Index", "Enrollment")</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            }}
+                        @{
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                            Admin
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>@Html.ActionLink("Students", "Index", "Student")</li>
+                                            <li>@Html.ActionLink("Enrollments", "Index", "Enrollment")</li>
+                                            <li>@Html.ActionLink("User Management", "Index", "UserManagement")</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+
+                            }}
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
+
+
+            @*<div class="col-md-offset-2">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                    Student
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>test</li>
+                                    @*<li>@Html.ActionLink("Calendar", "Index", "Event")</li>
+                                    <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+                                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                                </ul>
+                            </div>
+                        </li>
+                        @{
+
+                            if (User.IsInRole("Volunteer"))
+                            {
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                            Volunteer
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
+                                            <li>@Html.ActionLink("Students", "Index", "Student")</li>
+                                            <li>@Html.ActionLink("Enrollments", "Index", "Enrollment")</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            }}
+                        
+                        @{
+
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                            Admin
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>@Html.ActionLink("Students", "Index", "Student")</li>
+                                            <li>@Html.ActionLink("Enrollments", "Index", "Enrollment")</li>
+                                            <li>@Html.ActionLink("User Management", "Index", "UserManagement")</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                            }
+                        }
+
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+</div>*@
         </div>
     </div>
     <div class="container body-content">
