@@ -112,8 +112,10 @@
             <div class="row">
 
                 <div class="section-title text-center wow fadeInUp">
-                    <h2>About Us</h2>
-                    <p>
+                    
+                    <a href="@Url.Action("About", null, new { area = string.Empty, controller = "HomeController" }, Request.Url.Scheme)">
+                        <span><h2>About Us</h2></span>
+                    </a>                    <p>
                         Louisville's community has seen a 122% increase in the Hispanic/Latino population over the last decade, and its numbers continue to grow.
                         This diverse Hispanic population contributes to an ever evolving, multi-cultural Louisville, significantly impacting our future as a community.
                     </p>
@@ -198,9 +200,11 @@
 
     <section id="parents">
         <div class="section-title text-center wow fadeInDown">
-            <h2>Parents</h2>
-            <p><big>Caption here</big></p>
-        </div>
+
+            <a href="@Url.Action("Parents", null, new { area = string.Empty, controller = "ParentsController" }, Request.Url.Scheme)">
+                <span><h2>Parents</h2></span>
+                <p><big>Caption here</big></p>
+</div>
         <!--<section id="count">-->
         <div class="container">
             <div class="row">
