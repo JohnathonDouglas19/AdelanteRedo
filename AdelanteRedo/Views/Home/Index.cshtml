@@ -113,7 +113,7 @@
 
                 <div class="section-title text-center wow fadeInUp">
                     
-                    <a href="@Url.Action("About", null, new { area = string.Empty, controller = "HomeController" }, Request.Url.Scheme)">
+                    <a href="@Url.Action("About.cshtml", null, new { area = string.Empty, controller = "About.cshtml" }, Request.Url.Scheme)">
                         <span><h2>About Us</h2></span>
                     </a>                    <p>
                         Louisville's community has seen a 122% increase in the Hispanic/Latino population over the last decade, and its numbers continue to grow.
@@ -141,9 +141,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>Our Goals</h2>
-                        <p>Caption Here.</p>
-                    </div>
+                        <a href="@Url.Action("About.cshtml", null, new { area = string.Empty, controller = "About.cshtml" }, Request.Url.Scheme)">
+                            <span><h2>Our Goal</h2></span>
+                            <p>Caption Here.</p>
+</div>
                 </div>
             </div>
             <div class="row">
@@ -368,9 +369,10 @@
     <section id="programs">
         <!--used to be portfolio-->
         <div class="section-title text-center wow fadeInDown">
-            <h2>Programs</h2>
-            <p><big>All of our programs and services are free.</big></p>
-        </div>
+            <a href="@Url.Action("About.cshtml", null, new { area = string.Empty, controller = "About.cshtml" }, Request.Url.Scheme)">
+                <span><h2>Programs</h2></span>
+                <p><big>All of our programs and services are free.</big></p>
+</div>
         <nav class="project-filter clearfix text-center wow fadeInLeft" data-wow-delay="0.5s">
             <ul class="list-inline">
                 <li><a href="javascript:;" class="filter" data-filter="all">All</a></li>
@@ -459,15 +461,16 @@
     ========================== -->
     <section id="donate">
         <div class="section-title text-center wow fadeInDown">
-            <h2>Donate</h2>
-            <p><big>Please consider donating to help make Adelante's mission possible.</big></p>
-            <div class="col-md-12 wow fadeInUp">
-                <div class="special-plan text-center">
-                    <p>We accept online donations</p>
-                    <a href="#" class="btn btn-blue">Donate</a>
+            <a href="@Url.Action("About.cshtml", null, new { area = string.Empty, controller = "About.cshtml" }, Request.Url.Scheme)">
+                <span><h2>Donate</h2></span>
+                <p><big>Please consider donating to help make Adelante's mission possible.</big></p>
+                <div class="col-md-12 wow fadeInUp">
+                    <div class="special-plan text-center">
+                        <p>We accept online donations</p>
+                        <a href="#" class="btn btn-blue">Donate</a>
+                    </div>
                 </div>
-            </div>
-        </div>
+</div>
 
         <br />
         <br />
@@ -737,9 +740,10 @@
                 <section id="students">
                     <!--used to be service-bottom-->
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>Students</h2>
-                        <p><big>Caption here</big></p>
-                    </div>
+                        <a href="@Url.Action("About.cshtml", null, new { area = string.Empty, controller = "About.cshtml" }, Request.Url.Scheme)">
+                            <span><h2>Students</h2></span>
+                            <p><big>Caption here</big></p>
+</div>
                     <div class="container">
                         <div class="mobile-device">
                             <img data-wow-delay="0.2s" class="img-responsive black  wow fadeInLeftBig" src="/img/kids.jpg">
