@@ -701,6 +701,11 @@
     <Content Include="goyals420_troutDataSet.xss">
       <DependentUpon>goyals420_troutDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="pdfs\Behavior_Contract_Eng.pdf" />
+    <Content Include="pdfs\Behavior_Contract_Sp.pdf" />
+    <Content Include="pdfs\Photo_Transportation_Waiver.pdf" />
+    <Content Include="pdfs\Lassiter_Th_Fall_16.pdf" />
+    <Content Include="pdfs\Lassiter_Wd_Fall_16.pdf" />
     <None Include="Properties\PublishProfiles\Adalante.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

@@ -4501,7 +4501,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-button-user {
     position: relative;
     top: 50%;
-    left: 89%;
+    left: 100%;
     margin-top: 50px !important;
     margin-right: 100px !important;
 }
