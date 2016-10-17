@@ -23,9 +23,8 @@ namespace AdelanteRedo.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-            Database.SetInitializer<ApplicationDbContext>(new CreateDatabaseIfNotExists<ApplicationDbContext>());
-            Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
-
+           //Database.SetInitializer<ApplicationDbContext>(new CreateDatabaseIfNotExists<ApplicationDbContext>());
+           //Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
         }
 
         public static ApplicationDbContext Create()
@@ -45,7 +44,7 @@ namespace AdelanteRedo.Models
         public DbSet<Donor> Donor { get; set; }
         public DbSet<Location> Location { get; set; }
         public DbSet<Meeting> Meeting { get; set; }
-
+        public DbSet<Event> Events { get; set; }
         public System.Data.Entity.DbSet<AdelanteRedo.Models.Staff> Staffs { get; set; }
 
         public System.Data.Entity.DbSet<AdelanteRedo.Models.Volunteer> Volunteers { get; set; }

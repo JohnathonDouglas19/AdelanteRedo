@@ -112,8 +112,10 @@
             <div class="row">
 
                 <div class="section-title text-center wow fadeInUp">
-                    <h2>About Us</h2>
-                    <p>
+                    
+                    <a href="@Url.Action("About.cshtml", null, new { area = string.Empty, controller = "About.cshtml" }, Request.Url.Scheme)">
+                        <span><h2>About Us</h2></span>
+                    </a>                    <p>
                         Louisville's community has seen a 122% increase in the Hispanic/Latino population over the last decade, and its numbers continue to grow.
                         This diverse Hispanic population contributes to an ever evolving, multi-cultural Louisville, significantly impacting our future as a community.
                     </p>
@@ -139,9 +141,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>Our Goals</h2>
-                        <p>Caption Here.</p>
-                    </div>
+                        <a href="@Url.Action("About.cshtml", null, new { area = string.Empty, controller = "About.cshtml" }, Request.Url.Scheme)">
+                            <span><h2>Our Goal</h2></span>
+                            <p>Caption Here.</p>
+</div>
                 </div>
             </div>
             <div class="row">
@@ -198,9 +201,11 @@
 
     <section id="parents">
         <div class="section-title text-center wow fadeInDown">
-            <h2>Parents</h2>
-            <p><big>Caption here</big></p>
-        </div>
+
+            <a href="@Url.Action("Parents", null, new { area = string.Empty, Controllers = "ParentsController" }, Request.Url.Scheme)">
+                <span><h2>Parents</h2></span>
+                
+</div>
         <!--<section id="count">-->
         <div class="container">
             <div class="row">
@@ -364,9 +369,10 @@
     <section id="programs">
         <!--used to be portfolio-->
         <div class="section-title text-center wow fadeInDown">
-            <h2>Programs</h2>
-            <p><big>All of our programs and services are free.</big></p>
-        </div>
+            <a href="@Url.Action("About.cshtml", null, new { area = string.Empty, controller = "About.cshtml" }, Request.Url.Scheme)">
+                <span><h2>Programs</h2></span>
+                <p><big>All of our programs and services are free.</big></p>
+</div>
         <nav class="project-filter clearfix text-center wow fadeInLeft" data-wow-delay="0.5s">
             <ul class="list-inline">
                 <li><a href="javascript:;" class="filter" data-filter="all">All</a></li>
@@ -455,15 +461,16 @@
     ========================== -->
     <section id="donate">
         <div class="section-title text-center wow fadeInDown">
-            <h2>Donate</h2>
-            <p><big>Please consider donating to help make Adelante's mission possible.</big></p>
-            <div class="col-md-12 wow fadeInUp">
-                <div class="special-plan text-center">
-                    <p>We accept online donations</p>
-                    <a href="#" class="btn btn-blue">Donate</a>
+            <a href="@Url.Action("About.cshtml", null, new { area = string.Empty, controller = "About.cshtml" }, Request.Url.Scheme)">
+                <span><h2>Donate</h2></span>
+                <p><big>Please consider donating to help make Adelante's mission possible.</big></p>
+                <div class="col-md-12 wow fadeInUp">
+                    <div class="special-plan text-center">
+                        <p>We accept online donations</p>
+                        <a href="#" class="btn btn-blue">Donate</a>
+                    </div>
                 </div>
-            </div>
-        </div>
+</div>
 
         <br />
         <br />
@@ -648,24 +655,21 @@
                     <br />
                     <br />
                     <br />
-                   
+                    <!--</section>
+
+             <section id="donate">-->
                     <div class="container">
                         <div class="row">
                             <div class="section-title text-center wow fadeInUp">
-                                <h2>
-                                Community Partners
-                                </h2>
-                                </div>
+                                <h2>Community Partners</h2>
                                 <div class="row">
-                                   
-                        <div class="col-md-4 col-md-offset-2 col-sm-6 text-left wow fadeInLeft">
+                        <div class="col-md-6 col-sm-12 text-left wow fadeInLeft">
                                         <div class="media">
                                             <a href="#" class="pull-left">
 
                                             </a>
                                             <div class="media-body">
                                                 <ul>
-                                                    <big>
                                                         <li>Adhawks Advertising</li>
                                                         <li>Al Dia en America</li>
                                                         <li>Americana Community Center</li>
@@ -683,13 +687,12 @@
                                                         <li>Iroquois Free Public Library</li>
                                                         <li>G.L.I.P.</li>
                                                         <li>Jefferson County Public School System</li>
-                                                    </big>
+
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="col-md-5 col-sm-6 wow text-left fadeInRight">
+                        <div class="col-md-6 col-sm-12 wow text-left fadeInRight" data-wow-delay="0.2s">
                                         <div class="media">
                                 <a href="#" class="pull-left"></a>
                                             <div class="media-body">
@@ -720,6 +723,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </section>
                 <br />
                 <br />
@@ -736,9 +740,10 @@
                 <section id="students">
                     <!--used to be service-bottom-->
                     <div class="section-title text-center wow fadeInDown">
-                        <h2>Students</h2>
-                        <p><big>Caption here</big></p>
-                    </div>
+                        <a href="@Url.Action("About.cshtml", null, new { area = string.Empty, controller = "About.cshtml" }, Request.Url.Scheme)">
+                            <span><h2>Students</h2></span>
+                            <p><big>Caption here</big></p>
+</div>
                     <div class="container">
                         <div class="mobile-device">
                             <img data-wow-delay="0.2s" class="img-responsive black  wow fadeInLeftBig" src="/img/kids.jpg">
@@ -767,7 +772,7 @@
                 <section id="contact">
                     <div class="container">
                         <div class="row">
-                            <div class="section-title text-center wow fadeInDown">
+                            <div class="section-title text-center wow fadeInDown">g
                                 <h2>Contact Us</h2>
                                 <p>We'd love to hear from you!</p>
                             </div>
@@ -820,7 +825,7 @@
                                         </div>
                                     </fieldset>
                                 }
-                @*<div class="col-md-8 col-sm-9 wow fadeInLeft">
+                <div class="col-md-8 col-sm-9 wow fadeInLeft">
                         <div class="contact-form clearfix">
                             <form action="index.html" method="post">
                                 <div class="input-field">
@@ -837,9 +842,11 @@
                                 <input type="submit" class="btn btn-blue pull-right" value="SEND MESSAGE" id="msg-submit">
                             </form>
                         </div> <!-- end .contact-form -->
-                    </div> <!-- .col-md-8 -->*@
+                    </div> <!-- .col-md-8 -->
                 <div class="col-md-4 col-sm-3 wow fadeInRight">
                     <div class="contact-details">
+                    <br/>
+                    <br/>
                         <span>Mara Maldonado, Director</span>
                         <p>502.494.0353 <br> <br>maramaldonado@att.net</p>
                     </div> <!-- end .contact-details -->

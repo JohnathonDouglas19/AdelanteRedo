@@ -6,10 +6,9 @@
     <title>@ViewBag.Title Adelante Hispanic Achievers</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/jqueryui")
 
 </head>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -26,7 +25,62 @@
                          src="/img/adelante-logo.png">
                 </a>
             </div>
-            <div class="col-md-offset-2.5">
+            <div class="col-md-offset-6">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                    Student
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
+                                    <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+                                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                                </ul>
+                            </div>
+                        </li>
+                        @{
+                            if (User.IsInRole("Volunteer"))
+                            {
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                            Volunteer
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
+                                            <li>@Html.ActionLink("Students", "Index", "Student")</li>
+                                            <li>@Html.ActionLink("Enrollments", "Index", "Enrollment")</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            }}
+                        @{
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                            Admin
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>@Html.ActionLink("Students", "Index", "Student")</li>
+                                            <li>@Html.ActionLink("Enrollments", "Index", "Enrollment")</li>
+                                            <li>@Html.ActionLink("User Management", "Index", "UserManagement")</li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+
+                            }}
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+
+
+            @*<div class="col-md-offset-2">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>
@@ -38,7 +92,7 @@
                                     <li>test</li>
                                     @*<li>@Html.ActionLink("Calendar", "Index", "Event")</li>
                                     <li>@Html.ActionLink("Courses", "Index", "Course")</li>
-                                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>*@
+                                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                                 </ul>
                             </div>
                         </li>
@@ -83,7 +137,7 @@
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
-</div>
+</div>*@
         </div>
     </div>
     <div class="container body-content">
@@ -95,6 +149,7 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
