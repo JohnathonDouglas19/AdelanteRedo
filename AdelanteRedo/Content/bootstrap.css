@@ -4508,6 +4508,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-dropdown {
     margin-left: 190px; 
 }
+
+.top-nav {
+    background-color: #fff;
+    border-bottom: 1px solid #222;
+}
 .navbar-default .navbar-link {
   color: #777777;
 }
