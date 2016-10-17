@@ -239,6 +239,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="goyals420_troutDataSet.Designer.cs" />
+    <Compile Include="Migrations\201609261722149_InitialCreate.cs" />
+    <Compile Include="Migrations\201609261722149_InitialCreate.Designer.cs">
+      <DependentUpon>201609261722149_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610170124575_InitialMigrations.cs" />
+    <Compile Include="Migrations\201610170124575_InitialMigrations.Designer.cs">
+      <DependentUpon>201610170124575_InitialMigrations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdelanteContext.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -262,9 +271,6 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentParent.cs" />
     <Compile Include="Models\Volunteer.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Report\WebForm1.aspx.cs">
@@ -488,9 +494,6 @@
     <Content Include="img\stock-photo.jpg" />
     <Content Include="img\studentofmonth.jpg" />
     <Content Include="img\uofl.png" />
-    <Content Include="obj\Debug\AdelanteRedo.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\AdelanteRedo.dll" />
-    <Content Include="obj\Debug\AdelanteRedo.pdb" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_classic.css" />
@@ -690,8 +693,6 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="img\.DS_Store" />
     <Content Include="img\slider\.DS_Store" />
-    <Content Include="obj\Debug\AdelanteRedo.csprojResolveAssemblyReference.cache" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="bin\AdelanteRedo.dll.config" />
     <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
@@ -708,9 +709,6 @@
     <Content Include="goyals420_troutDataSet.xss">
       <DependentUpon>goyals420_troutDataSet.xsd</DependentUpon>
     </Content>
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Model.csdl" />
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Model.msl" />
-    <Content Include="obj\Debug\edmxResourcesToEmbed\Model.ssdl" />
     <None Include="Properties\PublishProfiles\Adalante.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />
@@ -814,7 +812,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Course\" />
     <Folder Include="Views\Enrollment\" />
   </ItemGroup>
@@ -829,6 +826,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609261722149_InitialCreate.resx">
+      <DependentUpon>201609261722149_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610170124575_InitialMigrations.resx">
+      <DependentUpon>201610170124575_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\Report2.rdlc" />
   </ItemGroup>
   <PropertyGroup>
