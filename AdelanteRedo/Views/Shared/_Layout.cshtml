@@ -77,7 +77,7 @@
                                 </li>
                             }}
                         @{
-                            if (User.IsInRole("Admin"))
+                            if (Request.IsAuthenticated && User.IsInRole("Admin"))
                             {
                                 <li>
                                     <div class="dropdown">
@@ -85,9 +85,10 @@
                                             Admin
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li>@Html.ActionLink("Students", "Index", "Student")</li>
-                                            <li>@Html.ActionLink("Enrollments", "Index", "Enrollment")</li>
-                                            <li>@Html.ActionLink("User Management", "Index", "UserManagement")</li>
+                                            {
+                                            <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+                                            <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                                            }
                                         </ul>
                                     </div>
                                 </li>
