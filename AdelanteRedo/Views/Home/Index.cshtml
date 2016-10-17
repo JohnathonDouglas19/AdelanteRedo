@@ -42,7 +42,7 @@
                 <div class="item active" style="background-image: url('/img/new_front.jpg')">
                     <div class="carousel-caption">
                         <div class="animated bounceInRight">
-                            <h3>Welcome to Adelante Hispanic Acheivers!</h3>
+                            @*<h3>Welcome to Adelante Hispanic Acheivers!</h3>*@
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                 <div class="col-md-12">
                     <div class="section-title text-center wow fadeInDown">
                         <h2>Our Mission and Goals</h2>
-                        <p>Caption Here.</p>
+                        <p>"Our goal is to guide our students and support their desire, hope, and ambition to be productive citizens in our community." - Stephen Imhoff, Adelante Founder, Immediate Past President and former Board Chairman of Jefferson County Board of Education</p>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
     <section id="parents">
         <div class="section-title text-center wow fadeInDown">
             <h2>Parents</h2>
-            <p><big>Caption here</big></p>
+            <p>Adelante programs are free of charge to our students and their families.</p>
         </div>
         <div class="container">
             <div class="row">
@@ -168,7 +168,7 @@
                             <div class="fact-icon">
                                 <i class="fa fa-trophy fa-lg"></i>
                             </div>
-                            <span data-to="150">0</span>
+                            <span data-to="145">0</span>
                             <p><big>TBD</big></p>
                         </div>
                     </div>
@@ -186,7 +186,7 @@
 
                     <div class="subtitle text-center">
                         <h3>Testimonials</h3>
-                        <p><big>“In Adelante everyone has a dream, everyone speaks the same language, and everyone is FAMILY” - Sabrina Lloret</big></p>
+                        <p>“In Adelante everyone has a dream, everyone speaks the same language, and everyone is FAMILY” - Sabrina Lloret</p>
                     </div>
 
                     <div id="testimonial">
@@ -249,7 +249,7 @@
                 <div class="col-md-5 col-md-offset-1 wow fadeInRight">
                     <div class="subtitle text-center">
                         <h3>Some of Our Successes</h3>
-                        <p>Caption about success of Adelante.</p>
+                        <p></p>
                     </div>
                     <div class="progress-bars">
                         <span>High School Graduation Rate - <small>95%</small></span>
@@ -260,7 +260,7 @@
                         <div class="progress" data-progress="93">
                             <div class="bar"></div>
                         </div>
-                        <span>Scholarship Granted Perent - <small>85%</small></span>
+                        <span>Scholarship Granted Percent - <small>85%</small></span>
                         <div class="progress" data-progress="85">
                             <div class="bar"></div>
                         </div>
@@ -288,7 +288,7 @@
     <section id="programs">
         <div class="section-title text-center wow fadeInDown">
             <h2>Programs</h2>
-            <p><big>All of our programs are free. All programs include parent involvement (workshops, presentations, and individual support).</big></p>
+            <p>All of our programs are free. All programs include parent involvement (workshops, presentations, and individual support).</p>
         </div>
         <nav class="project-filter clearfix text-center wow fadeInLeft" data-wow-delay="0.5s">
             <ul class="list-inline">
@@ -371,13 +371,13 @@
     <br />
     <br />
     <br />
-    <section id="donate">
+    <section id="sponsors">
         <br />
         <br />
         <div class="row">
             <div class="section-title text-center wow fadeInUp">
                 <h2>Sponsors</h2>
-                <p><big>2015-2016</big></p>
+                <p>2015-2016</p>
             </div>
            @*Sponsor's logo*@
             @*<div class="col-lg-8>*@
@@ -430,7 +430,7 @@
                     </div>
                 </div>
             </div>
-            </div>
+            @*</div>*@
         <br />
         <br />
         <br />
@@ -573,16 +573,22 @@
         <!--used to be service-bottom-->
         <div class="section-title text-center wow fadeInDown">
             <h2>Students</h2>
-            <p><big>Caption here</big></p>
+            <p>We welcome students of Hispanic and Latino heritage. Students who join must commit to personal, social, academic, and cultural growth, and parents must help foster their development.  To participate in any Adelante program, parent/guardian and student must be present and register on the first day of the program.</p>
         </div>
         <div class="container">
             <div class="mobile-device">
-                <img data-wow-delay="0.2s" class="img-responsive black  wow fadeInLeftBig" src="/img/kids.jpg">
+                <img data-wow-delay="0.2s" class="img-responsive black  wow fadeInLeftBig" src="~/img/adelante_art.jpg">
                 <!--<img data-wow-delay="0.5s" class="img-responsive white  wow fadeInLeftBig" src="img/front-page.png" alt="iPhone White">-->
             </div>
-            <div class="service-features wow fadeInRight">
+            <div class="service-features wow fadeInRight" style="align-content: center;">
                 <h2>Criteria and Enrollment</h2>
-                <p>Adelante accepts Hispanic students who attend middle or high school in Jefferson County, KY and the surrounding area. Every student will be allowed to participate in Adelante Hispanic Achievers’ programs provided that they follow the attendance and behavior code agreements outlined in this manual, and agree to academic and personal growth. Parents are accountable for their child’s attendance and progress.</p>
+                <br />
+                <br />
+                <big><p>Adelante accepts Hispanic students who attend middle or high school in Jefferson County, KY and the surrounding area.</p>
+                <br />
+                <p>Every student will be allowed to participate in Adelante Hispanic Achievers’ programs provided that they follow the attendance and behavior code agreements outlined in this manual, and agree to academic and personal growth.</p>
+               <br />
+                <p> Parents are accountable for their child’s attendance and progress.</p></big>
             </div>
         </div>
     </section>
@@ -606,7 +612,7 @@
                         </div>
 
 
-                        <div class="col-md-5 col-sm-9 wow fadeInLeft">
+                        <div class="col-md-6 col-sm-9 wow fadeInLeft">
                             <div class="contact-form clearfix">
                                 <form action="index.html" method="post">
                                     <div class="input-field">
@@ -620,12 +626,13 @@
                                     </div>
                                     @Html.Recaptcha()
                                     @Html.ValidationMessage("ReCaptcha")
-                                    <input type="submit" class="btn btn-blue pull-right" value="SEND MESSAGE" id="msg-submit">
+                                    <br />
+                                    <input type="submit" class="btn btn-blue pull-left" value="SEND MESSAGE" id="msg-submit">
                                 </form>
                             </div>
                         </div>
                         @*Google Map Location*@
-                        <div class="col-md-5 right">
+                        <div class="col-md-6 right">
 
                             <div class="footer-map wow fadeInDown">
 
@@ -666,9 +673,9 @@
         <br />
         <br />
         <br />
-        <div class="col-md-4 text-left wow fadeInRight">
+        @*<div class="col-md-4 text-left wow fadeInRight">
             <p>Sign up to receive email notifications about Adelenate's upcoming events and information on how you can help support Adelante's mission.</p>
-        </div>
+        </div>*@
         <br />
         <br />
         <br />
@@ -728,8 +735,8 @@
                         <a href="https://www.facebook.com/Adelante-Hispanic-Achievers-164080746962301/?hc_ref=SEARCH&fref=nf"><i class="fa fa-facebook fa-lg" style="color: #3b5998;"></i></a>
                         <a href="https://twitter.com/AdelanteKy"><i class="fa fa-twitter fa-lg" style="color: #00aced;"></i></a>
                         <a href="https://www.youtube.com/"><i class="fa fa-youtube fa-lg" style="color: #e52d27;"></i></a>
-                        <a href="https://plus.google.com/"><i class="fa fa-google-plus fa-lg" style="color: #d34836;"></i></a>
-                        <a href="https://www.instagram.com/adelanteky/?hl=en"><i class="fa fa-instagram fa-lg" style="color: #e52d27;"></i></a>
+                        <a href="https://plus.google.com/"><i class="fa fa-google-plus fa-lg" style="color: #dd4b39;"></i></a>
+                        <a href="https://www.instagram.com/adelanteky/?hl=en"><i class="fa fa-instagram fa-lg" style="color: #8a3ab9;"></i></a>
                     </div>
                 </div>
             </div>
@@ -747,5 +754,5 @@
         @Scripts.Render("~/bundles/lib")
 </body>
 </html>
-Contact GitHub API Training Shop Blog About
-© 2016 GitHub, Inc. Terms Privacy Security Status Help
+@*GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help*@

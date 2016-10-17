@@ -380,6 +380,7 @@
     <Content Include="img\adelante\Copy of IMG_2465.JPG" />
     <Content Include="img\adelante\group_picture.jpg" />
     <Content Include="img\adelante\IMG_2477.jpg" />
+    <Content Include="img\adelante_art.jpg" />
     <Content Include="img\client\1.jpg" />
     <Content Include="img\client\2.jpg" />
     <Content Include="img\client\3.jpg" />
@@ -427,6 +428,7 @@
     <Content Include="img\stock-photo.jpg" />
     <Content Include="img\studentofmonth.jpg" />
     <Content Include="img\uofl.png" />
+    <Content Include="img\wku.jpg" />
     <Content Include="obj\Debug\AdelanteRedo.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AdelanteRedo.dll" />
     <Content Include="obj\Debug\AdelanteRedo.pdb" />

@@ -18,7 +18,7 @@
                     <span class="icon-bar"></span>
                 </button>
                
-                @Html.ActionLink("The A Team", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("The A Team", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
                 <a class="navbar-brand" rel="home" href="#" title="Adelante Logo">
                     <img style="max-width:700px; max-height: 43px; margin-top: -7px;"
                          src="/img/adelante-logo.png">
@@ -29,22 +29,42 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
-                                    Student
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 15px; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b; height: 40px; width:200px; position: center;">
+                                    About Adelante
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
-                                    <li>@Html.ActionLink("Courses", "Index", "Course")</li>
-                                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                                    <li><a href="@Url.Action("Index", "Home")#home">Home</a></li>
+                                    <li><a href="@Url.Action("Index", "Home")#about">About</a></li>
+                                    <li><a href="@Url.Action("Index", "Home")#parents">Parents</a></li>
+                                    <li><a href="@Url.Action("Index", "Home")#programs">Programs</a></li>
+                                    <li><a href="@Url.Action("Index", "Home")#sponsors">Sponsors</a></li>
+                                    <li><a href="@Url.Action("Index", "Home")#students">Students</a></li>
+                                    <li><a href="@Url.Action("Index", "Home")#contact">Contact Us</a></li>
                                 </ul>
                             </div>
                         </li>
+                        @{
+                            if (User.IsInRole("Student"))
+                            {
+                                <li>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b;">
+                                            Volunteer
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
+                                            <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+                                            <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            }}
                         @{
                             if (User.IsInRole("Volunteer"))
                             {
                                 <li>
                                     <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b;">
                                             Volunteer
                                         </button>
                                         <ul class="dropdown-menu">
@@ -60,7 +80,7 @@
                             {
                                 <li>
                                     <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b;">
                                             Admin
                                         </button>
                                         <ul class="dropdown-menu">
