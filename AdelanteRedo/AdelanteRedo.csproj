@@ -81,18 +81,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.Runtime.12.0.2.2402\lib\Microsoft.ReportViewer.Common.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.Runtime.12.0.2.2402\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.2015.Runtime.12.0.2.2402\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="reCAPTCHA.MVC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\reCAPTCH.MVC.1.0.1\lib\net45\reCAPTCHA.MVC.dll</HintPath>
       <Private>True</Private>
@@ -275,6 +263,9 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentParent.cs" />
     <Compile Include="Models\Volunteer.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -283,6 +274,8 @@
     <Content Include="bin\AdelanteRedo.pdb" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\DataLib.dll" />
+    <Content Include="bin\DataLib.pdb" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
     <Content Include="bin\EntityFramework.SqlServer.xml" />
@@ -325,8 +318,6 @@
     <Content Include="bin\Microsoft.Owin.Security.Twitter.xml" />
     <Content Include="bin\Microsoft.Owin.Security.xml" />
     <Content Include="bin\Microsoft.Owin.xml" />
-    <Content Include="bin\Microsoft.ReportViewer.Common.dll" />
-    <Content Include="bin\Microsoft.ReportViewer.WebForms.dll" />
     <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
     <Content Include="bin\Newtonsoft.Json.dll" />
     <Content Include="bin\Newtonsoft.Json.xml" />
@@ -366,47 +357,6 @@
     <Content Include="Content\main.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\responsive.css" />
-    <Content Include="Content\themes\base\accordion.css" />
-    <Content Include="Content\themes\base\all.css" />
-    <Content Include="Content\themes\base\autocomplete.css" />
-    <Content Include="Content\themes\base\base.css" />
-    <Content Include="Content\themes\base\button.css" />
-    <Content Include="Content\themes\base\core.css" />
-    <Content Include="Content\themes\base\datepicker.css" />
-    <Content Include="Content\themes\base\dialog.css" />
-    <Content Include="Content\themes\base\draggable.css" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\menu.css" />
-    <Content Include="Content\themes\base\progressbar.css" />
-    <Content Include="Content\themes\base\resizable.css" />
-    <Content Include="Content\themes\base\selectable.css" />
-    <Content Include="Content\themes\base\selectmenu.css" />
-    <Content Include="Content\themes\base\slider.css" />
-    <Content Include="Content\themes\base\sortable.css" />
-    <Content Include="Content\themes\base\spinner.css" />
-    <Content Include="Content\themes\base\tabs.css" />
-    <Content Include="Content\themes\base\theme.css" />
-    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -444,6 +394,7 @@
     <Content Include="img\adelante\Copy of IMG_2465.JPG" />
     <Content Include="img\adelante\group_picture.jpg" />
     <Content Include="img\adelante\IMG_2477.jpg" />
+    <Content Include="img\adelante_art.jpg" />
     <Content Include="img\client\1.jpg" />
     <Content Include="img\client\2.jpg" />
     <Content Include="img\client\3.jpg" />
@@ -491,6 +442,10 @@
     <Content Include="img\stock-photo.jpg" />
     <Content Include="img\studentofmonth.jpg" />
     <Content Include="img\uofl.png" />
+    <Content Include="img\wku.jpg" />
+    <Content Include="obj\Debug\AdelanteRedo.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\AdelanteRedo.dll" />
+    <Content Include="obj\Debug\AdelanteRedo.pdb" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.css" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler.js" />
     <Content Include="Scripts\dhtmlxScheduler\dhtmlxscheduler_classic.css" />
@@ -670,8 +625,6 @@
     <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_ru.html" />
     <Content Include="Scripts\dhtmlxScheduler\locale\recurring\repeat_template_sk.html" />
     <Content Include="Scripts\jquery-countTo.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.js" />
-    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <Content Include="Scripts\jquery.appear.js" />
     <Content Include="Scripts\jquery.fancybox.pack.js" />
     <Content Include="Scripts\jquery.mixitup.min.js" />
@@ -690,6 +643,8 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="img\.DS_Store" />
     <Content Include="img\slider\.DS_Store" />
+    <Content Include="obj\Debug\AdelanteRedo.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="bin\AdelanteRedo.dll.config" />
     <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
@@ -707,7 +662,8 @@
     </Content>
     <None Include="Properties\PublishProfiles\Adalante.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.12.4.min.map" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -774,6 +730,10 @@
     <Content Include="Views\Donors\Details.cshtml" />
     <Content Include="Views\Donors\Edit.cshtml" />
     <Content Include="Views\Donors\Index.cshtml" />
+    <Content Include="Views\StudentParents\Create.cshtml" />
+    <Content Include="Views\StudentParents\Delete.cshtml" />
+    <Content Include="Views\StudentParents\Details.cshtml" />
+    <Content Include="Views\StudentParents\Edit.cshtml" />
     <Content Include="Views\StudentParents\Index.cshtml" />
     <Content Include="Views\MeetingStaffAttendances\Create.cshtml" />
     <Content Include="Views\MeetingStaffAttendances\Delete.cshtml" />
@@ -799,6 +759,7 @@
     <Content Include="Views\MeetingVolunteerAttendances\Delete.cshtml" />
     <Content Include="Views\MeetingVolunteerAttendances\Details.cshtml" />
     <Content Include="Views\MeetingVolunteerAttendances\Edit.cshtml" />
+    <Content Include="Views\MeetingVolunteerAttendances\Index.cshtml" />
     <Content Include="Views\Volunteers\Create.cshtml" />
     <Content Include="Views\Volunteers\Delete.cshtml" />
     <Content Include="Views\Volunteers\Details.cshtml" />
@@ -808,6 +769,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Course\" />
     <Folder Include="Views\Enrollment\" />
   </ItemGroup>
@@ -817,6 +779,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
