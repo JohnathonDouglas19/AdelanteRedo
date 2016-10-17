@@ -339,14 +339,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Donor_NUM1">
+                    <Textbox Name="DonorID1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -356,7 +356,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Donor_NUM1</rd:DefaultName>
+                      <rd:DefaultName>DonorID1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>#e5e5e5</Color>
@@ -379,7 +379,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -420,7 +420,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -456,7 +456,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -497,7 +497,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -533,7 +533,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -574,7 +574,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -610,7 +610,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -651,7 +651,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -687,7 +687,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -728,7 +728,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -764,7 +764,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -805,7 +805,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -841,7 +841,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -882,7 +882,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -918,7 +918,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -959,7 +959,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -995,7 +995,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -1036,7 +1036,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -1072,7 +1072,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!Donor_NUM.Value)</Value>
+                              <Value>=CountDistinct(Fields!DonorID.Value)</Value>
                               <Style>
                                 <FontFamily>Verdana</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -1106,27 +1106,27 @@
         <TablixColumnHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="Donor_NUM">
+              <Group Name="DonorID">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!Donor_NUM.Value</GroupExpression>
+                  <GroupExpression>=Fields!DonorID.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!Donor_NUM.Value</Value>
+                  <Value>=Fields!DonorID.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
                 <Size>0.25in</Size>
                 <CellContents>
-                  <Textbox Name="Donor_NUM">
+                  <Textbox Name="DonorID">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!Donor_NUM.Value</Value>
+                            <Value>=Fields!DonorID.Value</Value>
                             <Style>
                               <FontFamily>Verdana</FontFamily>
                               <FontSize>9pt</FontSize>
@@ -1138,7 +1138,7 @@
                         <Style />
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Donor_NUM</rd:DefaultName>
+                    <rd:DefaultName>DonorID</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>#de9646</Color>
@@ -3558,7 +3558,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>5f3e3a9c-54f5-478d-bebf-d1cb003da10d</rd:DataSourceID>
+      <rd:DataSourceID>3065f985-8bf7-4152-a937-2fd9d1cb873c</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -3568,9 +3568,9 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Donor_NUM">
-          <DataField>Donor_NUM</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+        <Field Name="DonorID">
+          <DataField>DonorID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Donor_FirstName">
           <DataField>Donor_FirstName</DataField>
@@ -3620,5 +3620,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>c14e26cb-06ea-4205-a57d-5869a4a888d0</rd:ReportID>
+  <rd:ReportID>120dac9b-55d2-4609-b41a-45918c063633</rd:ReportID>
 </Report>
