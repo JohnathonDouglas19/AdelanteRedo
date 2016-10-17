@@ -238,6 +238,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="goyals420_troutDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>goyals420_troutDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="goyals420_troutDataSet.Designer.cs" />
     <Compile Include="Migrations\201609261722149_InitialCreate.cs" />
     <Compile Include="Migrations\201609261722149_InitialCreate.Designer.cs">
@@ -697,13 +702,14 @@
     <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="ApplicationInsights.config" />
     <Content Include="goyals420_troutDataSet.xsc">
       <DependentUpon>goyals420_troutDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="Report\WebForm1.aspx" />
     <None Include="goyals420_troutDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>goyals420_troutDataSet2.Designer.cs</LastGenOutput>
+      <LastGenOutput>goyals420_troutDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <Content Include="goyals420_troutDataSet.xss">
@@ -826,6 +832,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Report\Report1.rdlc" />
     <EmbeddedResource Include="Migrations\201609261722149_InitialCreate.resx">
       <DependentUpon>201609261722149_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
