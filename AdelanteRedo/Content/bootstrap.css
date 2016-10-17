@@ -4491,7 +4491,23 @@ textarea.input-group-sm > .input-group-btn > .btn {
     background-color: transparent;
   }
 }
-
+.nav-button {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: 50px !important;
+    margin-right: 140px !important;
+}
+.nav-button-user {
+    position: relative;
+    top: 50%;
+    left: 89%;
+    margin-top: 50px !important;
+    margin-right: 100px !important;
+}
+.nav-dropdown {
+    margin-left: 190px; 
+}
 .navbar-default .navbar-link {
   color: #777777;
 }
