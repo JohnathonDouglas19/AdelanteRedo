@@ -39,7 +39,7 @@ namespace AdelanteRedo.Controllers
         // GET: MeetingStudentAttendances/Create
         public ActionResult Create()
         {
-            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type");
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "MeetingID");
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName");
             return View();
         }
@@ -58,7 +58,7 @@ namespace AdelanteRedo.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "MeetingID", meetingStudentAttendance.MeetingID);
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
@@ -75,7 +75,7 @@ namespace AdelanteRedo.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "MeetingID", meetingStudentAttendance.MeetingID);
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
@@ -93,7 +93,7 @@ namespace AdelanteRedo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "MeetingID", meetingStudentAttendance.MeetingID);
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
