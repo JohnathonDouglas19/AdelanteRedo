@@ -13,6 +13,11 @@ namespace AdelanteRedo.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        internal static List<Student> GetUsers()
+        {
+            throw new NotImplementedException();
+        }
+
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
