@@ -239,6 +239,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="goyals420_troutDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>goyals420_troutDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201609261722149_InitialCreate.cs" />
+    <Compile Include="Migrations\201609261722149_InitialCreate.Designer.cs">
+      <DependentUpon>201609261722149_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610170124575_InitialMigrations.cs" />
+    <Compile Include="Migrations\201610170124575_InitialMigrations.Designer.cs">
+      <DependentUpon>201610170124575_InitialMigrations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdelanteContext.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -273,8 +287,6 @@
     <Content Include="bin\AdelanteRedo.pdb" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
-    <Content Include="bin\DataLib.dll" />
-    <Content Include="bin\DataLib.pdb" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
     <Content Include="bin\EntityFramework.SqlServer.xml" />
@@ -358,6 +370,47 @@
     <Content Include="Content\main.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\responsive.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -638,6 +691,8 @@
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-countTo.js" />
     <Content Include="Scripts\jquery.appear.js" />
     <Content Include="Scripts\jquery.fancybox.pack.js" />
@@ -671,15 +726,36 @@
     <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="goyals420_troutDataSet.xsc">
+      <DependentUpon>goyals420_troutDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="goyals420_troutDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>goyals420_troutDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="goyals420_troutDataSet.xss">
+      <DependentUpon>goyals420_troutDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="pdfs\Behavior_Contract_Eng.pdf" />
+    <Content Include="pdfs\Behavior_Contract_Sp.pdf" />
+    <Content Include="pdfs\Photo_Transportation_Waiver.pdf" />
+    <Content Include="pdfs\Lassiter_Th_Fall_16.pdf" />
+    <Content Include="pdfs\Lassiter_Wd_Fall_16.pdf" />
     <None Include="Properties\PublishProfiles\Adalante.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -734,11 +810,6 @@
     <Content Include="Views\Donors\Details.cshtml" />
     <Content Include="Views\Donors\Edit.cshtml" />
     <Content Include="Views\Donors\Index.cshtml" />
-    <Content Include="Views\StudentParents\Create.cshtml" />
-    <Content Include="Views\StudentParents\Delete.cshtml" />
-    <Content Include="Views\StudentParents\Details.cshtml" />
-    <Content Include="Views\StudentParents\Edit.cshtml" />
-    <Content Include="Views\StudentParents\Index.cshtml" />
     <Content Include="Views\MeetingStaffAttendances\Create.cshtml" />
     <Content Include="Views\MeetingStaffAttendances\Delete.cshtml" />
     <Content Include="Views\MeetingStaffAttendances\Details.cshtml" />
@@ -763,7 +834,6 @@
     <Content Include="Views\MeetingVolunteerAttendances\Delete.cshtml" />
     <Content Include="Views\MeetingVolunteerAttendances\Details.cshtml" />
     <Content Include="Views\MeetingVolunteerAttendances\Edit.cshtml" />
-    <Content Include="Views\MeetingVolunteerAttendances\Index.cshtml" />
     <Content Include="Views\Volunteers\Create.cshtml" />
     <Content Include="Views\Volunteers\Delete.cshtml" />
     <Content Include="Views\Volunteers\Details.cshtml" />
@@ -788,14 +858,25 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Course\" />
     <Folder Include="Views\Enrollment\" />
+    <Folder Include="Views\StudentParents\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201609261722149_InitialCreate.resx">
+      <DependentUpon>201609261722149_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610170124575_InitialMigrations.resx">
+      <DependentUpon>201610170124575_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

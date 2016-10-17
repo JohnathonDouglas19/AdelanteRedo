@@ -16,11 +16,12 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Meeting.Meeting_Type)
+            @Html.DisplayNameFor(model => model.Meeting.MeetingID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Student.LastName)
@@ -34,7 +35,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Meeting.Meeting_Type)
+            @Html.DisplayFor(modelItem => item.Meeting.MeetingID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Student.LastName)

@@ -13,13 +13,12 @@ namespace AdelanteRedo.Controllers
     public class MeetingStudentAttendancesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: MeetingStudentAttendances
         public ActionResult Index()
         {
             var meetingStudentAttendance = db.MeetingStudentAttendance.Include(m => m.Meeting).Include(m => m.Student);
             return View(meetingStudentAttendance.ToList());
-        }
+       }
 
         // GET: MeetingStudentAttendances/Details/5
         public ActionResult Details(int? id)
@@ -39,7 +38,7 @@ namespace AdelanteRedo.Controllers
         // GET: MeetingStudentAttendances/Create
         public ActionResult Create()
         {
-            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type");
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "MeetingID");
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName");
             return View();
         }
@@ -58,7 +57,7 @@ namespace AdelanteRedo.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "MeetingID", meetingStudentAttendance.MeetingID);
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
@@ -75,7 +74,7 @@ namespace AdelanteRedo.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "MeetingID", meetingStudentAttendance.MeetingID);
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
@@ -93,7 +92,7 @@ namespace AdelanteRedo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "Meeting_Type", meetingStudentAttendance.MeetingID);
+            ViewBag.MeetingID = new SelectList(db.Meeting, "MeetingID", "MeetingID", meetingStudentAttendance.MeetingID);
             ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", meetingStudentAttendance.StudentID);
             return View(meetingStudentAttendance);
         }
