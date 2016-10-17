@@ -39,7 +39,7 @@ namespace AdelanteRedo.Controllers
         // GET: Meetings/Create
         public ActionResult Create()
         {
-            ViewBag.Location_Name = new SelectList(db.Location, "LocationID", "Location_Name");
+            ViewBag.Location_Name = new SelectList(db.Location, "Location_Name", "Location_Name");
             return View();
         }
 
@@ -72,6 +72,7 @@ namespace AdelanteRedo.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Location_Name = new SelectList(db.Location, "Location_Name", "Location_Name");
             return View(meeting);
         }
 

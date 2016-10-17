@@ -13,13 +13,12 @@ namespace AdelanteRedo.Controllers
     public class MeetingStudentAttendancesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
         // GET: MeetingStudentAttendances
         public ActionResult Index()
         {
             var meetingStudentAttendance = db.MeetingStudentAttendance.Include(m => m.Meeting).Include(m => m.Student);
             return View(meetingStudentAttendance.ToList());
-        }
+       }
 
         // GET: MeetingStudentAttendances/Details/5
         public ActionResult Details(int? id)
