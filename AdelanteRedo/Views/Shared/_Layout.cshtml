@@ -20,9 +20,10 @@
                 </button>
                
                 @*@Html.ActionLink("The A Team", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-                <a class="navbar-brand" rel="home" href="#" title="Adelante Logo">
+                <a class="navbar-brand" rel="home" href="@Url.Action("Index", "Home")#home" title="Adelante Logo">
                     <img style="max-width:1300px; max-height: 90px; margin-top: -7px;"
-                         src="/img/adelante-logo.png">
+                         src="/img/adelante-logo.png"> 
+                    
                 </a>
             </div>
             <div>
@@ -59,7 +60,6 @@
                                             <li><a href="~/pdfs/Behavior_Contract_Sp.pdf">Behavior Contract (Spanish)</a></li>
                                             <li><a href="~/pdfs/Behavior_Contract_Eng.pdf">Photo and Transportation Waiver</a></li>
                                             <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
-                                            <li>@Html.ActionLink("Courses", "Index", "Course")</li>
                                             <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
                                         </ul>
                                     </div>
@@ -113,7 +113,6 @@
                                             <li>@Html.ActionLink("Staff", "Index", "Staffs")</li>
                                             <li>@Html.ActionLink("Sessions", "Index", "Meetings")</li>
                                             <li>@Html.ActionLink("Student Attendance", "Index", "MeetingStudentAttendances")</li>
-                                            <li>@Html.ActionLink("User Management", "Index", "UserManagement")</li>
                                             <li>@Html.ActionLink("Session Location Management", "Index", "Locations")</li>
                                             <li>@Html.ActionLink("Report", "Index", "Students")</li>
                                         </ul>
