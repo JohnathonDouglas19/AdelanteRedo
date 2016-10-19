@@ -17,6 +17,7 @@ namespace AdelanteRedo.Models
             return userIdentity;
         }
     }
+    
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -27,6 +28,12 @@ namespace AdelanteRedo.Models
            //Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
         }
 
+        static ApplicationDbContext()
+        {
+            // Seed the database
+            Database.SetInitializer<ApplicationDbContext>(new ApplicationCreateDb());
+        }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -35,7 +42,7 @@ namespace AdelanteRedo.Models
         public DbSet<Student> Students { get; set; }
         public DbSet<Parent> Parents { get; set; }
         public DbSet<StudentParent> StudentParent { get; set; }
-        public DbSet<Admin> Admins { get; set; }
+        //public DbSet<Admin> Admins { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
         public DbSet<MeetingStudentAttendance> MeetingStudentAttendance { get; set; }
