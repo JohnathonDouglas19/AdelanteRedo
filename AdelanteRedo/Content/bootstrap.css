@@ -52,7 +52,7 @@ audio:not([controls]) {
 }
 
 html {
-  font-family: sans-serif;
+  font-family: Open Sans, sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -103,7 +103,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, serif;
+  font-family: Open Sans, sans-serif;
   font-size: 1em;
 }
 
@@ -311,7 +311,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Open Sans, sans-serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -402,6 +402,8 @@ hr {
 
 p {
   margin: 0 0 10px;
+  font-weight: normal;
+  line-height: 25px;
 }
 
 .lead {
@@ -473,7 +475,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Open Sans, sans-serif;
   font-weight: 500;
   line-height: 1.1;
 }
@@ -712,7 +714,7 @@ address {
 
 code,
 pre {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-family: Open Sans, Sans-serif;
 }
 
 code {
@@ -6142,7 +6144,7 @@ body.modal-open,
   height: 20px;
   margin-top: -10px;
   margin-left: -10px;
-  font-family: serif;
+  font-family: Open Sans, sans-serif;
 }
 
 .carousel-control .icon-prev:before {

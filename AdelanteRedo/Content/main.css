@@ -39,8 +39,8 @@ body {
     background-color: #fff;
     font-family: 'Open Sans', sans-serif;
     line-height: 1;
-	font-size: 13px;
-    color: #a8a8a8;
+	font-size: 16px;
+    color: #000000;
 }
 
 ol, ul {
@@ -138,8 +138,8 @@ width: 11px;
 
 .section-title p {
     line-height: 25px;
-    font-weight: 300;
-    font-size: 13px;
+    font-weight: normal;
+    font-size: 16px;
 }
 
 .btn {
