@@ -475,6 +475,7 @@
     <Content Include="img\slider\mara_and_mayor.jpg" />
     <Content Include="img\stock-photo.jpg" />
     <Content Include="img\studentofmonth.jpg" />
+    <Content Include="img\transparent_adelante_logo.png" />
     <Content Include="img\uofl.png" />
     <Content Include="img\wku.jpg" />
     <Content Include="obj\Debug\AdelanteRedo.csproj.FileListAbsolute.txt" />

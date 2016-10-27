@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-fixed-top top-nav">
+    <div class="navbar navbar-fixed-top navbar-absolute" style="height: 90px; background-color: #e9e9e9">
         
         <div class="container">
             <div class="navbar-header">
@@ -22,25 +22,25 @@
                 </button>
                
                 @*@Html.ActionLink("The A Team", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
-                <a class="navbar-brand" rel="home" href="@Url.Action("Index", "Home")#home" title="Adelante Logo">
-                    <img style="max-width:1300px; max-height: 90px; margin-top: -7px;"
-                         src="/img/adelante-logo.png"> 
+                <a class="navbar-absolute" href="@Url.Action("Index", "Home")#home" title="Adelante Logo">
+                    <img style="max-width:1300px; max-height: 90px; padding-bottom: 0em;"
+                         src="/img/transparent_adelante_logo.png"> 
                 </a>
-                <div class="col-md-12">
+                @*<div class="col-md-12">
                     <a href="#" class="btn btn-primary btn-lg" role="button" style="background-color: #de2f0b; border-color: #de2f0b; position:center">Donate</a>
                     <a href="https://www.facebook.com/Adelante-Hispanic-Achievers-164080746962301/?hc_ref=SEARCH&fref=nf"><i class="fa fa-facebook fa-lg" style="color: #3b5998;"></i></a>
                     <a href="https://twitter.com/AdelanteKy"><i class="fa fa-twitter fa-lg" style="color: #00aced;"></i></a>
                     <a href="https://www.youtube.com/"><i class="fa fa-youtube fa-lg" style="color: #e52d27;"></i></a>
                     <a href="https://plus.google.com/"><i class="fa fa-google-plus fa-lg" style="color: #dd4b39;"></i></a>
                     <a href="https://www.instagram.com/adelanteky/?hl=en"><i class="fa fa-instagram fa-lg" style="color: #8a3ab9;"></i></a>
-                </div>
+                </div>*@
             </div>
             <div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>
                             <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle nav-button" type="button" data-toggle="dropdown" style="margin-top: 15px; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b; height: 40px; width:200px; position: center;">
+                                <button class="btn btn-primary dropdown-toggle nav-button" type="button" data-toggle="dropdown" style="margin-top: 0px; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b; height: 40px; width:200px; position: center;">
                                     Menu
                                 </button>
                                 <ul class="dropdown-menu nav-dropdown">                                
