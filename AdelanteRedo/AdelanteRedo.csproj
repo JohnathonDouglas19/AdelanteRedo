@@ -452,13 +452,13 @@
     <Content Include="img\kids.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\Logos\BBB.jpg" />
-    <Content Include="img\Logos\community.png" />
+    <Content Include="img\Logos\community.jpg" />
     <Content Include="img\Logos\GE.jpg" />
-    <Content Include="img\Logos\jcpsco.png" />
+    <Content Include="img\Logos\jcpsco.jpg" />
     <Content Include="img\Logos\LMC.jpg" />
-    <Content Include="img\Logos\McDonald%27s.jpg" />
+    <Content Include="img\Logos\McDonald_39_s.jpg" />
     <Content Include="img\Logos\statefarm.jpg" />
-    <Content Include="img\Logos\TJX.png" />
+    <Content Include="img\Logos\TJX.jpg" />
     <Content Include="img\Logos\UPS.jpg" />
     <Content Include="img\mentoring.jpg" />
     <Content Include="img\new_front.jpg" />
