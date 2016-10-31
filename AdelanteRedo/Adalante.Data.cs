@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AdelanteRedo
 {
-    public class Adalante
+    public class Adelante
     {
     }
 }
