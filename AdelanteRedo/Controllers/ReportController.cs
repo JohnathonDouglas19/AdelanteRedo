@@ -17,8 +17,7 @@ namespace AdelanteRedo.Controllers
             var data = new ReportDataViewModel
             {
                 StudentsAttendedList = GetStudentsThatAttended(DateTime.Today),
-                PercentageAttended = 10
-                //PercentageAttended = GetPercentOfStudentsThatAttended(DateTime.Today)
+                PercentageAttended = GetPercentOfStudentsThatAttended(DateTime.Today)
             };
             return View(data);
         }
@@ -34,24 +33,6 @@ namespace AdelanteRedo.Controllers
             };
             return View(data);
 
-        }
-
-        public ActionResult _StudentAttendancePercentagePartial(DateTime startDate)
-        {
-                var numberOfAttended = db.MeetingStudentAttendance.Where(sa => sa.Attendance.Value == true && sa.Meeting.Meeting_Start == startDate).Count();
-                var totalOfStudentsForThisMeeting = db.MeetingStudentAttendance.Count();
-
-                var averageAttendance = numberOfAttended / totalOfStudentsForThisMeeting;
-
-                return PartialView("_StudentAttendancePercentagePartial", averageAttendance);
-            
-        }
-
-        public ActionResult _StudentAttendanceListPartial(DateTime startDate)
-        {
-                var studentList = db.MeetingStudentAttendance.Where(sa => sa.Meeting.Meeting_Start.Date == startDate);
-
-                return PartialView("_StudentAttendancelListPartial", studentList);
         }
 
         public ICollection<Student> GetStudentsThatAttended(DateTime startDate)

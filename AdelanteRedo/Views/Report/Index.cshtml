@@ -1,4 +1,5 @@
-﻿@Model ReportDataViewModel
+﻿@using System.Web.Mvc.Html
+@model AdelanteRedo.Models.ReportDataViewModel
 @{
     ViewBag.Title = "Report";
 }
@@ -7,14 +8,17 @@
 <br />
 <br />
 <br />
-<h2>Reports</h2>
-
+<h2>Report</h2>
+<br/>
+<br/>
 @if (Model != null)
 {
-    <div class="col-md-6">
-        @Html.Partial("_StudentAttendanceListPartial", null,new } Model.StudentsThatAttended)
-    </div>
-    <div class="col-md-6">
-        @Html.RenderPartial("_StudentAttendancePercentagePartial", Model.PercentageAttended)
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Partial("_StudentAttendanceListPartial", Model.StudentsAttendedList)
+        </div>
+        <div class="col-md-6">
+            @Html.Partial("_StudentAttendancePercentagePartial", Model.PercentageAttended)
+        </div>
     </div>
 }
