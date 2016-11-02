@@ -106,12 +106,13 @@
                                 </li>
                             }}
                         @{
-                            if (User.IsInRole("Administrator"))
+                            if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
                             {
                                 <li>
                                     <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle nav-button-user" type="button" data-toggle="dropdown" style="margin-top: 15px; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b; height: 40px; width:200px; position: center;">
-                                            Admin
+                                        <button class="btn btn-primary dropdown-toggle nav-button-user" type="button" data-toggle="dropdown"
+                                                 style="margin-top: 15px; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b; 
+                                                    height: 40px; width:200px; position: center;"> Admin
                                         </button>
                                         <ul class="dropdown-menu nav-dropdown">
                                             <li><a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1476713071&rver=6.6.6556.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fauthRedirect%3dtrue%26realm%3doutlook.com&id=292841&whr=outlook.com&CBCXT=out&fl=wld&cobrandid=90015#wa=wsignin1.0">Grant Management</a></li>
@@ -123,12 +124,14 @@
                                             <li>@Html.ActionLink("Student Attendance", "Index", "MeetingStudentAttendances")</li>
                                             <li>@Html.ActionLink("Session Location Management", "Index", "Locations")</li>
                                             <li>@Html.ActionLink("Report", "Index", "Students")</li>
+                                            <li>@Html.ActionLink("User Management", "Index", "UserAdmin" )</li>
+                                            <li>@Html.ActionLink("Role Management", "Index", "RolesAdmin")</li>
                                         </ul>
                                     </div>
                                 </li>
-
-
-                            }}
+                                
+                                } 
+                            }
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>

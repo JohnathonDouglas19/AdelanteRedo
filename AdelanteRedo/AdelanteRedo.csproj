@@ -254,6 +254,10 @@
     <Compile Include="Migrations\201610170124575_InitialMigrations.Designer.cs">
       <DependentUpon>201610170124575_InitialMigrations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611012350232_CheckingPendingChanges.cs" />
+    <Compile Include="Migrations\201611012350232_CheckingPendingChanges.Designer.cs">
+      <DependentUpon>201611012350232_CheckingPendingChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdelanteContext.cs" />
@@ -809,6 +813,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610170124575_InitialMigrations.resx">
       <DependentUpon>201610170124575_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611012350232_CheckingPendingChanges.resx">
+      <DependentUpon>201611012350232_CheckingPendingChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
