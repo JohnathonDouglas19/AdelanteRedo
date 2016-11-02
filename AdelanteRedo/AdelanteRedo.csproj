@@ -383,6 +383,15 @@
     <Content Include="img\adelante\IMG_2477.jpg" />
     <Content Include="img\adelante_art.jpg" />
     <Content Include="img\award_group.jpg" />
+    <Content Include="img\board\advisory\Abraham_Solano.PNG" />
+    <Content Include="img\board\advisory\Ellie_Kerstetter.PNG" />
+    <Content Include="img\board\advisory\Jessica_Ann_Luetzow.PNG" />
+    <Content Include="img\board\advisory\Miguel_Lagunas.PNG" />
+    <Content Include="img\board\advisory\Saul_Garcia.PNG" />
+    <Content Include="img\board\members\Ben_Ruiz.PNG" />
+    <Content Include="img\board\members\Jos_Neil_Donis.PNG" />
+    <Content Include="img\board\members\Roland_Blahnik.PNG" />
+    <Content Include="img\board\members\Sandro_Fajardo.PNG" />
     <Content Include="img\board\officers\Armando_Unzueta.PNG" />
     <Content Include="img\board\officers\Gina_Buendia_Cruz.PNG" />
     <Content Include="img\board\officers\Guy_Gomez.PNG" />
@@ -434,6 +443,7 @@
     <Content Include="img\slider\bg3.jpg" />
     <Content Include="img\slider\dental_school.jpg" />
     <Content Include="img\slider\mara_and_mayor.jpg" />
+    <Content Include="img\slider\stock_graduation.jpg" />
     <Content Include="img\stock-photo.jpg" />
     <Content Include="img\studentofmonth.jpg" />
     <Content Include="img\transparent_adelante_logo.png" />
@@ -796,8 +806,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="img\board\advisory\" />
-    <Folder Include="img\board\members\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Course\" />
     <Folder Include="Views\Enrollment\" />
