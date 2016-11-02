@@ -335,7 +335,7 @@ textarea {
 }
 
 a {
-  color: #428bca;
+  color: #de2f0b;
   text-decoration: none;
 }
 
@@ -403,7 +403,7 @@ hr {
 p {
   margin: 0 0 10px;
   font-weight: normal;
-  line-height: 25px;
+  line-height: 0px;
 }
 
 .lead {
@@ -6024,6 +6024,7 @@ body.modal-open,
 
 .carousel {
   position: relative;
+
 }
 
 .carousel-inner {
