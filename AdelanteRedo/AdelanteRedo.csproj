@@ -278,6 +278,7 @@
     <Compile Include="Models\MeetingVolunteerAttendance.cs" />
     <Compile Include="Models\Parent.cs" />
     <Compile Include="Models\Program.cs" />
+    <Compile Include="Models\ReportDataViewModel.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentParent.cs" />
@@ -777,7 +778,7 @@
     <Content Include="Views\Volunteers\Edit.cshtml" />
     <Content Include="Views\Volunteers\Index.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
-    <Content Include="Views\Report.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\UserAdmin\Create.cshtml" />
     <Content Include="Views\UserAdmin\Delete.cshtml" />
     <Content Include="Views\UserAdmin\Details.cshtml" />
@@ -790,6 +791,8 @@
     <Content Include="Views\RolesAdmin\Details.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Shared\_StudentAttendancePercentagePartial.cshtml" />
+    <Content Include="Views\Shared\_StudentAttendanceListPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
