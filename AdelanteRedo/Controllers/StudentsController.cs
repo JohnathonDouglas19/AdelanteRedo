@@ -14,11 +14,25 @@ namespace AdelanteRedo.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Students
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Student.ToList());
+            var Students = from St in db.Student
+                           select St;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Students = Students.Where(st => st.LastName.Contains(searchString));
+            }
+
+            return View(Students);
+
         }
+
+        // GET: Students
+        // public ActionResult Index()
+        //  {
+        //     return View(db.Student.ToList());
+        // }
 
         // GET: Students/Details/5
         public ActionResult Details(int? id)

@@ -17,6 +17,14 @@
 <br />
 <p>
     @Html.ActionLink("Create New", "Create")
+    <br />
+     @using (Html.BeginForm())
+         {
+         <p>
+     Student LastName: @Html.TextBox("SearchString")
+        <input type = "submit" value = "Search"/>
+    </p>
+    }
 </p>
 <br />
 <br />
