@@ -798,11 +798,15 @@
     <Content Include="Views\Meetings\Index.cshtml" />
     <Content Include="Views\Shared\_StudentAttendancePercentagePartial.cshtml" />
     <Content Include="Views\Shared\_StudentAttendanceListPartial.cshtml" />
+    <Content Include="Views\StudentParents\Create.cshtml" />
+    <Content Include="Views\StudentParents\Delete.cshtml" />
+    <Content Include="Views\StudentParents\Details.cshtml" />
+    <Content Include="Views\StudentParents\Edit.cshtml" />
+    <Content Include="Views\StudentParents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\StudentParents\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
