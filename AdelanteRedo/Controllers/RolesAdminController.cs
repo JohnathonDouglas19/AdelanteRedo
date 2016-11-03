@@ -12,7 +12,7 @@ using AdelanteRedo.Models;
 
 namespace AdelanteRedo.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin , SuperAdmin")]
     public class RolesAdminController : Controller
     {
         public RolesAdminController()

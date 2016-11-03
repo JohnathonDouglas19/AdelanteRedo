@@ -1,0 +1,27 @@
+﻿@using System.Web.Mvc.Html
+@model AdelanteRedo.Models.ReportDataViewModel
+@{
+    ViewBag.Title = "Report";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Report</h2>
+<br/>
+Enter the date for the date you would like a report:
+@Html.TextBox("EnteredDate")
+<br/>
+<br/>
+@if (Model != null)
+{
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Partial("_StudentAttendanceListPartial", Model.StudentsAttendedList)
+        </div>
+        <div class="col-md-6">
+            @Html.Partial("_StudentAttendancePercentagePartial", Model.PercentageAttended)
+        </div>
+    </div>
+}

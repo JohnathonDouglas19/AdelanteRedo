@@ -32,6 +32,28 @@ namespace AdelanteRedo.Controllers
             {
                 return HttpNotFound();
             }
+
+
+            var searchForPercentage = "percentage";
+            if (searchForPercentage.ToLower().Contains("percentage"))
+            {
+                //Average attendance
+                var numberOfAttended = db.MeetingStudentAttendance.Where(sa => sa.Attendance.Value == true).Count();
+                var totalOfStudentsForThisMeeting = db.MeetingStudentAttendance.Count();
+
+                var averageAttendance = numberOfAttended / totalOfStudentsForThisMeeting;
+                
+                //return _StudentAttendancePercentage4Partial(averageAttendance);
+            }
+            else
+            {
+                //Get all student attendance for today.
+                var startDate = DateTime.Today;
+                var studentList = db.MeetingStudentAttendance.Where(sa => sa.Meeting.Meeting_Start.Date == startDate);
+
+                //return _StudentAttendanceListPartial(studentList)
+            }
+
             return View(student);
         }
 

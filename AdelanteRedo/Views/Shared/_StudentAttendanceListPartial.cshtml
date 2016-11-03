@@ -1,0 +1,10 @@
+﻿@model  ICollection<AdelanteRedo.Models.Student>
+
+<b>Students that attended:</b>
+<br/>
+@{
+    foreach(var student in Model)
+    {
+        <p>@student.FirstName @student.LastName</p>
+    }
+}

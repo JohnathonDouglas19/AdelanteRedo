@@ -24,10 +24,10 @@ namespace AdelanteRedo.Models
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
-        internal static List<Student> GetUsers()
-        {
-            throw new NotImplementedException();
-        }
+        //internal static List<Student> GetUsers()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }
