@@ -38,8 +38,8 @@ namespace AdelanteRedo.Controllers
             if (searchForPercentage.ToLower().Contains("percentage"))
             {
                 //Average attendance
-                var numberOfAttended = db.MeetingStudentAttendance.Where(sa => sa.Attendance.Value == true).Count();
-                var totalOfStudentsForThisMeeting = db.MeetingStudentAttendance.Count();
+                var numberOfAttended = db.StudentAttendance.Where(sa => sa.Attended == true).Count();
+                var totalOfStudentsForThisMeeting = db.StudentAttendance.Count();
 
                 var averageAttendance = numberOfAttended / totalOfStudentsForThisMeeting;
                 
@@ -49,7 +49,7 @@ namespace AdelanteRedo.Controllers
             {
                 //Get all student attendance for today.
                 var startDate = DateTime.Today;
-                var studentList = db.MeetingStudentAttendance.Where(sa => sa.Meeting.Meeting_Start.Date == startDate);
+                var studentList = db.StudentAttendance.Where(sa => sa.Meeting.Date.Date == startDate);
 
                 //return _StudentAttendanceListPartial(studentList)
             }

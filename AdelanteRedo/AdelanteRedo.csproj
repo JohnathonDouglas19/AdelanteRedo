@@ -281,7 +281,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Meeting.cs" />
     <Compile Include="Models\Parent.cs" />
-    <Compile Include="Models\Program.cs" />
     <Compile Include="Models\ReportDataViewModel.cs" />
     <Compile Include="Models\Programs.cs" />
     <Compile Include="Models\Staff.cs" />
