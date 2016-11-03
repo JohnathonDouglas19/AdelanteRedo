@@ -92,7 +92,17 @@ namespace AdelanteRedo.Migrations
                         Location_name = c.String(),
                     })
                 .PrimaryKey(t => t.LocationID);
-            
+
+            CreateTable(
+                    "dbo.Programs",
+                c => new
+                     {
+                             ProgramsID = c.Int(nullable: false, identity: true),
+                             ProgramNames = c.String(),
+                             DayOfTheWeek = c.String(),
+                     })
+                  .PrimaryKey(t => t.ProgramsID);
+
             CreateTable(
                 "dbo.Meetings",
                 c => new

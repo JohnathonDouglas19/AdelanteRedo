@@ -6,6 +6,11 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
 
 namespace AdelanteRedo.Models
 {
@@ -13,26 +18,24 @@ namespace AdelanteRedo.Models
     using System.Collections.Generic;
     
     public partial class Parent
-    {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Parent()
-        {
-            this.Students = new HashSet<Student>();
-        }
-    
+    {   
         public int ParentID { get; set; }
-        public string Parent_FirstName { get; set; }
-        public string Parent_LastName { get; set; }
-        public string Parent_Address { get; set; }
-        public string Parent_City { get; set; }
-        public string Parent_State { get; set; }
-        public string Parent_Zip { get; set; }
-        public string Parent_HomeTele { get; set; }
-        public string Parent_CellPhone { get; set; }
-        public string Parent_Email { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Students { get; set; }
-        public virtual Student Student { get; set; }
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public string State { get; set; }
+
+        [Display(Name = "Zip Code")]
+        public string ZipCode { get; set; }
+
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
+
+        [Display(Name = "Email Address")]
+        public string EmailAddress { get; set; }
+
     }
 }

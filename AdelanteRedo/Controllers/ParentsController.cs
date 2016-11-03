@@ -17,7 +17,7 @@ namespace AdelanteRedo.Controllers
         // GET: Parents
         public ActionResult Index()
         {
-            return View(db.Parents.ToList());
+            return View(db.Parent.ToList());
         }
 
         // GET: Parents/Details/5
@@ -27,7 +27,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent parent = db.Parents.Find(id);
+            Parent parent = db.Parent.Find(id);
             if (parent == null)
             {
                 return HttpNotFound();
@@ -46,11 +46,11 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ParentID,Parent_FirstName,Parent_LastName,Parent_Address,Parent_City,Parent_State,Parent_Zip,Parent_HomeTele,Parent_CellPhone,Parent_Email")] Parent parent)
+        public ActionResult Create([Bind(Include = "ParentID,FirstName,LastName,Address,State,ZipCode,PhoneNumber,EmailAddress")] Parent parent)
         {
             if (ModelState.IsValid)
             {
-                db.Parents.Add(parent);
+                db.Parent.Add(parent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent parent = db.Parents.Find(id);
+            Parent parent = db.Parent.Find(id);
             if (parent == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ParentID,Parent_FirstName,Parent_LastName,Parent_Address,Parent_City,Parent_State,Parent_Zip,Parent_HomeTele,Parent_CellPhone,Parent_Email")] Parent parent)
+        public ActionResult Edit([Bind(Include = "ParentID,FirstName,LastName,Address,State,ZipCode,PhoneNumber,EmailAddress")] Parent parent)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parent parent = db.Parents.Find(id);
+            Parent parent = db.Parent.Find(id);
             if (parent == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace AdelanteRedo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Parent parent = db.Parents.Find(id);
-            db.Parents.Remove(parent);
+            Parent parent = db.Parent.Find(id);
+            db.Parent.Remove(parent);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

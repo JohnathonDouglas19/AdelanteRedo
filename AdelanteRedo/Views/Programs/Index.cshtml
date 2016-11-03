@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AdelanteRedo.Models.Programs>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProgramName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DayofTheWeek)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProgramName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DayofTheWeek)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProgramsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProgramsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProgramsID })
+        </td>
+    </tr>
+}
+
+</table>

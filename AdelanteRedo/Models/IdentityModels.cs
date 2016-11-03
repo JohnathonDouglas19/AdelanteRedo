@@ -41,21 +41,16 @@ namespace AdelanteRedo.Models
             return new ApplicationDbContext();
         }
         //TODO: Add Sets for all entities in the Database.
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Parent> Parents { get; set; }
+        public DbSet<Student> Student { get; set; }
+        public DbSet<Parent> Parent { get; set; }
         public DbSet<StudentParent> StudentParent { get; set; }
         //public DbSet<Admin> Admins { get; set; }
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<Enrollment> Enrollments { get; set; }
-        public DbSet<MeetingStudentAttendance> MeetingStudentAttendance { get; set; }
-        public DbSet<MeetingStaffAttendance> MeetingStaffAttendance { get; set; }
-        public DbSet<MeetingVolunteerAttendance> MeetingVolunteerAttendance { get; set; }
         public DbSet<Donor> Donor { get; set; }
-        public DbSet<Location> Location { get; set; }
+        public DbSet<StudentAttendance> StudentAttendance { get; set; }
         public DbSet<Meeting> Meeting { get; set; }
-        public DbSet<Event> Events { get; set; }
-        public System.Data.Entity.DbSet<AdelanteRedo.Models.Staff> Staffs { get; set; }
-
-        public System.Data.Entity.DbSet<AdelanteRedo.Models.Volunteer> Volunteers { get; set; }
+        public DbSet<Programs> Programs { get; set; }
+        public DbSet<StudentProgram> StudentProgram { get; set; }
+        public System.Data.Entity.DbSet<AdelanteRedo.Models.Staff> Staff { get; set; }
+        public System.Data.Entity.DbSet<AdelanteRedo.Models.Volunteer> Volunteer { get; set; }
     }
 }

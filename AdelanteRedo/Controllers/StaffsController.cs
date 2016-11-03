@@ -17,7 +17,7 @@ namespace AdelanteRedo.Controllers
         // GET: Staffs
         public ActionResult Index()
         {
-            return View(db.Staffs.ToList());
+            return View(db.Staff.ToList());
         }
 
         // GET: Staffs/Details/5
@@ -27,7 +27,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff = db.Staffs.Find(id);
+            Staff staff = db.Staff.Find(id);
             if (staff == null)
             {
                 return HttpNotFound();
@@ -46,11 +46,11 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StaffID,Staff_FirstName,Staff_LastName,Staff_Address,Staff_City,Staff_State,Staff_Zip,Staff_HomeTele,Staff_CellPhone,Staff_Email,STARTDATE,ENDDATE")] Staff staff)
+        public ActionResult Create([Bind(Include = "StaffID,FirstName,LastName,Address,State,ZipCode,PhoneNumber,EmailAddress,STARTDATE,ENDDATE")] Staff staff)
         {
             if (ModelState.IsValid)
             {
-                db.Staffs.Add(staff);
+                db.Staff.Add(staff);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff = db.Staffs.Find(id);
+            Staff staff = db.Staff.Find(id);
             if (staff == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StaffID,Staff_FirstName,Staff_LastName,Staff_Address,Staff_City,Staff_State,Staff_Zip,Staff_HomeTele,Staff_CellPhone,Staff_Email,STARTDATE,ENDDATE")] Staff staff)
+        public ActionResult Edit([Bind(Include = "StaffID,FirstName,LastName,Address,State,ZipCode,PhoneNumber,EmailAddress,STARTDATE,ENDDATE")] Staff staff)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Staff staff = db.Staffs.Find(id);
+            Staff staff = db.Staff.Find(id);
             if (staff == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace AdelanteRedo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Staff staff = db.Staffs.Find(id);
-            db.Staffs.Remove(staff);
+            Staff staff = db.Staff.Find(id);
+            db.Staff.Remove(staff);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

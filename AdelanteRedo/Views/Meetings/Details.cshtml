@@ -3,15 +3,7 @@
 @{
     ViewBag.Title = "Details";
 }
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
 <h2>Details</h2>
 
 <div>
@@ -19,35 +11,35 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Meeting_Start)
+            @Html.DisplayNameFor(model => model.Programs.ProgramName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Meeting_Start)
+            @Html.DisplayFor(model => model.Programs.ProgramName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Meeting_End)
+            @Html.DisplayNameFor(model => model.Date)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Meeting_End)
+            @Html.DisplayFor(model => model.Date)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Meeting_Type)
+            @Html.DisplayNameFor(model => model.Hour)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Meeting_Type)
+            @Html.DisplayFor(model => model.Hour)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Location_Name)
+            @Html.DisplayNameFor(model => model.Minute)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Location_Name)
+            @Html.DisplayFor(model => model.Minute)
         </dd>
 
     </dl>

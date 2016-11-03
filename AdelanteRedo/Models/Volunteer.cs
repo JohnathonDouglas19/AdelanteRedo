@@ -15,10 +15,6 @@ namespace AdelanteRedo.Models
     public partial class Volunteer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Volunteer()
-        {
-            this.MeetingVolunteerAttendance = new HashSet<MeetingVolunteerAttendance>();
-        }
     
         public  Guid VolunteerID { get; set; }
         public string Volunteer_FirstName { get; set; }
@@ -32,8 +28,5 @@ namespace AdelanteRedo.Models
         public string Volunteer_Email { get; set; }
         public Nullable<System.DateTime> STARTDATE { get; set; }
         public Nullable<System.DateTime> ENDDATE { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MeetingVolunteerAttendance> MeetingVolunteerAttendance { get; set; }
     }
 }

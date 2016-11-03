@@ -6,34 +6,33 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
 namespace AdelanteRedo.Models
 {
     using System;
     using System.Collections.Generic;
     
     public partial class Staff
-    {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Staff()
-        {
-            this.MeetingStaffAttendance = new HashSet<MeetingStaffAttendance>();
-        }
-    
+    {    
         public int StaffID { get; set; }
-        public string Staff_FirstName { get; set; }
-        public string Staff_LastName { get; set; }
-        public string Staff_Address { get; set; }
-        public string Staff_City { get; set; }
-        public string Staff_State { get; set; }
-        public string Staff_Zip { get; set; }
-        public string Staff_HomeTele { get; set; }
-        public string Staff_CellPhone { get; set; }
-        public string Staff_Email { get; set; }
+        public string FirstName { get; set; }
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public string State { get; set; }
+        [Display(Name = "Zip Code")]
+        public string ZipCode { get; set; }
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; }
+        [Display(Name = "Email Address")]
+        public string EmailAddress { get; set; }
+        [Display(Name = "Start Date")]
         public Nullable<System.DateTime> STARTDATE { get; set; }
+        [Display(Name = "End Date")]
         public Nullable<System.DateTime> ENDDATE { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MeetingStaffAttendance> MeetingStaffAttendance { get; set; }
     }
 }

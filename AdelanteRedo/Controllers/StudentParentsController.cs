@@ -39,8 +39,8 @@ namespace AdelanteRedo.Controllers
         // GET: StudentParents/Create
         public ActionResult Create()
         {
-            ViewBag.ParentID = new SelectList(db.Parents, "ParentID", "Parent_FirstName");
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName");
+            ViewBag.ParentID = new SelectList(db.Parent, "ParentID", "Parent_FirstName");
+            ViewBag.StudentID = new SelectList(db.Student, "StudentID", "LastName");
             return View();
         }
 
@@ -58,8 +58,8 @@ namespace AdelanteRedo.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ParentID = new SelectList(db.Parents, "ParentID", "Parent_FirstName", studentParent.ParentID);
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", studentParent.StudentID);
+            ViewBag.ParentID = new SelectList(db.Parent, "ParentID", "Parent_FirstName", studentParent.ParentID);
+            ViewBag.StudentID = new SelectList(db.Student, "StudentID", "LastName", studentParent.StudentID);
             return View(studentParent);
         }
 
@@ -75,8 +75,8 @@ namespace AdelanteRedo.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ParentID = new SelectList(db.Parents, "ParentID", "Parent_FirstName", studentParent.ParentID);
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", studentParent.StudentID);
+            ViewBag.ParentID = new SelectList(db.Parent, "ParentID", "Parent_FirstName", studentParent.ParentID);
+            ViewBag.StudentID = new SelectList(db.Student, "StudentID", "LastName", studentParent.StudentID);
             return View(studentParent);
         }
 
@@ -93,8 +93,8 @@ namespace AdelanteRedo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ParentID = new SelectList(db.Parents, "ParentID", "Parent_FirstName", studentParent.ParentID);
-            ViewBag.StudentID = new SelectList(db.Students, "StudentID", "LastName", studentParent.StudentID);
+            ViewBag.ParentID = new SelectList(db.Parent, "ParentID", "Parent_FirstName", studentParent.ParentID);
+            ViewBag.StudentID = new SelectList(db.Student, "StudentID", "LastName", studentParent.StudentID);
             return View(studentParent);
         }
 

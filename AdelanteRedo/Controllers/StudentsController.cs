@@ -14,25 +14,11 @@ namespace AdelanteRedo.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public ActionResult Index(string searchString)
-        {
-            var Students = from St in db.Students
-                            select St;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                Students = Students.Where(st => st.LastName.Contains(searchString));
-            }
-
-            return View(Students);
-
-        }
-
         // GET: Students
-    //    public ActionResult Index()
-    //    {
-     //       return View(db.Students.ToList());
-      //  }
+        public ActionResult Index()
+        {
+            return View(db.Student.ToList());
+        }
 
         // GET: Students/Details/5
         public ActionResult Details(int? id)
@@ -41,7 +27,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = db.Student.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -60,11 +46,11 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StudentID,LastName,FirstName,EnrollmentDate")] Student student)
+        public ActionResult Create([Bind(Include = "StudentID,FirstName,LastName,Address,State,ZipCode,PhoneNumber,EnrollmentDate,Email")] Student student)
         {
             if (ModelState.IsValid)
             {
-                db.Students.Add(student);
+                db.Student.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -79,7 +65,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = db.Student.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -92,7 +78,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StudentID,LastName,FirstName,EnrollmentDate")] Student student)
+        public ActionResult Edit([Bind(Include = "StudentID,FirstName,LastName,Address,State,ZipCode,PhoneNumber,EnrollmentDate,Email")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +96,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = db.Student.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -123,8 +109,8 @@ namespace AdelanteRedo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Student student = db.Students.Find(id);
-            db.Students.Remove(student);
+            Student student = db.Student.Find(id);
+            db.Student.Remove(student);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

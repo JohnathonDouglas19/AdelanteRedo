@@ -17,7 +17,7 @@ namespace AdelanteRedo.Controllers
         // GET: Volunteers
         public ActionResult Index()
         {
-            return View(db.Volunteers.ToList());
+            return View(db.Volunteer.ToList());
         }
 
         // GET: Volunteers/Details/5
@@ -27,7 +27,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Volunteer volunteer = db.Volunteers.Find(id);
+            Volunteer volunteer = db.Volunteer.Find(id);
             if (volunteer == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace AdelanteRedo.Controllers
             if (ModelState.IsValid)
             {
                 volunteer.VolunteerID = Guid.NewGuid();
-                db.Volunteers.Add(volunteer);
+                db.Volunteer.Add(volunteer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Volunteer volunteer = db.Volunteers.Find(id);
+            Volunteer volunteer = db.Volunteer.Find(id);
             if (volunteer == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Volunteer volunteer = db.Volunteers.Find(id);
+            Volunteer volunteer = db.Volunteer.Find(id);
             if (volunteer == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace AdelanteRedo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            Volunteer volunteer = db.Volunteers.Find(id);
-            db.Volunteers.Remove(volunteer);
+            Volunteer volunteer = db.Volunteer.Find(id);
+            db.Volunteer.Remove(volunteer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
