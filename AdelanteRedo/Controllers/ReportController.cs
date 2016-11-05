@@ -37,17 +37,17 @@ namespace AdelanteRedo.Controllers
 
         public ICollection<Student> GetStudentsThatAttended(DateTime startDate)
         {
-            var studentList = db.MeetingStudentAttendance.Where(sa => sa.Meeting.Meeting_Start.Date == startDate);
+            var studentList = db.StudentAttendance.Where(sa => sa.Meeting.Date.Date == startDate);
 
             //return studentList as ICollection<Student>;
-            return db.Students.ToList();
+            return db.Student.ToList();
 
         }
 
         public int GetPercentOfStudentsThatAttended(DateTime startDate)
         {
-            var numberOfAttended = db.MeetingStudentAttendance.Where(sa => sa.Attendance.Value == true && sa.Meeting.Meeting_Start == startDate).Count();
-            var totalOfStudentsForThisMeeting = db.MeetingStudentAttendance.Count();
+            var numberOfAttended = db.StudentAttendance.Where(sa => sa.Attended == true && sa.Meeting.Date.Date == startDate).Count();
+            var totalOfStudentsForThisMeeting = db.StudentAttendance.Count();
 
             //return numberOfAttended / totalOfStudentsForThisMeeting;
             return 10;

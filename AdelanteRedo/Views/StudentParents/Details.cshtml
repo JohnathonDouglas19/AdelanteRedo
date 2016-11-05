@@ -1,0 +1,42 @@
+﻿@model AdelanteRedo.Models.StudentParent
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Student Parent Record Details</h2>
+<br />
+<br />
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Parent.Parent_FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parent.Parent_FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.LastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentParentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

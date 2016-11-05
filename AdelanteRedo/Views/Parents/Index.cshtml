@@ -12,39 +12,36 @@
 <br />
 <br />
 <br />
-<h2>Index</h2>
-
+<h2>Parent Records</h2>
+<br />
+<br />
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<br />
+<br />
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Parent_FirstName)
+            @Html.DisplayNameFor(model => model.FirstName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Parent_LastName)
+            @Html.DisplayNameFor(model => model.LastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Parent_Address)
+            @Html.DisplayNameFor(model => model.Address)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Parent_City)
+            @Html.DisplayNameFor(model => model.State)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Parent_State)
+            @Html.DisplayNameFor(model => model.ZipCode)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Parent_Zip)
+            @Html.DisplayNameFor(model => model.PhoneNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Parent_HomeTele)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Parent_CellPhone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Parent_Email)
+            @Html.DisplayNameFor(model => model.EmailAddress)
         </th>
         <th></th>
     </tr>
@@ -52,31 +49,25 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Parent_FirstName)
+            @Html.DisplayFor(modelItem => item.FirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Parent_LastName)
+            @Html.DisplayFor(modelItem => item.LastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Parent_Address)
+            @Html.DisplayFor(modelItem => item.Address)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Parent_City)
+            @Html.DisplayFor(modelItem => item.State)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Parent_State)
+            @Html.DisplayFor(modelItem => item.ZipCode)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Parent_Zip)
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Parent_HomeTele)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Parent_CellPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Parent_Email)
+            @Html.DisplayFor(modelItem => item.EmailAddress)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ParentID }) |

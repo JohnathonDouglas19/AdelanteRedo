@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AdelanteRedo.Models.StudentProgram>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Student Program Records</h2>
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Programs.ProgramName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Programs.ProgramName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StudentProgramID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StudentProgramID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StudentProgramID })
+        </td>
+    </tr>
+}
+
+</table>

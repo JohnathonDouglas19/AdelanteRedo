@@ -16,8 +16,8 @@ namespace AdelanteRedo.Controllers
 
         public ActionResult Index(string searchString)
         {
-            var Students = from St in db.Students
-                            select St;
+            var Students = from St in db.Student
+                           select St;
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -29,10 +29,10 @@ namespace AdelanteRedo.Controllers
         }
 
         // GET: Students
-    //    public ActionResult Index()
-    //    {
-     //       return View(db.Students.ToList());
-      //  }
+        // public ActionResult Index()
+        //  {
+        //     return View(db.Student.ToList());
+        // }
 
         // GET: Students/Details/5
         public ActionResult Details(int? id)
@@ -41,7 +41,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = db.Student.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -52,8 +52,8 @@ namespace AdelanteRedo.Controllers
             if (searchForPercentage.ToLower().Contains("percentage"))
             {
                 //Average attendance
-                var numberOfAttended = db.MeetingStudentAttendance.Where(sa => sa.Attendance.Value == true).Count();
-                var totalOfStudentsForThisMeeting = db.MeetingStudentAttendance.Count();
+                var numberOfAttended = db.StudentAttendance.Where(sa => sa.Attended == true).Count();
+                var totalOfStudentsForThisMeeting = db.StudentAttendance.Count();
 
                 var averageAttendance = numberOfAttended / totalOfStudentsForThisMeeting;
                 
@@ -63,7 +63,7 @@ namespace AdelanteRedo.Controllers
             {
                 //Get all student attendance for today.
                 var startDate = DateTime.Today;
-                var studentList = db.MeetingStudentAttendance.Where(sa => sa.Meeting.Meeting_Start.Date == startDate);
+                var studentList = db.StudentAttendance.Where(sa => sa.Meeting.Date.Date == startDate);
 
                 //return _StudentAttendanceListPartial(studentList)
             }
@@ -82,11 +82,11 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StudentID,LastName,FirstName,EnrollmentDate")] Student student)
+        public ActionResult Create([Bind(Include = "StudentID,FirstName,LastName,Address,State,ZipCode,PhoneNumber,EnrollmentDate,Email")] Student student)
         {
             if (ModelState.IsValid)
             {
-                db.Students.Add(student);
+                db.Student.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -101,7 +101,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = db.Student.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -114,7 +114,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StudentID,LastName,FirstName,EnrollmentDate")] Student student)
+        public ActionResult Edit([Bind(Include = "StudentID,FirstName,LastName,Address,State,ZipCode,PhoneNumber,EnrollmentDate,Email")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -132,7 +132,7 @@ namespace AdelanteRedo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Student student = db.Students.Find(id);
+            Student student = db.Student.Find(id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -145,8 +145,8 @@ namespace AdelanteRedo.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Student student = db.Students.Find(id);
-            db.Students.Remove(student);
+            Student student = db.Student.Find(id);
+            db.Student.Remove(student);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

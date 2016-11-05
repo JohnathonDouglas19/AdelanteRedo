@@ -221,20 +221,16 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DonorsController.cs" />
-    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
-    <Compile Include="Controllers\MeetingStaffAttendancesController.cs" />
-    <Compile Include="Controllers\MeetingStudentAttendancesController.cs" />
-    <Compile Include="Controllers\MeetingVolunteerAttendancesController.cs" />
     <Compile Include="Controllers\ParentsController.cs" />
-    <Compile Include="Controllers\ProgramController.cs" />
+    <Compile Include="Controllers\ProgramsController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
     <Compile Include="Controllers\StudentParentsController.cs" />
+    <Compile Include="Controllers\StudentProgramsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Controllers\VolunteersController.cs" />
@@ -254,6 +250,22 @@
     <Compile Include="Migrations\201610170124575_InitialMigrations.Designer.cs">
       <DependentUpon>201610170124575_InitialMigrations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611011825327_Programs.cs" />
+    <Compile Include="Migrations\201611011825327_Programs.Designer.cs">
+      <DependentUpon>201611011825327_Programs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611012047175_FixedStudentv1.cs" />
+    <Compile Include="Migrations\201611012047175_FixedStudentv1.Designer.cs">
+      <DependentUpon>201611012047175_FixedStudentv1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611012054412_ProgramNameFix.cs" />
+    <Compile Include="Migrations\201611012054412_ProgramNameFix.Designer.cs">
+      <DependentUpon>201611012054412_ProgramNameFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611030842317_AttendanceRestructure.cs" />
+    <Compile Include="Migrations\201611030842317_AttendanceRestructure.Designer.cs">
+      <DependentUpon>201611030842317_AttendanceRestructure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201611012350232_CheckingPendingChanges.cs" />
     <Compile Include="Migrations\201611012350232_CheckingPendingChanges.Designer.cs">
       <DependentUpon>201611012350232_CheckingPendingChanges.cs</DependentUpon>
@@ -262,26 +274,20 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdelanteContext.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
-    <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Donor.cs" />
-    <Compile Include="Models\Enrollment.cs" />
-    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\File.cs" />
-    <Compile Include="Models\Grant.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MailViewModel.cs" />
-    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Meeting.cs" />
-    <Compile Include="Models\MeetingStaffAttendance.cs" />
-    <Compile Include="Models\MeetingStudentAttendance.cs" />
-    <Compile Include="Models\MeetingVolunteerAttendance.cs" />
     <Compile Include="Models\Parent.cs" />
-    <Compile Include="Models\Program.cs" />
     <Compile Include="Models\ReportDataViewModel.cs" />
+    <Compile Include="Models\Programs.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentAttendance.cs" />
     <Compile Include="Models\StudentParent.cs" />
+    <Compile Include="Models\StudentProgram.cs" />
     <Compile Include="Models\Volunteer.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -736,51 +742,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Program\Index.cshtml" />
-    <Content Include="Views\Locations\Create.cshtml" />
-    <Content Include="Views\Locations\Delete.cshtml" />
-    <Content Include="Views\Locations\Details.cshtml" />
-    <Content Include="Views\Locations\Edit.cshtml" />
-    <Content Include="Views\Locations\Index.cshtml" />
-    <Content Include="Views\Students\Create.cshtml" />
-    <Content Include="Views\Students\Delete.cshtml" />
-    <Content Include="Views\Students\Details.cshtml" />
-    <Content Include="Views\Students\Edit.cshtml" />
-    <Content Include="Views\Students\Index.cshtml" />
-    <Content Include="Views\Parents\Create.cshtml" />
-    <Content Include="Views\Parents\Delete.cshtml" />
-    <Content Include="Views\Parents\Details.cshtml" />
-    <Content Include="Views\Parents\Edit.cshtml" />
-    <Content Include="Views\Parents\Index.cshtml" />
     <Content Include="Views\Donors\Create.cshtml" />
     <Content Include="Views\Donors\Delete.cshtml" />
     <Content Include="Views\Donors\Details.cshtml" />
     <Content Include="Views\Donors\Edit.cshtml" />
     <Content Include="Views\Donors\Index.cshtml" />
-    <Content Include="Views\MeetingStaffAttendances\Create.cshtml" />
-    <Content Include="Views\MeetingStaffAttendances\Delete.cshtml" />
-    <Content Include="Views\MeetingStaffAttendances\Details.cshtml" />
-    <Content Include="Views\MeetingStaffAttendances\Edit.cshtml" />
-    <Content Include="Views\MeetingStaffAttendances\Index.cshtml" />
-    <Content Include="Views\MeetingStudentAttendances\Create.cshtml" />
-    <Content Include="Views\MeetingStudentAttendances\Delete.cshtml" />
-    <Content Include="Views\MeetingStudentAttendances\Details.cshtml" />
-    <Content Include="Views\MeetingStudentAttendances\Edit.cshtml" />
-    <Content Include="Views\MeetingStudentAttendances\Index.cshtml" />
-    <Content Include="Views\Staffs\Create.cshtml" />
-    <Content Include="Views\Staffs\Delete.cshtml" />
-    <Content Include="Views\Staffs\Details.cshtml" />
-    <Content Include="Views\Staffs\Edit.cshtml" />
-    <Content Include="Views\Staffs\Index.cshtml" />
-    <Content Include="Views\Meetings\Create.cshtml" />
-    <Content Include="Views\Meetings\Delete.cshtml" />
-    <Content Include="Views\Meetings\Details.cshtml" />
-    <Content Include="Views\Meetings\Edit.cshtml" />
-    <Content Include="Views\Meetings\Index.cshtml" />
-    <Content Include="Views\MeetingVolunteerAttendances\Create.cshtml" />
-    <Content Include="Views\MeetingVolunteerAttendances\Delete.cshtml" />
-    <Content Include="Views\MeetingVolunteerAttendances\Details.cshtml" />
-    <Content Include="Views\MeetingVolunteerAttendances\Edit.cshtml" />
     <Content Include="Views\Volunteers\Create.cshtml" />
     <Content Include="Views\Volunteers\Delete.cshtml" />
     <Content Include="Views\Volunteers\Details.cshtml" />
@@ -800,15 +766,47 @@
     <Content Include="Views\RolesAdmin\Details.cshtml" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Views\Staffs\Create.cshtml" />
+    <Content Include="Views\Staffs\Delete.cshtml" />
+    <Content Include="Views\Staffs\Details.cshtml" />
+    <Content Include="Views\Staffs\Edit.cshtml" />
+    <Content Include="Views\Staffs\Index.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Delete.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
+    <Content Include="Views\Students\Index.cshtml" />
+    <Content Include="Views\Parents\Create.cshtml" />
+    <Content Include="Views\Parents\Delete.cshtml" />
+    <Content Include="Views\Parents\Details.cshtml" />
+    <Content Include="Views\Parents\Edit.cshtml" />
+    <Content Include="Views\Parents\Index.cshtml" />
+    <Content Include="Views\Programs\Create.cshtml" />
+    <Content Include="Views\Programs\Delete.cshtml" />
+    <Content Include="Views\Programs\Details.cshtml" />
+    <Content Include="Views\Programs\Edit.cshtml" />
+    <Content Include="Views\Programs\Index.cshtml" />
+    <Content Include="Views\StudentPrograms\Create.cshtml" />
+    <Content Include="Views\StudentPrograms\Delete.cshtml" />
+    <Content Include="Views\StudentPrograms\Details.cshtml" />
+    <Content Include="Views\StudentPrograms\Edit.cshtml" />
+    <Content Include="Views\StudentPrograms\Index.cshtml" />
+    <Content Include="Views\Meetings\Create.cshtml" />
+    <Content Include="Views\Meetings\Delete.cshtml" />
+    <Content Include="Views\Meetings\Details.cshtml" />
+    <Content Include="Views\Meetings\Edit.cshtml" />
+    <Content Include="Views\Meetings\Index.cshtml" />
     <Content Include="Views\Shared\_StudentAttendancePercentagePartial.cshtml" />
     <Content Include="Views\Shared\_StudentAttendanceListPartial.cshtml" />
+    <Content Include="Views\StudentParents\Create.cshtml" />
+    <Content Include="Views\StudentParents\Delete.cshtml" />
+    <Content Include="Views\StudentParents\Details.cshtml" />
+    <Content Include="Views\StudentParents\Edit.cshtml" />
+    <Content Include="Views\StudentParents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\Course\" />
-    <Folder Include="Views\Enrollment\" />
-    <Folder Include="Views\StudentParents\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -823,6 +821,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610170124575_InitialMigrations.resx">
       <DependentUpon>201610170124575_InitialMigrations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611011825327_Programs.resx">
+      <DependentUpon>201611011825327_Programs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611012047175_FixedStudentv1.resx">
+      <DependentUpon>201611012047175_FixedStudentv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611012054412_ProgramNameFix.resx">
+      <DependentUpon>201611012054412_ProgramNameFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611030842317_AttendanceRestructure.resx">
+      <DependentUpon>201611030842317_AttendanceRestructure.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611012350232_CheckingPendingChanges.resx">
       <DependentUpon>201611012350232_CheckingPendingChanges.cs</DependentUpon>

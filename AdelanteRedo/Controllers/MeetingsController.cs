@@ -17,8 +17,8 @@ namespace AdelanteRedo.Controllers
         // GET: Meetings
         public ActionResult Index()
         {
-            var meeting = db.Meeting.Include(L =>L.Location);
-            return View(db.Meeting.ToList());
+            var meeting = db.Meeting.Include(m => m.Programs);
+            return View(meeting.ToList());
         }
 
         // GET: Meetings/Details/5
@@ -39,7 +39,7 @@ namespace AdelanteRedo.Controllers
         // GET: Meetings/Create
         public ActionResult Create()
         {
-            ViewBag.Location_Name = new SelectList(db.Location, "Location_Name", "Location_Name");
+            ViewBag.ProgramsID = new SelectList(db.Programs, "ProgramsID", "ProgramName");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MeetingID,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
+        public ActionResult Create([Bind(Include = "MeetingID,Date,Hour,Minute,ProgramsID")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +57,7 @@ namespace AdelanteRedo.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ProgramsID = new SelectList(db.Programs, "ProgramsID", "ProgramName", meeting.ProgramsID);
             return View(meeting);
         }
 
@@ -72,7 +73,7 @@ namespace AdelanteRedo.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Location_Name = new SelectList(db.Location, "Location_Name", "Location_Name");
+            ViewBag.ProgramsID = new SelectList(db.Programs, "ProgramsID", "ProgramName", meeting.ProgramsID);
             return View(meeting);
         }
 
@@ -81,7 +82,7 @@ namespace AdelanteRedo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MeetingID,Meeting_Start,Meeting_End,Meeting_Type,Location_Name")] Meeting meeting)
+        public ActionResult Edit([Bind(Include = "MeetingID,Date,Hour,Minute,ProgramsID")] Meeting meeting)
         {
             if (ModelState.IsValid)
             {
@@ -89,6 +90,7 @@ namespace AdelanteRedo.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ProgramsID = new SelectList(db.Programs, "ProgramsID", "ProgramName", meeting.ProgramsID);
             return View(meeting);
         }
 

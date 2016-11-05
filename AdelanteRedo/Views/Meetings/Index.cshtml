@@ -12,21 +12,25 @@
 <br />
 <br />
 <br />
-<h2>Index</h2>
-
+<h2>Meeting Records</h2>
+<br />
+<br />
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Meeting_Start)
+            @Html.DisplayNameFor(model => model.Programs.ProgramName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Meeting_End)
+            @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Location_Name)
+            @Html.DisplayNameFor(model => model.Hour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Minute)
         </th>
         <th></th>
     </tr>
@@ -34,13 +38,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Meeting_Start)
+            @Html.DisplayFor(modelItem => item.Programs.ProgramName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Meeting_End)
+            @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Location_Name)
+            @Html.DisplayFor(modelItem => item.Hour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Minute)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MeetingID }) |
