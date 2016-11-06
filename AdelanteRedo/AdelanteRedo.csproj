@@ -803,6 +803,10 @@
     <Content Include="Views\StudentParents\Details.cshtml" />
     <Content Include="Views\StudentParents\Edit.cshtml" />
     <Content Include="Views\StudentParents\Index.cshtml" />
+    <Content Include="Views\Home\MentoringandEnrichment.cshtml" />
+    <Content Include="Views\Home\AfterSchoolTutoring.cshtml" />
+    <Content Include="Views\Home\Ambassadors.cshtml" />
+    <Content Include="Views\Home\ParentInvolvement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

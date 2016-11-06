@@ -118,6 +118,32 @@ namespace AdelanteRedo.Controllers
             //}
             return View();
         }
+
+        //begin methods for the programs views
+        //MentoringandEnrichment View
+        public ActionResult MentoringandEnrichment()
+        {
+            return View();
+        }
+
+        //AfterSchoolTutoring View
+        public ActionResult AfterSchoolTutoring()
+        {
+            return View();
+        }
+
+        //Ambassadors View
+        public ActionResult Ambassadors()
+        {
+            return View();
+        }
+
+        //ParentInvolvement
+        public ActionResult ParentInvolvement()
+        {
+            return View();
+        }
        
+
     }
 }
