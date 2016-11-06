@@ -452,8 +452,12 @@
     <Content Include="img\slider\bg2.jpg" />
     <Content Include="img\slider\bg3.jpg" />
     <Content Include="img\slider\dental_school.jpg" />
+    <Content Include="img\slider\Education career.jpg" />
+    <Content Include="img\slider\GE career.jpg" />
     <Content Include="img\slider\mara_and_mayor.jpg" />
+    <Content Include="img\slider\Military Career.jpg" />
     <Content Include="img\slider\stock_graduation.jpg" />
+    <Content Include="img\slider\WKU visit.jpg" />
     <Content Include="img\stock-photo.jpg" />
     <Content Include="img\studentofmonth.jpg" />
     <Content Include="img\transparent_adelante_logo.png" />
@@ -649,6 +653,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="pdfs\2016 Fall Saturday Student Calendar.pdf" />
+    <Content Include="pdfs\Ambassador Info Sheet Fall 2016.pdf" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
