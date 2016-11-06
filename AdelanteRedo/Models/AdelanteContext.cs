@@ -13,5 +13,11 @@ namespace AdelanteRedo.Models
                         : base("DefaultConnection")
         {
         }
+
+        public System.Data.Entity.DbSet<AdelanteRedo.Models.StudentAttendance> StudentAttendances { get; set; }
+
+        public System.Data.Entity.DbSet<AdelanteRedo.Models.Meeting> Meetings { get; set; }
+
+        public System.Data.Entity.DbSet<AdelanteRedo.Models.Student> Students { get; set; }
     }
 }

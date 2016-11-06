@@ -229,6 +229,7 @@
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\StaffsController.cs" />
+    <Compile Include="Controllers\StudentAttendancesController.cs" />
     <Compile Include="Controllers\StudentParentsController.cs" />
     <Compile Include="Controllers\StudentProgramsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
@@ -269,6 +270,10 @@
     <Compile Include="Migrations\201611012350232_CheckingPendingChanges.cs" />
     <Compile Include="Migrations\201611012350232_CheckingPendingChanges.Designer.cs">
       <DependentUpon>201611012350232_CheckingPendingChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611061142305_studentattendance.cs" />
+    <Compile Include="Migrations\201611061142305_studentattendance.Designer.cs">
+      <DependentUpon>201611061142305_studentattendance.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -700,8 +705,6 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -752,7 +755,6 @@
     <Content Include="Views\Volunteers\Details.cshtml" />
     <Content Include="Views\Volunteers\Edit.cshtml" />
     <Content Include="Views\Volunteers\Index.cshtml" />
-    <Content Include="Views\Event\Index.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\UserAdmin\Create.cshtml" />
     <Content Include="Views\UserAdmin\Delete.cshtml" />
@@ -807,6 +809,11 @@
     <Content Include="Views\Home\AfterSchoolTutoring.cshtml" />
     <Content Include="Views\Home\Ambassadors.cshtml" />
     <Content Include="Views\Home\ParentInvolvement.cshtml" />
+    <Content Include="Views\StudentAttendances\Create.cshtml" />
+    <Content Include="Views\StudentAttendances\Delete.cshtml" />
+    <Content Include="Views\StudentAttendances\Details.cshtml" />
+    <Content Include="Views\StudentAttendances\Edit.cshtml" />
+    <Content Include="Views\StudentAttendances\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -840,6 +847,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611012350232_CheckingPendingChanges.resx">
       <DependentUpon>201611012350232_CheckingPendingChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611061142305_studentattendance.resx">
+      <DependentUpon>201611061142305_studentattendance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
