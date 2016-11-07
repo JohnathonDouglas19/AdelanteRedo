@@ -11,22 +11,36 @@ namespace AdelanteRedo.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Web;
+
     public partial class Volunteer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
     
         public  Guid VolunteerID { get; set; }
+        [Display(Name = "First Name")]
         public string Volunteer_FirstName { get; set; }
+        [Display(Name = "Last Name")]
         public string Volunteer_LastName { get; set; }
+        [Display(Name = "Address")]
         public string Volunteer_Address { get; set; }
+        [Display(Name = "City")]
         public string Volunteer_City { get; set; }
+        [Display(Name = "State")]
         public string Volunteer_State { get; set; }
+        [Display(Name = "Zip Code")]
         public string Volunteer_Zip { get; set; }
+        [Display(Name = "Home Telephone")]
         public string Volunteer_HomeTele { get; set; }
+        [Display(Name = "Cellphone")]
         public string Volunteer_CellPhone { get; set; }
+        [Display(Name = "Email")]
         public string Volunteer_Email { get; set; }
+        [Display(Name = "Start Date")]
         public Nullable<System.DateTime> STARTDATE { get; set; }
+        [Display(Name = "End Date")]
         public Nullable<System.DateTime> ENDDATE { get; set; }
     }
 }

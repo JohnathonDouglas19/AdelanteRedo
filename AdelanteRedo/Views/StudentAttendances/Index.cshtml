@@ -17,14 +17,19 @@
 <br />
 <p>
     @Html.ActionLink("Create New", "Create")
+    <br />
+
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Meeting.MeetingID)
+            @Html.DisplayNameFor(model => model.Meeting.Date)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Student.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.LastName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Attended)
@@ -35,10 +40,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Meeting.MeetingID)
+            @Html.DisplayFor(modelItem => item.Meeting.Date)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Student.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.LastName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Attended)
