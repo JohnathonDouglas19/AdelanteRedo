@@ -37,7 +37,7 @@ namespace AdelanteRedo.Controllers
 
         public ICollection<Student> GetStudentsThatAttended(DateTime startDate)
         {
-            var studentList = db.StudentAttendance.Where(sa => sa.Meeting.Date.Date == startDate);
+            var studentList = db.StudentAttendance.Where(sa => sa.Meeting.Date == startDate);
 
             //return studentList as ICollection<Student>;
             return db.Student.ToList();
