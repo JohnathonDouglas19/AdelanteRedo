@@ -46,7 +46,7 @@ namespace AdelanteRedo.Controllers
 
         public int GetPercentOfStudentsThatAttended(DateTime startDate)
         {
-            var numberOfAttended = db.StudentAttendance.Where(sa => sa.Attended == true && sa.Meeting.Date.Date == startDate).Count();
+            var numberOfAttended = db.StudentAttendance.Where(sa => sa.Attended == true && sa.Meeting.Date == startDate).Count();
             var totalOfStudentsForThisMeeting = db.StudentAttendance.Count();
 
             //return numberOfAttended / totalOfStudentsForThisMeeting;
