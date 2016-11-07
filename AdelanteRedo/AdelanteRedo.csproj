@@ -275,6 +275,10 @@
     <Compile Include="Migrations\201611061142305_studentattendance.Designer.cs">
       <DependentUpon>201611061142305_studentattendance.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611062232255_boolsetnull.cs" />
+    <Compile Include="Migrations\201611062232255_boolsetnull.Designer.cs">
+      <DependentUpon>201611062232255_boolsetnull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdelanteContext.cs" />
@@ -850,6 +854,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611061142305_studentattendance.resx">
       <DependentUpon>201611061142305_studentattendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611062232255_boolsetnull.resx">
+      <DependentUpon>201611062232255_boolsetnull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
