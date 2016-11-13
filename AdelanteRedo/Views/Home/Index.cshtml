@@ -915,7 +915,41 @@
                         </div>
 
 
-                        <div class="col-md-6 col-sm-9 wow fadeInLeft">
+                        <div class="col-md-6 wow fadeInLeft">
+                            @using (Html.BeginForm("Index", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "contact-form", role = "form" }))
+                            {
+                                @Html.ValidationSummary()
+                                <fieldset>
+                                    <div class="form-div-1">
+                                        <label class="name">
+                                            @Html.TextBoxFor(m => m.Name, new { @placeholder = "Name", @type = "text" })
+                                        </label>
+                                    </div>
+                                    <br />
+                                    <div class="form-div-2">
+                                        <label class="email">
+                                            @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email Address", @type = "email" })
+                                        </label>
+                                    </div>
+                                    <br />
+                                    <div>
+                                        <label class="message">
+                                            @Html.TextAreaFor(m => m.Message, new { @placeholder = "Message" })
+                                        </label>
+                                    </div>
+                                    <br />
+                                    @* Insert reCaptcha here! :) *@
+                                    @Html.Recaptcha()
+                                    @Html.ValidationMessage("ReCaptcha")
+                                    <div class="button-wrapper">
+                                        <br />
+                                        <input type="submit" value="Send" name="submit" class="button"> <input type="reset" value="Reset" name="MFReset" class="button"><span>* Required Fields</span>
+                                    </div>
+                                </fieldset>
+                            }
+                        </div>
+
+                        @*<div class="col-md-6 col-sm-9 wow fadeInLeft">
                             <div class="contact-form clearfix">
                                 <form action="index.html" method="post">
                                     <div class="input-field">
@@ -933,7 +967,7 @@
                                     <input type="submit" class="btn btn-blue pull-left" value="SEND MESSAGE" id="msg-submit">
                                 </form>
                             </div>
-                        </div>
+                        </div>*@
                         @*Google Map Location*@
                         <div class="col-md-6 right">
 

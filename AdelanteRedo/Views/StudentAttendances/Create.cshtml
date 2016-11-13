@@ -41,10 +41,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Attended, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Attended)
-                    @Html.ValidationMessageFor(model => model.Attended, "", new { @class = "text-danger" })
-                </div>
+                        @Html.RadioButtonFor(m => m.Attended, true) Attended
+                        @Html.RadioButtonFor(m => m.Attended, false) Absent
+
             </div>
         </div>
 
