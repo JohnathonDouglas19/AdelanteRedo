@@ -395,6 +395,7 @@
     <Content Include="img\adelante\Copy of IMG_2465.JPG" />
     <Content Include="img\adelante\group_picture.jpg" />
     <Content Include="img\adelante\IMG_2477.jpg" />
+    <Content Include="img\adelante\orange.PNG" />
     <Content Include="img\adelante_art.jpg" />
     <Content Include="img\award_group.jpg" />
     <Content Include="img\board\advisory\Abraham_Solano.PNG" />
@@ -658,6 +659,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="pdfs\2016 Fall Saturday Student Calendar.pdf" />
     <Content Include="pdfs\Ambassador Info Sheet Fall 2016.pdf" />
+    <Content Include="pdfs\Annual_Report_15-16.pdf" />
+    <Content Include="pdfs\Annual_Report_13-14.pdf" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />

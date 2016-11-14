@@ -31,12 +31,14 @@
                     <ul class="nav navbar-nav">
                         <li>
                             <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle nav-button" type="button" data-toggle="dropdown" style="margin-top: 24px !important; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b; height: 40px; width:200px; position: center;">
+                                <button class="btn btn-primary dropdown-toggle nav-button" type="button" data-toggle="dropdown" style="margin-top: 24px !important; margin-left: 30px !important; background-color: #de2f0b; border-color: #de2f0b; height: 40px; width:200px; position: center;">
                                     Menu
+                                    <span class="caret" style="color: #fff !important;"></span>
                                 </button>
                                 <ul class="dropdown-menu nav-dropdown">                                
                                     <li><a href="@Url.Action("Index", "Home")#about">About</a></li>
                                     <li><a href="@Url.Action("Index", "Home")#parents">Parents</a></li>
+                                    <li><a href="@Url.Action("Index", "Home")#gallery">Gallery</a></li>
                                     <li><a href="@Url.Action("Index", "Home")#programs">Programs</a></li>
                                     <li><a href="@Url.Action("Index", "Home")#sponsors">Sponsors</a></li>
                                     <li><a href="@Url.Action("Index", "Home")#students">Students</a></li>
@@ -51,6 +53,7 @@
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle nav-button-user" type="button" data-toggle="dropdown" style="margin-top: 24px !important; margin-right: 15px; background-color: #de2f0b; border-color: #de2f0b; height: 40px; width:200px; position: center;">
                                             Student
+                                            <span class="caret" style="color: #fff !important;"></span>
                                         </button>
                                         <ul class="dropdown-menu nav-dropdown">
                                  
@@ -70,7 +73,8 @@
                                 <li>
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle nav-button-user" type="button" data-toggle="dropdown" style="margin-top: 24px !important; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b; height: 40px; width:200px; position: center;">
-                                            Student
+                                            Parent
+                                            <span class="caret" style="color: #fff !important;"></span>
                                         </button>
                                         <ul class="dropdown-menu nav-dropdown">
                                             <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
@@ -87,6 +91,7 @@
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle nav-button-user" type="button" data-toggle="dropdown" style="margin-top: 24px !important; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b; height: 40px; width:200px; position: center;">
                                             Volunteer
+                                            <span class="caret" style="color: #fff !important;"></span>
                                         </button>
                                         <ul class="dropdown-menu nav-dropdown">
                                             <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
@@ -104,6 +109,7 @@
                                                  style="margin-top: 24px !important; margin-right: 10px; background-color: #de2f0b; border-color: #de2f0b; 
                                                     height: 40px; width:200px; position: center;"> Admin
                                         </button>
+                                        <span class="caret" style="color: #fff !important;"></span>
                                         <ul class="dropdown-menu nav-dropdown">
                                             <li><a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1476713071&rver=6.6.6556.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fauthRedirect%3dtrue%26realm%3doutlook.com&id=292841&whr=outlook.com&CBCXT=out&fl=wld&cobrandid=90015#wa=wsignin1.0">Grant Management</a></li>
                                             <li>@Html.ActionLink("Students", "Index", "Students")</li>

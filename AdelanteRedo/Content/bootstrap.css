@@ -3215,15 +3215,16 @@ input[type="button"].btn-block {
 
 .caret {
   display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 2px;
+  width: 5px;
+  height: 5px;
+  margin-left: 5px;
   vertical-align: middle;
   border-top: 4px solid #000000;
   border-right: 4px solid transparent;
   border-bottom: 0 dotted;
   border-left: 4px solid transparent;
   content: "";
+  color: #fff;
 }
 
 .dropdown {
@@ -3360,7 +3361,7 @@ input[type="button"].btn-block {
 }
 
 .btn-default .caret {
-  border-top-color: #333333;
+  border-top-color: #fff;
 }
 
 .btn-primary .caret,
@@ -3372,7 +3373,7 @@ input[type="button"].btn-block {
 }
 
 .dropup .btn-default .caret {
-  border-bottom-color: #333333;
+  border-bottom-color: #fff;
 }
 
 .dropup .btn-primary .caret,
@@ -4009,13 +4010,16 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .nav .caret {
-  border-top-color: #428bca;
-  border-bottom-color: #428bca;
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+  height: 5px;
+  width: 5px;
 }
 
 .nav a:hover .caret {
-  border-top-color: #2a6496;
-  border-bottom-color: #2a6496;
+  border-top-color: rgba(0, 0, 0, 0.075);
+  border-bottom-color: rgba(0, 0, 0, 0.075);
+ 
 }
 
 .nav-tabs .dropdown-menu {
