@@ -35,12 +35,20 @@ namespace AdelanteRedo.Controllers
 
         }
 
-        public ICollection<Student> GetStudentsThatAttended(DateTime startDate)
+        public List<Student> GetStudentsThatAttended(DateTime startDate)
         {
-            var studentList = db.StudentAttendance.Where(sa => sa.Meeting.Date == startDate);
+            var studentAttendanceList = db.StudentAttendance.Where(sa => sa.Meeting.Date == startDate);
+            var studentList = new List<Student>();
+
+            foreach(var studentAttendance in studentAttendanceList)
+            {
+                var student = db.Student.Find(studentAttendance.StudentID);
+                studentList.Add(student);
+            }
+
 
             //return studentList as ICollection<Student>;
-            return db.Student.ToList();
+            return studentList.ToList();
 
         }
 
@@ -52,13 +60,13 @@ namespace AdelanteRedo.Controllers
             //return numberOfAttended / totalOfStudentsForThisMeeting;
             return 10;
         }
-        public ActionResult GetMeeting()
+        public List<DateTime> GetMeeting()
         {
             var Meetings = db.Meeting;
             var Dates = new List<DateTime>();
             foreach (var Meeting in Meetings)
             {
-                Dates.Add(Meeting.startDate.Dates);
+                Dates.Add(Meeting.StartDate);
             }
             return Dates;
         }

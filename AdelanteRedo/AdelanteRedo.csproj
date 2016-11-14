@@ -221,6 +221,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DonorsController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeetingsController.cs" />
@@ -279,15 +280,20 @@
     <Compile Include="Migrations\201611062232255_boolsetnull.Designer.cs">
       <DependentUpon>201611062232255_boolsetnull.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611102135079_boolchanges.cs" />
-    <Compile Include="Migrations\201611102135079_boolchanges.Designer.cs">
-      <DependentUpon>201611102135079_boolchanges.cs</DependentUpon>
+    <Compile Include="Migrations\201611141431364_AddedStartDateToMeetingTable.cs" />
+    <Compile Include="Migrations\201611141431364_AddedStartDateToMeetingTable.Designer.cs">
+      <DependentUpon>201611141431364_AddedStartDateToMeetingTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611141606309_AddedCalendarModel.cs" />
+    <Compile Include="Migrations\201611141606309_AddedCalendarModel.Designer.cs">
+      <DependentUpon>201611141606309_AddedCalendarModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdelanteContext.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\Donor.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MailViewModel.cs" />
@@ -832,6 +838,7 @@
     <Content Include="Views\StudentAttendances\Edit.cshtml" />
     <Content Include="Views\StudentAttendances\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Bool.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -872,8 +879,11 @@
     <EmbeddedResource Include="Migrations\201611062232255_boolsetnull.resx">
       <DependentUpon>201611062232255_boolsetnull.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611102135079_boolchanges.resx">
-      <DependentUpon>201611102135079_boolchanges.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611141431364_AddedStartDateToMeetingTable.resx">
+      <DependentUpon>201611141431364_AddedStartDateToMeetingTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611141606309_AddedCalendarModel.resx">
+      <DependentUpon>201611141606309_AddedCalendarModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

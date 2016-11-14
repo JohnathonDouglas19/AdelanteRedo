@@ -52,5 +52,8 @@ namespace AdelanteRedo.Models
         public DbSet<StudentProgram> StudentProgram { get; set; }
         public System.Data.Entity.DbSet<AdelanteRedo.Models.Staff> Staff { get; set; }
         public System.Data.Entity.DbSet<AdelanteRedo.Models.Volunteer> Volunteer { get; set; }
+
+        public System.Data.Entity.DbSet<AdelanteRedo.Models.Event> Events { get; set; }
+
     }
 }

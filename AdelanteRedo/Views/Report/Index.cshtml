@@ -11,8 +11,11 @@
 <h2>Report</h2>
 <br/>
 Enter the date for the date you would like a report:
-@Html.TextBox("EnteredDate") <a id="reporttext" data-role="button" class="custom-btn">Run Report</a>
-@Html.DisplayTextFor
+<form action="/Report/Index" method="post">
+<input type="text" name="startDate" required />
+ <button id="reporttext" data-role="button" type="submit" class="custom-btn">Run Report</button>
+    </form>
+@*@Html.DisplayTextFor*@
 <br/>
 <br/>
 @if (Model != null)
