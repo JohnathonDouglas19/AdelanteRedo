@@ -52,5 +52,15 @@ namespace AdelanteRedo.Controllers
             //return numberOfAttended / totalOfStudentsForThisMeeting;
             return 10;
         }
+        public ActionResult GetMeeting()
+        {
+            var Meetings = db.Meeting;
+            var Dates = new List<DateTime>();
+            foreach (var Meeting in Meetings)
+            {
+                Dates.Add(Meeting.startDate.Dates);
+            }
+            return Dates;
+        }
     }
 }

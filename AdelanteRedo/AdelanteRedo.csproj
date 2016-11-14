@@ -279,6 +279,10 @@
     <Compile Include="Migrations\201611062232255_boolsetnull.Designer.cs">
       <DependentUpon>201611062232255_boolsetnull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611102135079_boolchanges.cs" />
+    <Compile Include="Migrations\201611102135079_boolchanges.Designer.cs">
+      <DependentUpon>201611102135079_boolchanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdelanteContext.cs" />
@@ -827,6 +831,7 @@
     <Content Include="Views\StudentAttendances\Details.cshtml" />
     <Content Include="Views\StudentAttendances\Edit.cshtml" />
     <Content Include="Views\StudentAttendances\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Bool.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -866,6 +871,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611062232255_boolsetnull.resx">
       <DependentUpon>201611062232255_boolsetnull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611102135079_boolchanges.resx">
+      <DependentUpon>201611102135079_boolchanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -93,8 +93,8 @@ namespace AdelanteRedo.Controllers
             //http://www.c-sharpcorner.com/uploadfile/sourabh_mishra1/sending-an-e-mail-using-asp-net-mvc/
 
             //TODO: Uncomment when pushing to production to enable reCaptcha validation.
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
                 MailMessage mail = new MailMessage();
                 mail.To.Add("adelantehispanic@gmail.com");
                 mail.From = new MailAddress(viewModel.Email);
@@ -103,20 +103,19 @@ namespace AdelanteRedo.Controllers
                 mail.Body = Body;
                 mail.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new System.Net.NetworkCredential
-                ("adelantehispanic@gmail.com", "Adelante");// Enter senders User name and password  
-                smtp.EnableSsl = true;
+                smtp.Host = "relay-hosting.secureserver.net";
+                smtp.Port = 25;
+                //smtp.UseDefaultCredentials = false;
+                //smtp.Credentials = new System.Net.NetworkCredential
+                //("adelantehispanic@gmail.com", "Adelante");// Enter senders User name and password  
+                smtp.EnableSsl = false;
                 smtp.Send(mail);
                 return View("Index");
-            //}
-            //else
-            //{
-            //    return View();
-            //}
-            return View();
+            }
+            else
+            {
+                return View();
+            }
         }
 
         //begin methods for the programs views

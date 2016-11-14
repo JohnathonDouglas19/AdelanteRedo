@@ -13,6 +13,7 @@ namespace AdelanteRedo.Models
         public int MeetingID { get; set; }
         public virtual Student Student { get; set; }
         public virtual Meeting Meeting { get; set; }
+        [UIHint("Bool")]
         public bool? Attended { get; set; }
     }
 }
