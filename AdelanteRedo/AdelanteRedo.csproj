@@ -837,8 +837,8 @@
     <Content Include="Views\StudentAttendances\Details.cshtml" />
     <Content Include="Views\StudentAttendances\Edit.cshtml" />
     <Content Include="Views\StudentAttendances\Index.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Bool.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Bool.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
