@@ -3,8 +3,6 @@
 @{
     ViewBag.Title = "Index";
 }
-@if (User.IsInRole("Volunteer"))
-{
 <br />
 <br />
 <br />
@@ -63,18 +61,3 @@
 }
 
 </table>
-}
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-@if(User.IsInRole("Student"))
-{
-
-    <h1>You do not have permission to view this web page</h1>
-}

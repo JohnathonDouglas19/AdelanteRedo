@@ -58,7 +58,7 @@ namespace AdelanteRedo.Controllers
             var totalOfStudentsForThisMeeting = db.StudentAttendance.Count();
 
             //return numberOfAttended / totalOfStudentsForThisMeeting;
-            return 10;
+            return 100;
         }
         public List<DateTime> GetMeeting()
         {
