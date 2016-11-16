@@ -24,20 +24,20 @@ namespace AdelanteRedo.Controllers
 
 
         [HttpPost]
-        public ActionResult Index(DateTime startDate)
+        public ActionResult Index(DateTime Date)
         {
             var data = new ReportDataViewModel {
-                StudentsAttendedList = GetStudentsThatAttended(startDate),
-                PercentageAttended = GetPercentOfStudentsThatAttended(startDate)
+                StudentsAttendedList = GetStudentsThatAttended(Date),
+                PercentageAttended = GetPercentOfStudentsThatAttended(Date)
 
             };
             return View(data);
 
         }
 
-        public List<Student> GetStudentsThatAttended(DateTime startDate)
+        public List<Student> GetStudentsThatAttended(DateTime Date)
         {
-            var studentAttendanceList = db.StudentAttendance.Where(sa => sa.Meeting.Date == startDate);
+            var studentAttendanceList = db.StudentAttendance.Where(sa => sa.Meeting.Date == Date);
             var studentList = new List<Student>();
 
             foreach(var studentAttendance in studentAttendanceList)
@@ -52,9 +52,9 @@ namespace AdelanteRedo.Controllers
 
         }
 
-        public int GetPercentOfStudentsThatAttended(DateTime startDate)
+        public int GetPercentOfStudentsThatAttended(DateTime Date)
         {
-            var numberOfAttended = db.StudentAttendance.Where(sa => sa.Attended == true && sa.Meeting.Date == startDate).Count();
+            var numberOfAttended = db.StudentAttendance.Where(sa => sa.Attended == true && sa.Meeting.Date == Date).Count();
             var totalOfStudentsForThisMeeting = db.StudentAttendance.Count();
 
             //return numberOfAttended / totalOfStudentsForThisMeeting;
@@ -66,7 +66,7 @@ namespace AdelanteRedo.Controllers
             var Dates = new List<DateTime>();
             foreach (var Meeting in Meetings)
             {
-                Dates.Add(Meeting.StartDate);
+                Dates.Add(Meeting.Date);
             }
             return Dates;
         }

@@ -13,7 +13,6 @@ namespace AdelanteRedo.Models
         public int Hour { get; set; }
         public int Minute { get; set; }
         public int ProgramsID { get; set; }
-        public DateTime StartDate { get; set; }
         public virtual Programs Programs { get; set; }
         public virtual List<Student> Student { get; set; }
     }
