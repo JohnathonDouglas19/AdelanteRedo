@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Index";
 }
+@if (User.IsInRole("Volunteer"))
+{
 <br />
 <br />
 <br />
@@ -37,7 +39,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Meeting.Date)
@@ -52,11 +55,26 @@
             @Html.DisplayFor(modelItem => item.Attended)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StudentAttendanceID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StudentAttendanceID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StudentAttendanceID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.StudentAttendanceID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.StudentAttendanceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.StudentAttendanceID })
         </td>
     </tr>
 }
 
 </table>
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+@if(User.IsInRole("Student"))
+{
+
+    <h1>You do not have permission to view this web page</h1>
+}
